@@ -27,7 +27,6 @@ namespace Monopoly
     {
       _players = players;
       _fields = FieldCreator.Create(this);
-
       foreach (Player player in _players)
         _playerQueue.Enqueue(player);
       foreach (Player player in _players)
@@ -66,7 +65,6 @@ namespace Monopoly
       {
         return playerPos + diceThrow;
       }
-        
     }
 
 

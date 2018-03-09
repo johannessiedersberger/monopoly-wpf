@@ -4,3 +4,9 @@ C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Monopoly\
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.CoreCompileInputs.cache
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.dll
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\bin\Debug\Monopoly.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\bin\Debug\Monopoly.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.CoreCompileInputs.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\obj\Debug\Monopoly.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Monopoly\obj\Debug\Monopoly.pdb

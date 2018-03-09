@@ -12,6 +12,5 @@ namespace Monopoly
 
     public abstract void OnEnter();
 
-   
   }
 }

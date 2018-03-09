@@ -56,7 +56,7 @@ namespace Monopoly
 
   #endregion
 
-  #region 
+  #region Group 
   public enum Groups
   {
     Brown,

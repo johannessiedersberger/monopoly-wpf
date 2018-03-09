@@ -11,14 +11,11 @@ namespace Test
   class Test
   {
     [Test]
-    public void Test1()
+    public void TestNextTurn()
     {
-      Player[] players = new Player[] { new Player("X"), new Player("Y") };
-      Game game = new Game(players);
-      for (int i = 0; i < 4; i++)
-      {
-        game.NextTurn();
-      }
+      Game game = new Game(new Player[] {new Player("XXX"), new Player("YYY") });
+      game.NextTurn();
+      Player[] players = game.Players.ToArray();
       
     }
   }

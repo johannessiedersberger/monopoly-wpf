@@ -10,3 +10,16 @@ C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Test\bin\
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Test\bin\Debug\nunit.framework.xml
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Test\obj\Debug\Test.exe
 C:\Users\jsiedersberger\Documents\Visual Studio 2017\Projects\Monopoly\Test\obj\Debug\Test.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Test.exe.config
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Test.exe
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Test.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Monopoly.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\nunit.framework.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\nunitlite.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Monopoly.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\nunit.framework.xml
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\obj\Debug\Test.exe
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\obj\Debug\Test.pdb
