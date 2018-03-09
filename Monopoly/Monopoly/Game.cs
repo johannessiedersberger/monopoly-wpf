@@ -41,20 +41,23 @@ namespace Monopoly
 
       _playerPos[player] = ThrowDice(_playerPos[player]);
       _fields[_playerPos[player]].OnEnter();
-
+      
     }
 
     private int ThrowDice(int playerPos)
     {
       Random random = new Random(System.DateTime.Now.Millisecond.GetHashCode());
-      return SetInRange(random.Next(1, 12), playerPos);
+      int value1 = random.Next(1, 6);
+      int value2 = random.Next(1, 6);
+      return SetInRange(new int[] { value1, value2 }, playerPos);
     }
 
-    private int SetInRange(int diceThrow, int playerPos)
+    private int SetInRange(int[] diceThrow, int playerPos)
     {
-      if (playerPos + diceThrow > _fields.Count())
+      int diceSum = diceThrow[0] + diceThrow[1]; //TODO: Check for doublets
+      if (playerPos + diceSum > _fields.Count())
       {
-        int nextPos = playerPos + diceThrow;
+        int nextPos = playerPos + diceSum;
         while(nextPos > _fields.Count())
         {
           nextPos -= _fields.Count();
@@ -63,7 +66,7 @@ namespace Monopoly
       }
       else
       {
-        return playerPos + diceThrow;
+        return playerPos + diceSum;
       }
     }
 

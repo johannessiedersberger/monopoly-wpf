@@ -7,13 +7,23 @@ using System.Threading.Tasks;
 namespace Monopoly
 {
   public class StreetField : Field
-  { 
+  {
     public Groups Group { get; private set; }
     public Costs Cost { get; private set; }
     public int Level { get; private set; }
     private Game _game;
     private Player _owner;
     
+    private int RentToPay
+    {
+      get
+      {
+        if (_owner != null)
+          return Cost.Rent[Level];
+        else
+          return 0;
+      }
+    }
 
     public class Costs
     {
@@ -33,7 +43,16 @@ namespace Monopoly
 
     public override void OnEnter()
     {
-      Player[] players = _game.Players.ToArray();
+      PayRent();
+    }
+    
+    private void PayRent()
+    {
+      if (_owner != null && _owner.Name != _game.CurrentPlayer.Name)
+      {
+        _game.CurrentPlayer.PayMoney(RentToPay);
+        _owner.GetMoney(RentToPay);
+      }
     }
 
     public void Buy(Player player)
