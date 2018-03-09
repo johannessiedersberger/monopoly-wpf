@@ -13,10 +13,10 @@ namespace Test
     [Test]
     public void TestNextTurn()
     {
-      Game game = new Game(new Player[] {new Player("XXX"), new Player("YYY") });
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY")});
       game.NextTurn();
-      Player[] players = game.Players.ToArray();
-      
+      game.BuyCurrentField();
+      game.BuyCurrentField();
     }
   }
 }

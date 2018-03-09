@@ -55,13 +55,13 @@ namespace Monopoly
       }
     }
 
-    public void Buy(Player player)
+    public void Buy()
     {
       if (_owner != null)
         throw new InvalidOperationException("The Street is already owned by Player " + _owner.Name);
-      player.OwnerShip.Add(this);
-      player.PayMoney(Cost.Ground);
-      _owner = player;
+      _game.CurrentPlayer.OwnerShip.Add(this);
+      _game.CurrentPlayer.PayMoney(Cost.Ground);
+      _owner = _game.CurrentPlayer;
     }
 
     public void LevelUp(Player owner, int levels)

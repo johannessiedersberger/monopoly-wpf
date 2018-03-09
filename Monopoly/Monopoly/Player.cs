@@ -10,7 +10,7 @@ namespace Monopoly
   {
     public int Money { get; private set; }
     public string Name { get; private set; }
-    public List<StreetField> OwnerShip { get; private set; }
+    public List<StreetField> OwnerShip { get; private set; } = new List<StreetField>();
 
     public Player(string name)
     {

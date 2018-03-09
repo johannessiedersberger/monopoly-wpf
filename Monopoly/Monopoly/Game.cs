@@ -70,6 +70,14 @@ namespace Monopoly
       }
     }
 
+    public void BuyCurrentField()
+    {   
+      if(_fields[_playerPos[CurrentPlayer]].GetType() == typeof(StreetField))
+      {
+        ((StreetField)_fields[_playerPos[CurrentPlayer]]).Buy();
+      }     
+    }
+
 
   }
  
