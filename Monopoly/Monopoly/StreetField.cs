@@ -41,16 +41,17 @@ namespace Monopoly
       _game = game;
     }
 
-    public override void OnEnter()
+    
+    public override void OnEnter(Player player)
     {
-      PayRent();
+      PayRent(player);
     }
     
-    private void PayRent()
+    private void PayRent(Player player)
     {
-      if (_owner != null && _owner.Name != _game.CurrentPlayer.Name)
+      if (_owner != null && _owner.Name != player.Name)
       {
-        _game.CurrentPlayer.PayMoney(RentToPay);
+        player.PayMoney(RentToPay);
         _owner.GetMoney(RentToPay);
       }
     }
@@ -75,7 +76,6 @@ namespace Monopoly
       currentPlayer.PayMoney(Cost.House * levels);
       Level += levels;
     }
-
 
   }
 }

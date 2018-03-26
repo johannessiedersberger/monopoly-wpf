@@ -19,6 +19,7 @@ namespace Monopoly
     {
       get { return _playerPos; }
     }
+
     public IReadOnlyList<Player> Players
     {
       get { return _players; }
@@ -32,6 +33,7 @@ namespace Monopoly
         _playerQueue.Enqueue(player);
       foreach (Player player in _players)
         _playerPos.Add(player, 0);
+      CurrentPlayer = _playerQueue.First();
     }
 
     public void NextTurn()
@@ -41,7 +43,7 @@ namespace Monopoly
       CurrentPlayer = player;
 
       _playerPos[player] = ThrowDice(_playerPos[player]);
-      _fields[_playerPos[player]].OnEnter();
+      _fields[_playerPos[player]].OnEnter(CurrentPlayer);
     }
 
     private int ThrowDice(int playerPos)
@@ -57,6 +59,7 @@ namespace Monopoly
       int diceSum = diceThrow[0] + diceThrow[1]; //TODO: Check for doublets
       if (playerPos + diceSum > _fields.Count()-1)
       {
+        CrossedStartField();
         int nextPos = playerPos + diceSum;
         while(nextPos > _fields.Count()-1)
         {
@@ -70,6 +73,11 @@ namespace Monopoly
       }
     }
 
+    private void CrossedStartField()
+    {
+      CurrentPlayer.GetMoney(200);
+    }
+
     public void BuyCurrentField()
     {   
       if(_fields[_playerPos[CurrentPlayer]].GetType() == typeof(StreetField))
@@ -78,10 +86,17 @@ namespace Monopoly
       }     
     }
 
-    public void SetPlayerPosition(int pos)
+    public void SetCurrentPlayerPos(int pos)
     {
       _playerPos[CurrentPlayer] = pos;
-      _fields[_playerPos[CurrentPlayer]].OnEnter();
+      _fields[_playerPos[CurrentPlayer]].OnEnter(CurrentPlayer);
+    }
+
+    public void SetPlayerPos(int playerIndex, int pos)
+    {
+      Player player = _players[playerIndex];
+      _playerPos[player] = pos;
+      _fields[_playerPos[player]].OnEnter(player);
     }
 
   }

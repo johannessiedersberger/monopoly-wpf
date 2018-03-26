@@ -16,7 +16,7 @@ namespace Monopoly
       _game = game;
     }
 
-    public override void OnEnter()
+    public override void OnEnter(Player player)
     {   
     }
   }

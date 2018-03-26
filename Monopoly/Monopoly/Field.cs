@@ -10,7 +10,7 @@ namespace Monopoly
   {
     public string Name { get; protected set; }
 
-    public abstract void OnEnter();
+    public abstract void OnEnter(Player player);
 
   }
 }
