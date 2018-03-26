@@ -64,15 +64,15 @@ namespace Monopoly
       _owner = _game.CurrentPlayer;
     }
 
-    public void LevelUp(Player owner, int levels)
+    public void LevelUp(Player currentPlayer, int levels)
     {
       if (_owner == null)
         throw new InvalidOperationException("Nobody ownes this field");
-      if (owner.Name != _owner.Name)
+      if (currentPlayer.Name != _owner.Name)
         throw new ArgumentException("This player can not increase the level ");
       if (levels <= 0 || levels + Level > 5)
         throw new ArgumentException("You cant increase the level by this amount");
-      owner.PayMoney(Cost.House * levels);
+      currentPlayer.PayMoney(Cost.House * levels);
       Level += levels;
     }
 

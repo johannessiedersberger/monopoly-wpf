@@ -55,10 +55,10 @@ namespace Monopoly
     private int SetInRange(int[] diceThrow, int playerPos)
     {
       int diceSum = diceThrow[0] + diceThrow[1]; //TODO: Check for doublets
-      if (playerPos + diceSum > _fields.Count())
+      if (playerPos + diceSum > _fields.Count()-1)
       {
         int nextPos = playerPos + diceSum;
-        while(nextPos > _fields.Count())
+        while(nextPos > _fields.Count()-1)
         {
           nextPos -= _fields.Count();
         }
@@ -78,7 +78,5 @@ namespace Monopoly
       }     
     }
 
-
   }
- 
 }

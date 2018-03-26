@@ -16,7 +16,8 @@ namespace Test
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY")});
       game.NextTurn();
       game.BuyCurrentField();
-      game.BuyCurrentField();
+      
+      game.CurrentPlayer.OwnerShip[0].LevelUp(game.CurrentPlayer, 4);
     }
   }
 }
