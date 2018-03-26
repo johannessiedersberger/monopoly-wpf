@@ -15,9 +15,58 @@ namespace Test
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY")});
       game.NextTurn();
+
+      Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
+      game.NextTurn();
+      Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[1]));
+      game.NextTurn();
+      Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
+    }
+
+    [Test]
+    public void TestBuyCurrentField()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      game.NextTurn();
+      game.SetPlayerPosition(1);
       game.BuyCurrentField();
-      
-      game.CurrentPlayer.OwnerShip[0].LevelUp(game.CurrentPlayer, 4);
+      Assert.That(game.Players[0].OwnerShip[0].Name, Is.EqualTo(FieldNames.OldKentRoad));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 60));
+    }
+
+    [Test]
+    public void TestUpdateLevel()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      game.NextTurn();
+      game.SetPlayerPosition(1);
+      game.BuyCurrentField();
+      game.Players[0].OwnerShip[0].LevelUp(game.Players[0],5);
+      Assert.That(game.Players[0].OwnerShip[0].Level, Is.EqualTo(5));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 60 - 5 * 50));
+    }
+
+    [Test]
+    public void TestPayRent()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      game.NextTurn();
+      game.SetPlayerPosition(1);
+      game.BuyCurrentField();
+      game.Players[0].OwnerShip[0].LevelUp(game.Players[0], 5);
+
+      game.NextTurn();
+      game.SetPlayerPosition(1);
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 250));
+    }
+
+    [Test]
+    public void TestSetPlayerPosition()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      game.NextTurn();
+      game.SetPlayerPosition(1);
+      Assert.That(game.PlayerPos[game.CurrentPlayer], Is.EqualTo(1));
     }
   }
 }

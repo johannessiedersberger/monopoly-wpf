@@ -15,14 +15,15 @@ namespace Monopoly
 
     public Player CurrentPlayer { get; private set; }
 
-    public IReadOnlyCollection<Player> Players
+    public IReadOnlyDictionary<Player, int> PlayerPos
     {
-      get
-      {
-        return Array.AsReadOnly(_players);
-      }
+      get { return _playerPos; }
     }
-
+    public IReadOnlyList<Player> Players
+    {
+      get { return _players; }
+    } 
+    
     public Game(Player[] players)
     {
       _players = players;
@@ -41,7 +42,6 @@ namespace Monopoly
 
       _playerPos[player] = ThrowDice(_playerPos[player]);
       _fields[_playerPos[player]].OnEnter();
-      
     }
 
     private int ThrowDice(int playerPos)
@@ -76,6 +76,12 @@ namespace Monopoly
       {
         ((StreetField)_fields[_playerPos[CurrentPlayer]]).Buy();
       }     
+    }
+
+    public void SetPlayerPosition(int pos)
+    {
+      _playerPos[CurrentPlayer] = pos;
+      _fields[_playerPos[CurrentPlayer]].OnEnter();
     }
 
   }
