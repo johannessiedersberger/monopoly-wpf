@@ -12,14 +12,15 @@ namespace Monopoly
     public Costs Cost { get; private set; }
     public int Level { get; private set; }
     public bool IsMortage { get; private set; }
+    public Player Owner { get; private set; }
     private Game _game;
-    private Player _owner;
+    
     
     private int RentToPay
     {
       get
       {
-        if (_owner != null)
+        if (Owner != null)
           return Cost.Rent[Level];
         else
           return 0;
@@ -42,7 +43,6 @@ namespace Monopoly
       _game = game;
     }
 
-    
     public override void OnEnter(Player player)
     {
       PayRent(player);
@@ -50,38 +50,43 @@ namespace Monopoly
     
     private void PayRent(Player player)
     {
-      if (_owner != null && _owner.Name != player.Name)
+      if (Owner != null && Owner.Name != player.Name && IsMortage == false)
       {
         player.PayMoney(RentToPay);
-        _owner.GetMoney(RentToPay);
+        Owner.GetMoney(RentToPay);
       }
     }
 
     public void Buy(Player player)
     {
-      if (_owner != null)
-        throw new InvalidOperationException("The Street is already owned by Player " + _owner.Name);
+      if (Owner != null)
+        throw new InvalidOperationException("The Street is already owned by Player " + Owner.Name);
         
       player.OwnerShip.Add(this);
       player.PayMoney(Cost.Ground);
-      _owner = _game.CurrentPlayer;
+      Owner = _game.CurrentPlayer;
     }
 
     public void LevelUp(Player player, int levels)
     {
-      if (_owner == null)
+      if (Owner == null)
         throw new InvalidOperationException("Nobody ownes this field");
-      if (player.Name != _owner.Name)
+      if (player.Name != Owner.Name)
         throw new ArgumentException("This player can not increase the level ");
       if (levels <= 0 || levels + Level > 5)
         throw new ArgumentException("You cant increase the level by this amount");
+      if (_game.DoesPlayerOwnCompleteGroup(player, Group) == false)
+        throw new InvalidOperationException("The Player does not own all streets of the group");
+
       player.PayMoney(Cost.House * levels);
       Level += levels;
     }
 
     public void TakeMortage(Player player)
     {
-      if (player.Name != _owner.Name)
+      if (Owner == null)
+        throw new InvalidOperationException("Nobody ownes this field");
+      if (player.Name != Owner.Name)
         throw new InvalidOperationException("You cant take mortage on a field that you do not own");
       if (Level > 1)
         throw new InvalidOperationException("You have to sell all your houses and hotels before you can take a mortage on that street");
@@ -93,7 +98,7 @@ namespace Monopoly
 
     public void PayOffMortage(Player player)
     {
-      if (player.Name != _owner.Name)
+      if (player.Name != Owner.Name)
         throw new InvalidOperationException("You cant pay off the mortage on a field that you do not own");
       if (IsMortage == false)
         throw new InvalidOperationException("You have not took a mortage on that field");
@@ -103,9 +108,9 @@ namespace Monopoly
 
     public void SellHouse(Player player,int amount)
     {
-      if (player.Name != _owner.Name)
+      if (player.Name != Owner.Name)
         throw new InvalidOperationException("You do not own this field");
-      if (amount >= Level)
+      if (amount > Level)
         throw new InvalidOperationException("You can not sell this amount of houses");
       Level -= amount;
       player.GetMoney(Cost.House*amount);
