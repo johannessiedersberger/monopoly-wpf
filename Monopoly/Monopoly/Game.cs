@@ -78,23 +78,17 @@ namespace Monopoly
       CurrentPlayer.GetMoney(200);
     }
 
-    public void BuyCurrentField()
-    {   
-      if(_fields[_playerPos[CurrentPlayer]].GetType() == typeof(StreetField))
-      {
-        ((StreetField)_fields[_playerPos[CurrentPlayer]]).Buy();
-      }     
+    public void BuyCurrentStreet(Player player)
+    {
+      Field field = _fields[_playerPos[player]];
+      if (field.GetType() != typeof(StreetField))
+        throw new InvalidOperationException("You are not on a street field");
+      ((StreetField)field).Buy(player);
+      
     }
 
-    public void SetCurrentPlayerPos(int pos)
+    public void SetPlayerPos(Player player, int pos)
     {
-      _playerPos[CurrentPlayer] = pos;
-      _fields[_playerPos[CurrentPlayer]].OnEnter(CurrentPlayer);
-    }
-
-    public void SetPlayerPos(int playerIndex, int pos)
-    {
-      Player player = _players[playerIndex];
       _playerPos[player] = pos;
       _fields[_playerPos[player]].OnEnter(player);
     }
