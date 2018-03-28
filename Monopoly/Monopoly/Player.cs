@@ -10,7 +10,11 @@ namespace Monopoly
   {
     public int Money { get; private set; }
     public string Name { get; private set; }
-    public List<StreetField> OwnerShip { get; private set; } = new List<StreetField>();
+    private List<StreetField> _ownerShip  = new List<StreetField>();
+    public IReadOnlyList<StreetField> OwnerShip
+    {
+      get { return _ownerShip; }
+    }
 
     public Player(string name)
     {
@@ -18,9 +22,9 @@ namespace Monopoly
       Money = 1500;
     }
 
-    private void AddToOwnerShip(StreetField streetField)
+    public void AddToOwnerShip(StreetField streetField)
     {
-      OwnerShip.Add(streetField);
+      _ownerShip.Add(streetField);
     }
 
     public void PayMoney(int amount)

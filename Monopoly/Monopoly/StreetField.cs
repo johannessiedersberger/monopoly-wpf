@@ -16,7 +16,7 @@ namespace Monopoly
     private Game _game;
     
     
-    private int RentToPay
+    public int RentToPay
     {
       get
       {
@@ -62,7 +62,7 @@ namespace Monopoly
       if (Owner != null)
         throw new InvalidOperationException("The Street is already owned by Player " + Owner.Name);
         
-      player.OwnerShip.Add(this);
+      player.AddToOwnerShip(this);
       player.PayMoney(Cost.Ground);
       Owner = _game.CurrentPlayer;
     }
