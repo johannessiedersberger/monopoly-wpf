@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  public class StreetField : Field
+  public class StreetField : IRentableField
   {
     public Groups Group { get; private set; }
     public Costs Cost { get; private set; }
@@ -14,7 +14,6 @@ namespace Monopoly
     public bool IsMortage { get; private set; }
     public Player Owner { get; private set; }
     private Game _game;
-    
     
     public int RentToPay
     {
@@ -26,6 +25,8 @@ namespace Monopoly
           return 0;
       }
     }
+
+    public string Name { get; }
 
     public class Costs
     {
@@ -42,13 +43,8 @@ namespace Monopoly
       Cost = costs;
       _game = game;
     }
-
-    public override void OnEnter(Player player)
-    {
-      PayRent(player);
-    }
     
-    private void PayRent(Player player)
+    private void PayRent(IPlayer player)
     {
       if (Owner != null && Owner.Name != player.Name && IsMortage == false)
       {
@@ -114,6 +110,11 @@ namespace Monopoly
         throw new InvalidOperationException("You can not sell this amount of houses");
       Level -= amount;
       player.GetMoney(Cost.House*amount);
+    }
+
+    public void OnEnter(IPlayer player)
+    {
+       PayRent(player);
     }
   }
 }

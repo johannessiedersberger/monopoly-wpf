@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  class StartField : Field
+  class StartField : IField
   {
     Game _game;
 
@@ -16,8 +16,10 @@ namespace Monopoly
       _game = game;
     }
 
-    public override void OnEnter(Player player)
-    {   
+    public string Name { get; }
+
+    public void OnEnter(IPlayer player)
+    {
     }
   }
 }

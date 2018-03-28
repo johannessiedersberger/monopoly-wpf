@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  public abstract class Field
+  public interface IRentableField : IField
   {
-    public string Name { get; protected set; }
-
-    public abstract void OnEnter(Player player);
-
+    
   }
 }

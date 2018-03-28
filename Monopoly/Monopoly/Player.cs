@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  public class Player
+  public class Player : IPlayer
   {
     public int Money { get; private set; }
     public string Name { get; private set; }
-    private List<StreetField> _ownerShip  = new List<StreetField>();
-    public IReadOnlyList<StreetField> OwnerShip
+    private List<IRentableField> _ownerShip = new List<IRentableField>();
+    public IReadOnlyList<IRentableField> OwnerShip
     {
       get { return _ownerShip; }
     }

@@ -8,7 +8,7 @@ namespace Monopoly
 {
   public class Game
   {
-    private Field[] _fields;
+    private IField[] _fields;
     private Player[] _players;
     private Dictionary<Player, int> _playerPos = new Dictionary<Player, int>();
     private Queue<Player> _playerQueue = new Queue<Player>();
@@ -25,7 +25,7 @@ namespace Monopoly
       get { return _players; }
     }
 
-    public IReadOnlyList<Field> Fields
+    public IReadOnlyList<IField> Fields
     {
       get { return _fields; }
     }
@@ -85,7 +85,7 @@ namespace Monopoly
 
     public void BuyCurrentStreet(Player player)
     {
-      Field field = _fields[_playerPos[player]];
+      IField field = _fields[_playerPos[player]];
       if (field.GetType() != typeof(StreetField))
         throw new InvalidOperationException("You are not on a street field");
       ((StreetField)field).Buy(player);
@@ -100,21 +100,19 @@ namespace Monopoly
 
     public bool DoesPlayerOwnCompleteGroup(Player player, Groups group)
     {
-      foreach (Field currentField in _fields)
+      foreach (IField currentField in _fields)
       {
-        if ((currentField.GetType() == typeof(StreetField) && ((StreetField)currentField).Group == group))
+        if (currentField is StreetField && ((StreetField)currentField).Group == group)
         {
           if (((StreetField)currentField).Owner == null)
             return false;
           else
             if (((StreetField)currentField).Owner.Name != player.Name)
-              return false;
+            return false;
         }
       }
       return true;
     }
-
   }
-
 }
 

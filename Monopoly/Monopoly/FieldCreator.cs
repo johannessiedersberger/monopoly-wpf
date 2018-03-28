@@ -74,9 +74,19 @@ namespace Monopoly
 
   class FieldCreator
   {
-    public static Field[] Create(Game game)
+    public static IField[] Create(Game game)
     {
-      return new Field[] {
+      //var rentableFields = new List<IRentableField>
+      //{
+      //  CreateOldKentRoad(game)
+      //};
+
+      //var nonRentableFields = new List<IField>()
+      //{
+      //  CreateStartField(game)
+      //};
+
+      return new IField[] {
         CreateStartField(game),
         CreateOldKentRoad(game),
         CreateWhiteChapelRoad(game),
@@ -90,7 +100,7 @@ namespace Monopoly
       return new StartField(FieldNames.Start,game);
     }
 
-    private static StreetField CreateOldKentRoad(Game game)
+    private static IRentableField CreateOldKentRoad(Game game)
     {
       return new StreetField(FieldNames.OldKentRoad, Groups.Brown, game, new StreetField.Costs()
       {
