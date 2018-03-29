@@ -67,7 +67,7 @@ namespace Monopoly
     Yellow,
     Green,
     DarkBlue,
-    Train,
+    TrainStation,
     Supplier
   };
   #endregion

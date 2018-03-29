@@ -12,6 +12,7 @@ namespace Monopoly
     private Player[] _players;
     private Dictionary<Player, int> _playerPos = new Dictionary<Player, int>();
     private Queue<Player> _playerQueue = new Queue<Player>();
+    private IEnumerable<IField> _rentableFields;
 
     public Player CurrentPlayer { get; private set; }
 
@@ -34,6 +35,7 @@ namespace Monopoly
     {
       _players = players;
       _fields = FieldCreator.Create(this);
+      _rentableFields = _fields.Where(i => i is IRentableField);
       foreach (Player player in _players)
         _playerQueue.Enqueue(player);
       foreach (Player player in _players)
@@ -100,14 +102,14 @@ namespace Monopoly
 
     public bool DoesPlayerOwnCompleteGroup(Player player, Groups group)
     {
-      foreach (IField currentField in _fields)
+      foreach (IRentableField currentField in _rentableFields)
       {
-        if (currentField is StreetField && ((StreetField)currentField).Group == group)
+        if (currentField.Group == group)
         {
-          if (((StreetField)currentField).Owner == null)
+          if (currentField.Owner == null)
             return false;
           else
-            if (((StreetField)currentField).Owner.Name != player.Name)
+            if (currentField.Owner.Name != player.Name)
             return false;
         }
       }

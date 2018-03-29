@@ -22,7 +22,7 @@ namespace Monopoly
       Money = 1500;
     }
 
-    public void AddToOwnerShip(StreetField streetField)
+    public void AddToOwnerShip(IRentableField streetField)
     {
       _ownerShip.Add(streetField);
     }

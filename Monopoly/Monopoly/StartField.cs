@@ -8,6 +8,7 @@ namespace Monopoly
 {
   class StartField : IField
   {
+    public Groups Group { get; private set; }
     Game _game;
 
     public StartField(string name, Game game)

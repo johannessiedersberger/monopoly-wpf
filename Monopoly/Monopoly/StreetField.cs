@@ -8,7 +8,7 @@ namespace Monopoly
 {
   public class StreetField : IRentableField
   {
-    public string Name { get; }
+    public string Name { get; private set; }
     public Groups Group { get; private set; }
     public Costs Cost { get; private set; }
     public int Level { get; private set; }

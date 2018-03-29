@@ -9,6 +9,7 @@ namespace Monopoly
   public interface IField
   {
     string Name { get; }
+    Groups Group { get; }
   
     void OnEnter(Player player);
   }
