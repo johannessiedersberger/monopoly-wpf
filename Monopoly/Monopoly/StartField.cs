@@ -18,7 +18,7 @@ namespace Monopoly
 
     public string Name { get; }
 
-    public void OnEnter(IPlayer player)
+    public void OnEnter(Player player)
     {
     }
   }

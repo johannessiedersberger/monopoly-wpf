@@ -76,16 +76,6 @@ namespace Monopoly
   {
     public static IField[] Create(Game game)
     {
-      //var rentableFields = new List<IRentableField>
-      //{
-      //  CreateOldKentRoad(game)
-      //};
-
-      //var nonRentableFields = new List<IField>()
-      //{
-      //  CreateStartField(game)
-      //};
-
       return new IField[] {
         CreateStartField(game),
         CreateOldKentRoad(game),

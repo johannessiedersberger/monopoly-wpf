@@ -10,6 +10,6 @@ namespace Monopoly
   {
     string Name { get; }
   
-    void OnEnter(IPlayer player);
+    void OnEnter(Player player);
   }
 }

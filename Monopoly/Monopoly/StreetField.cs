@@ -8,6 +8,7 @@ namespace Monopoly
 {
   public class StreetField : IRentableField
   {
+    public string Name { get; }
     public Groups Group { get; private set; }
     public Costs Cost { get; private set; }
     public int Level { get; private set; }
@@ -26,14 +27,17 @@ namespace Monopoly
       }
     }
 
-    public string Name { get; }
-
     public class Costs
     {
       public int Ground;
       public int House;
       public int[] Rent;
       public int Mortage;
+    }
+
+    public void OnEnter(Player player)
+    {
+      PayRent(player);
     }
 
     public StreetField(string name, Groups group, Game game, Costs costs)
@@ -44,7 +48,7 @@ namespace Monopoly
       _game = game;
     }
     
-    private void PayRent(IPlayer player)
+    private void PayRent(Player player)
     {
       if (Owner != null && Owner.Name != player.Name && IsMortage == false)
       {
@@ -110,11 +114,6 @@ namespace Monopoly
         throw new InvalidOperationException("You can not sell this amount of houses");
       Level -= amount;
       player.GetMoney(Cost.House*amount);
-    }
-
-    public void OnEnter(IPlayer player)
-    {
-       PayRent(player);
     }
   }
 }

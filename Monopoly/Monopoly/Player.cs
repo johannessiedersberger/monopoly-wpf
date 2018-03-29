@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  public class Player : IPlayer
+  public class Player 
   {
     public int Money { get; private set; }
     public string Name { get; private set; }
