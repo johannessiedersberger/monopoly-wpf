@@ -31,6 +31,11 @@ namespace Monopoly
       get { return _fields; }
     }
 
+    public IEnumerable<IField> RentableFields
+    {
+      get { return _rentableFields; }
+    }
+
     public Game(Player[] players)
     {
       _players = players;
@@ -114,6 +119,20 @@ namespace Monopoly
         }
       }
       return true;
+    }
+
+    public int NumberOfPropertiesOfGroupOwned(Player player, Groups group)
+    {
+      int numberOfProperties = 0;
+      foreach(IRentableField currentField in _rentableFields)
+      {
+        if(currentField.Group == group)
+        {
+          if (currentField.Owner != null && currentField.Owner.Name == player.Name)
+            numberOfProperties++;
+        }
+      }
+      return numberOfProperties;
     }
   }
 }
