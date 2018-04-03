@@ -45,7 +45,7 @@ namespace MonopolyConsoleApp
 
     private static void Buy(Game game)
     {
-      ((StreetField)game.Fields[game.PlayerPos[game.CurrentPlayer]]).Buy(game.CurrentPlayer);
+      ((IRentableField)game.Fields[game.PlayerPos[game.CurrentPlayer]]).Buy(game.CurrentPlayer);
     }
 
     private static void LevelUp(Game game)
@@ -111,6 +111,8 @@ namespace MonopolyConsoleApp
       {
         if (game.Fields[f].GetType() == typeof(StreetField))
           DisplayStreetFieldData(game, f);
+        else if (game.Fields[f].GetType() == typeof(TrainstationField))
+          DisplayTrainStationFieldData(game, f);
         else
           DisplayNormalFieldData(game, f);
         DisplayPlayersOnField(game, f);
@@ -124,7 +126,13 @@ namespace MonopolyConsoleApp
       if (streetField.Owner != null)
         Console.Write(", Owner: " + streetField.Owner.Name);
     }
-
+    private static void DisplayTrainStationFieldData(Game game, int pos)
+    {
+      TrainstationField streetField = (TrainstationField)game.Fields[pos];
+      Console.Write(streetField.Name + ", Mortage: " + streetField.IsMortage  + ", RentToPay: " + streetField.RentToPay);
+      if (streetField.Owner != null)
+        Console.Write(", Owner: " + streetField.Owner.Name);
+    }
     private static void DisplayNormalFieldData(Game game, int pos)
     {
       Console.Write(game.Fields[pos].Name);

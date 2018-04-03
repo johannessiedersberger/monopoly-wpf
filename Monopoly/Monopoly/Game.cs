@@ -59,7 +59,7 @@ namespace Monopoly
 
       int[] dices = ThrowDice(player);
       SaveDiceThrow(player, dices);
-      CheckForDoublets(player);
+      
       _playerPos[player] = SetInRange(dices, PlayerPos[player]);
       _fields[_playerPos[player]].OnEnter(CurrentPlayer);
     }
