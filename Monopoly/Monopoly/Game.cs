@@ -11,8 +11,9 @@ namespace Monopoly
     private IField[] _fields;
     private Player[] _players;
     private Dictionary<Player, int> _playerPos = new Dictionary<Player, int>();
+    private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
     private Queue<Player> _playerQueue = new Queue<Player>();
-    private IEnumerable<IField> _rentableFields;
+    private IEnumerable<IField> _rentableFields;  
 
     public Player CurrentPlayer { get; private set; }
 
@@ -31,9 +32,9 @@ namespace Monopoly
       get { return _fields; }
     }
 
-    public IEnumerable<IField> RentableFields
+    public IReadOnlyList<IField> RentableFields
     {
-      get { return _rentableFields; }
+      get { return _rentableFields.ToList(); }
     }
 
     public Game(Player[] players)
@@ -45,7 +46,9 @@ namespace Monopoly
         _playerQueue.Enqueue(player);
       foreach (Player player in _players)
         _playerPos.Add(player, 0);
-      CurrentPlayer = _playerQueue.First();
+      foreach (Player player in _players)
+        _diceThrows.Add(player, new List<int[]>());
+      CurrentPlayer = _playerQueue.First();      
     }
 
     public void NextTurn()
@@ -54,16 +57,26 @@ namespace Monopoly
       _playerQueue.Enqueue(player);
       CurrentPlayer = player;
 
-      _playerPos[player] = ThrowDice(_playerPos[player]);
+      int[] dices = ThrowDice(player);
+      SaveDiceThrow(player, dices);
+      _playerPos[player] = SetInRange(dices, PlayerPos[player]);
       _fields[_playerPos[player]].OnEnter(CurrentPlayer);
     }
 
-    private int ThrowDice(int playerPos)
+    private int[] ThrowDice(Player player)
     {
       Random random = new Random(System.DateTime.Now.Millisecond.GetHashCode());
       int value1 = random.Next(1, 6);
       int value2 = random.Next(1, 6);
-      return SetInRange(new int[] { value1, value2 }, playerPos);
+      int[] dices = new int[] { value1, value2 };
+      return dices;
+    }
+
+    private void SaveDiceThrow(Player player ,int[] dices)
+    {
+      _diceThrows[player].Add(dices);
+      if (_diceThrows[player].Count() >= 3)
+        _diceThrows[player].RemoveAt(0);    
     }
 
     private int SetInRange(int[] diceThrow, int playerPos)

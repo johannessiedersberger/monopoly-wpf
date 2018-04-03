@@ -1,0 +1,10 @@
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\bin\Debug\MonopolyConsoleApp.exe.config
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\bin\Debug\MonopolyConsoleApp.exe
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\bin\Debug\MonopolyConsoleApp.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\bin\Debug\Monopoly.dll
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\bin\Debug\Monopoly.pdb
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\obj\Debug\MonopolyConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\obj\Debug\MonopolyConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\obj\Debug\MonopolyConsoleApp.csproj.CopyComplete
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\obj\Debug\MonopolyConsoleApp.exe
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyConsoleApp\obj\Debug\MonopolyConsoleApp.pdb

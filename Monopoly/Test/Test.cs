@@ -15,7 +15,7 @@ namespace Test
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY")});
       game.NextTurn();
-
+      
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
       game.NextTurn();
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[1]));
@@ -202,6 +202,14 @@ namespace Test
       Assert.That(() => field5.PayOffMortage(game.Players[1]), Throws.InvalidOperationException);
       field6.Buy(game.Players[0]);
       Assert.That(() => field5.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
+    }
+
+    [Test]
+    public void TestSupplier()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+
+      
     }
   }
 }

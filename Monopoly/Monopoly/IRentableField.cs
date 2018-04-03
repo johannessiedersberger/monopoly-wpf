@@ -11,7 +11,7 @@ namespace Monopoly
     int RentToPay { get; }
     bool IsMortage { get; }
     Player Owner { get; }
-
+    
     void Buy(Player player);
     void TakeMortage(Player player);
     void PayOffMortage(Player player);

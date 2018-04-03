@@ -98,8 +98,6 @@ namespace Monopoly
         throw new InvalidOperationException("You have not took a mortage on that field");
       player.PayMoney(Cost.Mortage + (int)(Cost.Mortage * 0.1));
       IsMortage = false;
-    }
-
-    
+    } 
   }
 }
