@@ -22,23 +22,34 @@ namespace MonopolyConsoleApp
         Console.ReadLine();
         game.NextTurn();
         DisplayGame(game);
-
+        
         bool nextPlayer = false;
         while (!nextPlayer)
         {
           DisplayGame(game);
-          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), continue(c):");
+          int[] diceThrow = game.DiceThrows[game.CurrentPlayer][game.DiceThrows[game.CurrentPlayer].Count() - 1];
+          Console.WriteLine("You have thrown " + diceThrow[0] + " " + diceThrow[1]);
+          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), continue(Enter):");
           string input = Console.ReadLine();
-          if (input == "b")
-            Buy(game);
-          if (input == "l")
-            LevelUp(game);
-          if (input == "m")
-            Mortage(game);
-          if (input == "s")
-            SellHouse(game);
-          if (input == "c")
-            nextPlayer = true;
+          try
+          {
+            if (input == "b")
+              Buy(game);
+            if (input == "l")
+              LevelUp(game);
+            if (input == "m")
+              Mortage(game);
+            if (input == "s")
+              SellHouse(game);
+            if (input == "")
+              nextPlayer = true;
+          }
+          catch(Exception ex)
+          {
+            Console.WriteLine("Oops Something went wrong: " + ex.Message + " Press (Enter) to Continue");
+            string s = Console.ReadLine();
+          }
+          
         }
       }
     }

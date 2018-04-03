@@ -37,6 +37,11 @@ namespace Monopoly
       get { return _rentableFields.ToList(); }
     }
 
+    public IReadOnlyDictionary<Player, List<int[]>> DiceThrows
+    {
+      get { return _diceThrows; }
+    }
+
     public Game(Player[] players)
     {
       _players = players;
