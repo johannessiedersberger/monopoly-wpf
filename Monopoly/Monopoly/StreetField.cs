@@ -14,6 +14,7 @@ namespace Monopoly
     public int Level { get; private set; }
     public bool IsMortage { get; private set; }
     public Player Owner { get; private set; }
+    public int MortageValue { get; private set; }
     private Game _game;
     
     public int RentToPay
@@ -26,6 +27,8 @@ namespace Monopoly
           return 0;
       }
     }
+
+    
 
     public class Costs
     {
@@ -42,6 +45,7 @@ namespace Monopoly
 
     public StreetField(string name, Groups group, Game game, Costs costs)
     {
+      MortageValue = costs.Mortage;
       Name = name;
       Group = group;
       Cost = costs;
@@ -64,7 +68,7 @@ namespace Monopoly
         
       player.AddToOwnerShip(this);
       player.PayMoney(Cost.Ground);
-      Owner = _game.CurrentPlayer;
+      Owner = /*_game.CurrentPlayer*/player;
     }
 
     public void LevelUp(Player player, int levels)
@@ -114,6 +118,19 @@ namespace Monopoly
         throw new InvalidOperationException("You can not sell this amount of houses");
       Level -= amount;
       player.GetMoney(Cost.House*amount);
+    }
+
+    public void ExchangeField(Player owner, Player buyer)
+    {
+      if (Level > 0)
+        throw new InvalidOperationException("You have to sell all your houses before its possible to exchange with other players");
+      if (owner.Name == buyer.Name)
+        throw new ArgumentException("You can't Exchange with yourself");
+      owner.GetMoney(Cost.Ground);
+      buyer.PayMoney(Cost.Ground);
+      owner.RemoveFromOwnerShip(this);
+      buyer.AddToOwnerShip(this);
+      this.Owner = buyer;
     }
   }
 }

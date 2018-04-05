@@ -148,68 +148,101 @@ namespace Test
       Assert.That(() => field1.SellHouse(game.Players[0], 1), Throws.InvalidOperationException);
     }
 
-    [Test]
-    public void TestTrainStationField()
-    {
-      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      TrainstationField field5 = ((TrainstationField)game.Fields[5]);
-      TrainstationField field6 = ((TrainstationField)game.Fields[6]);
+    //[Test]
+    //public void TestTrainStationField()
+    //{
+    //  Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+    //  TrainstationField field5 = ((TrainstationField)game.Fields[5]);
+    //  TrainstationField field6 = ((TrainstationField)game.Fields[6]);
       
-      field5.Buy(game.Players[0]);
-      field6.Buy(game.Players[0]);
-      Assert.That(() => field5.Buy(game.Players[0]), Throws.InvalidOperationException);
-      game.SetPlayerPos(game.Players[1], 5);
-      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 50));
-      Assert.That(() => field5.SetRentToPay(100), Throws.ArgumentException);
+    //  field5.Buy(game.Players[0]);
+    //  field6.Buy(game.Players[0]);
+    //  Assert.That(() => field5.Buy(game.Players[0]), Throws.InvalidOperationException);
+    //  game.SetPlayerPos(game.Players[1], 5);
+    //  Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 50));
+    //  Assert.That(() => field5.SetRentToPay(100), Throws.ArgumentException);
 
-    }
+    //}
 
+
+    //[Test]
+    //public void TestTakeMortageTrainStation()
+    //{
+    //  Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+    //  TrainstationField field5 = ((TrainstationField)game.Fields[5]);
+    //  TrainstationField field6 = ((TrainstationField)game.Fields[6]);
+    //  field5.Buy(game.Players[0]);
+
+    //  field5.TakeMortage(game.Players[0]);
+    //  Assert.That(field5.IsMortage, Is.EqualTo(true));
+    //  Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 200 + 100));
+
+    //  game.SetPlayerPos(game.Players[1], 1);
+    //  Assert.That(game.Players[1].Money, Is.EqualTo(1500));
+
+    //  Assert.That(() => field6.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
+    //  Assert.That(() => field5.TakeMortage(game.Players[0]), Throws.InvalidOperationException);
+    //  Assert.That(() => field5.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
+    //  field6.Buy(game.Players[0]);
+    //}
+
+    //[Test]
+    //public void TestPayOffMortageTrainStation()
+    //{
+    //  Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+    //  TrainstationField field5 = ((TrainstationField)game.Fields[5]);
+    //  TrainstationField field6 = ((TrainstationField)game.Fields[6]);
+
+    //  field5.Buy(game.Players[0]);
+    //  field5.TakeMortage(game.Players[0]);
+    //  Assert.That(field5.IsMortage, Is.EqualTo(true));
+    //  field5.PayOffMortage(game.Players[0]);
+    //  Assert.That(field5.IsMortage, Is.EqualTo(false));
+    //  Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 200 + 100 - 110));
+    //  Assert.That(() => field5.PayOffMortage(game.Players[1]), Throws.InvalidOperationException);
+    //  field6.Buy(game.Players[0]);
+    //  Assert.That(() => field5.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
+    //}
 
     [Test]
-    public void TestTakeMortageTrainStation()
+    public void TestExChangeField()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      TrainstationField field5 = ((TrainstationField)game.Fields[5]);
-      TrainstationField field6 = ((TrainstationField)game.Fields[6]);
-      field5.Buy(game.Players[0]);
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      field1.Buy(game.Players[0]);
+      field1.ExchangeField(game.Players[0], game.Players[1]);
+      Assert.That(game.Players[0].OwnerShip.Count(), Is.EqualTo(0));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500));
 
-      field5.TakeMortage(game.Players[0]);
-      Assert.That(field5.IsMortage, Is.EqualTo(true));
-      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 200 + 100));
-
-      game.SetPlayerPos(game.Players[1], 1);
-      Assert.That(game.Players[1].Money, Is.EqualTo(1500));
-
-      Assert.That(() => field6.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
-      Assert.That(() => field5.TakeMortage(game.Players[0]), Throws.InvalidOperationException);
-      Assert.That(() => field5.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
-      field6.Buy(game.Players[0]);
+      Assert.That(game.Players[1].OwnerShip[0].Name, Is.EqualTo(FieldNames.OldKentRoad));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1440));
+      Assert.That(field1.Owner.Name, Is.EqualTo(game.Players[1].Name));
     }
 
     [Test]
-    public void TestPayOffMortageTrainStation()
+    public void PlayerisBankrupt()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      TrainstationField field5 = ((TrainstationField)game.Fields[5]);
-      TrainstationField field6 = ((TrainstationField)game.Fields[6]);
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      StreetField field3 = ((StreetField)game.Fields[3]);
+      StreetField field4 = ((StreetField)game.Fields[4]);
 
-      field5.Buy(game.Players[0]);
-      field5.TakeMortage(game.Players[0]);
-      Assert.That(field5.IsMortage, Is.EqualTo(true));
-      field5.PayOffMortage(game.Players[0]);
-      Assert.That(field5.IsMortage, Is.EqualTo(false));
-      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 200 + 100 - 110));
-      Assert.That(() => field5.PayOffMortage(game.Players[1]), Throws.InvalidOperationException);
-      field6.Buy(game.Players[0]);
-      Assert.That(() => field5.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
-    }
+      game.Players[0].GetMoney(20000);
+      game.Players[1].PayMoney(1500);
 
-    [Test]
-    public void TestSupplier()
-    {
-      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[0]);
+      field3.Buy(game.Players[0]);
+      field4.Buy(game.Players[0]);
 
-      
+      field1.LevelUp(game.Players[0], 5);
+      field2.LevelUp(game.Players[0], 5);
+      field3.LevelUp(game.Players[0], 5);
+      field4.LevelUp(game.Players[0], 5);
+
+      game.NextTurn();
+      Assert.That(() => game.NextTurn(), Throws.Exception);
     }
   }
 }

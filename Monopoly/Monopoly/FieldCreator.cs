@@ -82,8 +82,8 @@ namespace Monopoly
         CreateWhiteChapelRoad(game),
         CreateParkLane(game),
         CreateMayfair(game),
-        CreateKingsCrossStation(game),
-        CreateMaryLeboneStation(game)
+        //CreateKingsCrossStation(game),
+        //CreateMaryLeboneStation(game)
       };
     }
 
@@ -136,25 +136,25 @@ namespace Monopoly
       });
     }
 
-    private static TrainstationField CreateKingsCrossStation(Game game)
-    {
-      return new TrainstationField(FieldNames.KingsCrossStation, Groups.TrainStation, game, new TrainstationField.Costs()
-      {
-        Ground = 200,
-        Rent = new int[] { 25, 50, 100, 200 },
-        Mortage = 100
-      });
-    }
+    //private static TrainstationField CreateKingsCrossStation(Game game)
+    //{
+    //  return new TrainstationField(FieldNames.KingsCrossStation, Groups.TrainStation, game, new TrainstationField.Costs()
+    //  {
+    //    Ground = 200,
+    //    Rent = new int[] { 25, 50, 100, 200 },
+    //    Mortage = 100
+    //  });
+    //}
 
-    private static TrainstationField CreateMaryLeboneStation(Game game)
-    {
-      return new TrainstationField(FieldNames.MaryLeboneStation, Groups.TrainStation, game, new TrainstationField.Costs()
-      {
-        Ground = 200,
-        Rent = new int[] { 25, 50, 100, 200 },
-        Mortage = 100
-      });
-    }
+    //private static TrainstationField CreateMaryLeboneStation(Game game)
+    //{
+    //  return new TrainstationField(FieldNames.MaryLeboneStation, Groups.TrainStation, game, new TrainstationField.Costs()
+    //  {
+    //    Ground = 200,
+    //    Rent = new int[] { 25, 50, 100, 200 },
+    //    Mortage = 100
+    //  });
+    //}
 
   }
 }

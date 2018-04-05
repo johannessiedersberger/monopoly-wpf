@@ -13,6 +13,26 @@ namespace MonopolyConsoleApp
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
+      game.NextTurn();
+      #region test
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      StreetField field3 = ((StreetField)game.Fields[3]);
+      StreetField field4 = ((StreetField)game.Fields[4]);
+
+      game.Players[0].GetMoney(20000);
+      game.Players[1].PayMoney(1500);
+
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[0]);
+      field3.Buy(game.Players[0]);
+      field4.Buy(game.Players[0]);
+
+      field1.LevelUp(game.Players[0], 5);
+      field2.LevelUp(game.Players[0], 5);
+      field3.LevelUp(game.Players[0], 5);
+      field4.LevelUp(game.Players[0], 5);
+      #endregion
 
       bool isGameOver = false;
       while (!isGameOver)
@@ -20,15 +40,44 @@ namespace MonopolyConsoleApp
         
         Console.Write("Throw Dice "+ game.CurrentPlayer.Name  + " (Enter)");
         Console.ReadLine();
-        game.NextTurn();
+
+        try
+        {
+          game.NextTurn();
+        }
+        catch(NotEnoughMoneyException ex)
+        {
+          
+          int neededAmount = int.Parse(ex.Message);
+          int playerMoney = game.CurrentPlayer.Money - neededAmount;
+          if (game.CheckIfPlayersIsBankrupt(game.CurrentPlayer, neededAmount) == false)
+          {
+            while (playerMoney < 0)
+            {
+              Console.WriteLine("You have to sell something: house(h), groundMortage(g)");
+              string input = Console.ReadLine();
+              if (input == "h")
+                SellHouse(game);
+              if (input == "g")
+                Mortage(game);
+            }
+            game.CallOnEnterAndEnquePlayer(game.CurrentPlayer);
+          }
+          else
+          {
+            game.RemovePlayer(game.CurrentPlayer);
+          }
+          
+        }
+        
         DisplayGame(game);
         
         bool nextPlayer = false;
         while (!nextPlayer)
         {
           DisplayGame(game);
-          int[] diceThrow = game.DiceThrows[game.CurrentPlayer][game.DiceThrows[game.CurrentPlayer].Count() - 1];
-          Console.WriteLine("You have thrown " + diceThrow[0] + " " + diceThrow[1]);
+          
+          Console.WriteLine("You have thrown " + game.GetLastThrow(game.CurrentPlayer)[0]+ " " + game.GetLastThrow(game.CurrentPlayer)[1]);
           Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), continue(Enter):");
           string input = Console.ReadLine();
           try
@@ -122,8 +171,8 @@ namespace MonopolyConsoleApp
       {
         if (game.Fields[f].GetType() == typeof(StreetField))
           DisplayStreetFieldData(game, f);
-        else if (game.Fields[f].GetType() == typeof(TrainstationField))
-          DisplayTrainStationFieldData(game, f);
+        //else if (game.Fields[f].GetType() == typeof(TrainstationField))
+        //  DisplayTrainStationFieldData(game, f);
         else
           DisplayNormalFieldData(game, f);
         DisplayPlayersOnField(game, f);
@@ -137,13 +186,15 @@ namespace MonopolyConsoleApp
       if (streetField.Owner != null)
         Console.Write(", Owner: " + streetField.Owner.Name);
     }
-    private static void DisplayTrainStationFieldData(Game game, int pos)
-    {
-      TrainstationField streetField = (TrainstationField)game.Fields[pos];
-      Console.Write(streetField.Name + ", Mortage: " + streetField.IsMortage  + ", RentToPay: " + streetField.RentToPay);
-      if (streetField.Owner != null)
-        Console.Write(", Owner: " + streetField.Owner.Name);
-    }
+
+    //private static void DisplayTrainStationFieldData(Game game, int pos)
+    //{
+    //  TrainstationField streetField = (TrainstationField)game.Fields[pos];
+    //  Console.Write(streetField.Name + ", Mortage: " + streetField.IsMortage  + ", RentToPay: " + streetField.RentToPay);
+    //  if (streetField.Owner != null)
+    //    Console.Write(", Owner: " + streetField.Owner.Name);
+    //}
+
     private static void DisplayNormalFieldData(Game game, int pos)
     {
       Console.Write(game.Fields[pos].Name);

@@ -11,9 +11,11 @@ namespace Monopoly
     int RentToPay { get; }
     bool IsMortage { get; }
     Player Owner { get; }
+    int MortageValue { get; }
     
     void Buy(Player player);
     void TakeMortage(Player player);
     void PayOffMortage(Player player);
+    void ExchangeField(Player Owner, Player Buyer);
   }
 }
