@@ -13,7 +13,6 @@ namespace MonopolyConsoleApp
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
-      game.NextTurn();
       #region test
       StreetField field1 = ((StreetField)game.Fields[1]);
       StreetField field2 = ((StreetField)game.Fields[2]);
@@ -21,40 +20,42 @@ namespace MonopolyConsoleApp
       StreetField field4 = ((StreetField)game.Fields[4]);
 
       game.Players[0].GetMoney(20000);
-      game.Players[1].PayMoney(1500);
+      game.Players[1].GetMoney(20000);
 
       field1.Buy(game.Players[0]);
       field2.Buy(game.Players[0]);
-      field3.Buy(game.Players[0]);
-      field4.Buy(game.Players[0]);
+      field3.Buy(game.Players[1]);
+      field4.Buy(game.Players[1]);
 
       field1.LevelUp(game.Players[0], 5);
       field2.LevelUp(game.Players[0], 5);
-      field3.LevelUp(game.Players[0], 5);
-      field4.LevelUp(game.Players[0], 5);
+      field3.LevelUp(game.Players[1], 5);
+      field4.LevelUp(game.Players[1], 5);
+     
       #endregion
 
       bool isGameOver = false;
       while (!isGameOver)
       {
-        
-        Console.Write("Throw Dice "+ game.CurrentPlayer.Name  + " (Enter)");
-        Console.ReadLine();
+        if(game.Players.Count() == 2)
+         game.Players[1].PayMoney(game.Players[1].Money);//TEST!
 
         try
         {
           game.NextTurn();
+          //Console.Write("Throw Dice " + game.CurrentPlayer.Name + " (Enter)");
+          //Console.ReadLine();
         }
         catch(NotEnoughMoneyException ex)
         {
-          
           int neededAmount = int.Parse(ex.Message);
-          int playerMoney = game.CurrentPlayer.Money - neededAmount;
-          if (game.CheckIfPlayersIsBankrupt(game.CurrentPlayer, neededAmount) == false)
+          
+          if (game.IsPlayerBankrupt(game.CurrentPlayer, neededAmount) == false)
           {
-            while (playerMoney < 0)
+            while (game.CurrentPlayer.Money - neededAmount < 0 )
             {
-              Console.WriteLine("You have to sell something: house(h), groundMortage(g)");
+              DisplayGame(game);
+              Console.WriteLine("You have to sell something, because you need "  + (neededAmount-game.CurrentPlayer.Money)+"$" + ": house(h), groundMortage(g)");
               string input = Console.ReadLine();
               if (input == "h")
                 SellHouse(game);
@@ -65,15 +66,17 @@ namespace MonopolyConsoleApp
           }
           else
           {
+            DisplayGame(game);
+            Console.WriteLine("YOU ARE BANKRUPT PLAYER " + game.CurrentPlayer.Name);
+            Console.ReadLine();
             game.RemovePlayer(game.CurrentPlayer);
-          }
-          
+          }         
         }
         
         DisplayGame(game);
         
         bool nextPlayer = false;
-        while (!nextPlayer)
+        while (!nextPlayer && game.CurrentPlayer.Removed == false) // Dont ask for Action if CurrentPlayer Has been Removed
         {
           DisplayGame(game);
           
@@ -231,7 +234,8 @@ namespace MonopolyConsoleApp
         DisPlayOwnerShip(game, f);
         Console.WriteLine();
       }
-      Console.WriteLine("CurrentPlayer: " + game.CurrentPlayer.Name);
+      if(game.CurrentPlayer.Removed == false) // If Player has been removed dont display him
+        Console.WriteLine("CurrentPlayer: " + game.CurrentPlayer.Name);
     }
 
     private static void DisPlayOwnerShip(Game game, int pos)

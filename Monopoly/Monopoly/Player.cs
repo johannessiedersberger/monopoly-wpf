@@ -10,6 +10,7 @@ namespace Monopoly
   {
     public int Money { get; private set; }
     public string Name { get; private set; }
+    public bool Removed { get; private set; }
     private List<IRentableField> _ownerShip = new List<IRentableField>();
     private Game _game;
     public IReadOnlyList<IRentableField> OwnerShip
@@ -47,13 +48,18 @@ namespace Monopoly
     public void PayMoney(int amount)
     {
       if (Money - amount < 0)
-        throw new NotEnoughMoneyException((Math.Abs(Money - amount)).ToString());
+        throw new NotEnoughMoneyException((amount).ToString());
       Money -= amount;
     }
 
     public void GetMoney(int amount)
     {
       Money += amount;
+    }
+
+    public void Remove()
+    {
+      Removed = true;
     }
 
   }

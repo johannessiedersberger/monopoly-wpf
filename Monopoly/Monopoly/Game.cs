@@ -189,7 +189,7 @@ namespace Monopoly
       _diceThrows[player] = throwed;
     }
 
-    public bool CheckIfPlayersIsBankrupt(Player player, int neededAmount)
+    public bool IsPlayerBankrupt(Player player, int neededAmount)
     {
       return player.Money - neededAmount + GetSavings(player) < 0;
     }
@@ -204,7 +204,8 @@ namespace Monopoly
           StreetField street = ((StreetField)field);
           savings += street.Level * street.Cost.House;
         }
-        savings += field.MortageValue;
+        if(field.IsMortage == false)
+          savings += field.MortageValue;
       }
       return savings;
     }
@@ -214,6 +215,7 @@ namespace Monopoly
       _players.Remove(player);
       _playerPositions.Remove(player);
       _diceThrows.Remove(player);
+      CurrentPlayer.Remove();
     }
   }
 }
