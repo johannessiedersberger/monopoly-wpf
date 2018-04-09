@@ -86,6 +86,7 @@ namespace Test
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       game.SetPlayerPos(game.Players[0],4);
       game.NextPlayer();
+      game.GoForward(game.CurrentPlayer);
       Assert.That(game.Players[0].Money >= 1700, Is.EqualTo(true));
     }
 
@@ -210,7 +211,7 @@ namespace Test
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       StreetField field1 = ((StreetField)game.Fields[1]);
       field1.Buy(game.Players[0]);
-      field1.ExchangeField(game.Players[0], game.Players[1]);
+      field1.ExchangeField(game.Players[0], game.Players[1], 60);
       Assert.That(game.Players[0].OwnerShip.Count(), Is.EqualTo(0));
       Assert.That(game.Players[0].Money, Is.EqualTo(1500));
 
@@ -241,8 +242,26 @@ namespace Test
       field3.LevelUp(game.Players[0], 5);
       field4.LevelUp(game.Players[0], 5);
 
-      game.NextPlayer();
-      Assert.That(() => game.NextPlayer(), Throws.Exception);
+      Assert.That(() => game.Fields[4].OnEnter(game.Players[1]), Throws.TypeOf(typeof(BankruptException)));
+    }
+
+    [Test]
+    public void PlayerDoesNotHaveEnoughMoney()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      StreetField field3 = ((StreetField)game.Fields[3]);
+      StreetField field4 = ((StreetField)game.Fields[4]);
+
+      game.Players[0].GetMoney(20000);
+      game.Players[1].GetMoney(20000);
+
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[1]);
+
+      game.Players[1].PayMoney(game.Players[1].Money);
+      Assert.That(() => game.Fields[1].OnEnter(game.Players[1]), Throws.TypeOf(typeof(NotEnoughMoneyException)));
     }
   }
 }

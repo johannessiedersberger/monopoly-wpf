@@ -120,17 +120,32 @@ namespace Monopoly
       player.GetMoney(Cost.House*amount);
     }
 
-    public void ExchangeField(Player owner, Player buyer)
+    public void ExchangeField(Player owner, Player buyer, int negotiatetprice)
     {
       if (Level > 0)
         throw new InvalidOperationException("You have to sell all your houses before its possible to exchange with other players");
       if (owner.Name == buyer.Name)
         throw new ArgumentException("You can't Exchange with yourself");
-      owner.GetMoney(Cost.Ground);
-      buyer.PayMoney(Cost.Ground);
+      owner.GetMoney(negotiatetprice);
+      buyer.PayMoney(negotiatetprice);
       owner.RemoveFromOwnerShip(this);
       buyer.AddToOwnerShip(this);
       this.Owner = buyer;
     }
+
+    public void ExchangeField(Player owner, Player buyer, IRentableField field)
+    {
+      if (Level > 0)
+        throw new InvalidOperationException("You have to sell all your houses before its possible to exchange with other players");
+      if (owner.Name == buyer.Name)
+        throw new ArgumentException("You can't Exchange with yourself");
+      owner.AddToOwnerShip(field);
+      buyer.RemoveFromOwnerShip(field);
+      owner.RemoveFromOwnerShip(this);
+      buyer.AddToOwnerShip(this);
+      this.Owner = buyer;
+    }
+
+
   }
 }

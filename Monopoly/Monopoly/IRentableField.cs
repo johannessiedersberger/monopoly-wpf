@@ -16,6 +16,7 @@ namespace Monopoly
     void Buy(Player player);
     void TakeMortage(Player player);
     void PayOffMortage(Player player);
-    void ExchangeField(Player Owner, Player Buyer);
+    void ExchangeField(Player owner, Player buyer, int negotiatetprice);
+    void ExchangeField(Player owner, Player buyer, IRentableField field);
   }
 }
