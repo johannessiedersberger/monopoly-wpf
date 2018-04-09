@@ -23,23 +23,14 @@ namespace MonopolyConsoleApp
       game.Players[0].GetMoney(20000);
       game.Players[1].GetMoney(20000);
       field1.Buy(game.Players[0]);
-      field2.Buy(game.Players[0]);
-      field3.Buy(game.Players[1]);
-      field4.Buy(game.Players[1]);
-
-      field1.LevelUp(game.Players[0], 5);
-      field2.LevelUp(game.Players[0], 5);
-      field3.LevelUp(game.Players[1], 5);
-      field4.LevelUp(game.Players[1], 5);
+      field2.Buy(game.Players[1]);
+    
 
       #endregion // TEST!
 
       bool isGameOver = false;
       while (!isGameOver)
       {
-        if (game.Players.Count() == 2)
-          game.Players[1].PayMoney(game.Players[1].Money);//TEST!
-
         try
         {
           game.NextPlayer();
@@ -83,7 +74,7 @@ namespace MonopolyConsoleApp
           DisplayGame(game);
 
           Console.WriteLine("You have thrown " + game.GetLastThrow(game.CurrentPlayer)[0] + " " + game.GetLastThrow(game.CurrentPlayer)[1]);
-          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), continue(Enter):");
+          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), exchangeField(e) continue(Enter):");
           string input = Console.ReadLine();
           try
           {
@@ -95,6 +86,8 @@ namespace MonopolyConsoleApp
               Mortage(game);
             if (input == "s")
               SellHouse(game);
+            if (input == "e")
+              ExchangeField(game);
             if (input == "")
               nextPlayer = true;
           }
@@ -159,6 +152,55 @@ namespace MonopolyConsoleApp
       Console.Write("Amount of Houses to Sell (1-5):");
       int amount = int.Parse(Console.ReadLine());
       streetHouse.SellHouse(game.CurrentPlayer, amount);
+    }
+
+    private static void ExchangeField(Game game)
+    {
+      //Property
+      Console.WriteLine("Choose the Property you want to Exchange");
+      for (int s = 0; s < game.CurrentPlayer.OwnerShip.Count(); s++)
+      {
+        IRentableField field = (StreetField)game.CurrentPlayer.OwnerShip[s];
+        Console.WriteLine(s + ". " + field.Name);
+      }
+      Console.Write("PropertyNum: ");
+      int propetyIndex = int.Parse(Console.ReadLine());
+
+      //Player
+      Console.WriteLine("Choose the Player you want to Exchange With");
+      for (int i = 0; i < game.Players.Count(); i++)
+      {
+        Console.WriteLine(i + ". " + game.Players[i].Name);
+      }
+      int playerNum = int.Parse(Console.ReadLine());
+
+      //Money Or Field
+      Console.WriteLine("Do you want to exchange with Money(m) or another Property(p)");
+      string decision = Console.ReadLine();
+
+
+      if(decision == "m")
+      {
+        //Amont of Money
+        Console.Write("How Much Money: ");
+        int amount = int.Parse(Console.ReadLine());
+        //Exchange
+        game.CurrentPlayer.OwnerShip[propetyIndex].ExchangeField(game.CurrentPlayer, game.Players[playerNum], amount);
+      }
+      else if(decision == "p")
+      {
+        //Property
+        Console.WriteLine("Choose the Property the other player wants to Pay with");
+        for (int s = 0; s < game.Players[playerNum].OwnerShip.Count(); s++)
+        {
+          Console.WriteLine(s + ". " + game.Players[playerNum].OwnerShip[s]);
+        }
+        Console.WriteLine("propNum: ");
+        int propNum = int.Parse(Console.ReadLine());
+        game.CurrentPlayer.OwnerShip[propetyIndex].ExchangeField(game.CurrentPlayer, game.Players[playerNum], game.Players[playerNum].OwnerShip[propNum]);
+      }
+       
+
     }
 
     private static void DisplayGame(Game game)
