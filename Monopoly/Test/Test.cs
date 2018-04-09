@@ -206,7 +206,7 @@ namespace Test
     //}
 
     [Test]
-    public void TestExChangeField()
+    public void TestExChangeFieldMoney()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       StreetField field1 = ((StreetField)game.Fields[1]);
@@ -218,6 +218,19 @@ namespace Test
       Assert.That(game.Players[1].OwnerShip[0].Name, Is.EqualTo(FieldNames.OldKentRoad));
       Assert.That(game.Players[1].Money, Is.EqualTo(1440));
       Assert.That(field1.Owner.Name, Is.EqualTo(game.Players[1].Name));
+    }
+
+    [Test]
+    public void TestExChangeFieldwithField()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[1]);
+      field1.ExchangeField(field1.Owner, game.Players[1], field2);
+      Assert.That(field1.Owner.Name, Is.EqualTo(game.Players[1].Name));
+      Assert.That(field2.Owner.Name, Is.EqualTo(game.Players[0].Name));
     }
 
     [Test]

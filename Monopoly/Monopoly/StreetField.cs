@@ -68,7 +68,12 @@ namespace Monopoly
         
       player.AddToOwnerShip(this);
       player.PayMoney(Cost.Ground);
-      Owner = /*_game.CurrentPlayer*/player;
+      SetOwner(player);
+    }
+
+    public void SetOwner(Player player)
+    {
+      Owner = player;
     }
 
     public void LevelUp(Player player, int levels)
@@ -126,6 +131,8 @@ namespace Monopoly
         throw new InvalidOperationException("You have to sell all your houses before its possible to exchange with other players");
       if (owner.Name == buyer.Name)
         throw new ArgumentException("You can't Exchange with yourself");
+      if (owner.Name != this.Owner.Name)
+        throw new ArgumentException("The Player " + owner.Name + " does not own this field");
       owner.GetMoney(negotiatetprice);
       buyer.PayMoney(negotiatetprice);
       owner.RemoveFromOwnerShip(this);
@@ -139,13 +146,16 @@ namespace Monopoly
         throw new InvalidOperationException("You have to sell all your houses before its possible to exchange with other players");
       if (owner.Name == buyer.Name)
         throw new ArgumentException("You can't Exchange with yourself");
+      if (field.Owner.Name != buyer.Name)
+        throw new ArgumentException("The Buyer has to own the " + field.Name);
+      if (owner.Name != this.Owner.Name)
+        throw new ArgumentException("The Player " + owner.Name + " does not own this field");
       owner.AddToOwnerShip(field);
       buyer.RemoveFromOwnerShip(field);
       owner.RemoveFromOwnerShip(this);
       buyer.AddToOwnerShip(this);
       this.Owner = buyer;
+      field.SetOwner(owner);
     }
-
-
   }
 }

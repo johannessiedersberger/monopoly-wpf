@@ -12,7 +12,8 @@ namespace Monopoly
     bool IsMortage { get; }
     Player Owner { get; }
     int MortageValue { get; }
-    
+
+    void SetOwner(Player player);
     void Buy(Player player);
     void TakeMortage(Player player);
     void PayOffMortage(Player player);
