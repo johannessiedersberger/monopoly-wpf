@@ -58,19 +58,23 @@ namespace Monopoly
       CurrentPlayer = _playerQueue.First();
     }
 
-    public void NextTurn()
+    public void NextPlayer()
     {
       Player player = _playerQueue.Dequeue();
-      
+
       CurrentPlayer = player;
 
+      _playerQueue.Enqueue(player);
+    }
+
+    public void GoForward(Player player)
+    {
       int[] dices = ThrowDice(player);
       SaveDiceThrow(player, dices);
 
       _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
 
       _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
-      _playerQueue.Enqueue(player);
     }
 
     public void CallOnEnterAndEnquePlayer(Player player)
@@ -194,7 +198,7 @@ namespace Monopoly
       return player.Money - neededAmount + GetSavings(player) < 0;
     }
 
-    private int GetSavings(Player player)
+    private static int GetSavings(Player player)
     {
       int savings = 0;
       foreach (IRentableField field in player.OwnerShip)
@@ -204,7 +208,7 @@ namespace Monopoly
           StreetField street = ((StreetField)field);
           savings += street.Level * street.Cost.House;
         }
-        if(field.IsMortage == false)
+        if (field.IsMortage == false)
           savings += field.MortageValue;
       }
       return savings;
@@ -215,7 +219,20 @@ namespace Monopoly
       _players.Remove(player);
       _playerPositions.Remove(player);
       _diceThrows.Remove(player);
+      _playerQueue = RemoveFromQueue(_playerQueue,player);
       CurrentPlayer.Remove();
+    }
+
+    private static Queue<Player> RemoveFromQueue(Queue<Player> playerQueue, Player player)
+    {
+      Queue<Player> newPlayerQueue = new Queue<Player>();
+      List<Player> players = playerQueue.ToList();
+      players.Remove(player);
+      foreach (var currentPlayer in players)
+      {
+        newPlayerQueue.Enqueue(currentPlayer);
+      }
+      return newPlayerQueue;
     }
   }
 }

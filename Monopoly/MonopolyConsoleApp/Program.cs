@@ -13,6 +13,7 @@ namespace MonopolyConsoleApp
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
+
       #region test
       StreetField field1 = ((StreetField)game.Fields[1]);
       StreetField field2 = ((StreetField)game.Fields[2]);
@@ -20,42 +21,43 @@ namespace MonopolyConsoleApp
       StreetField field4 = ((StreetField)game.Fields[4]);
 
       game.Players[0].GetMoney(20000);
-      game.Players[1].GetMoney(20000);
 
       field1.Buy(game.Players[0]);
       field2.Buy(game.Players[0]);
-      field3.Buy(game.Players[1]);
-      field4.Buy(game.Players[1]);
+      field3.Buy(game.Players[0]);
+      field4.Buy(game.Players[0]);
 
       field1.LevelUp(game.Players[0], 5);
       field2.LevelUp(game.Players[0], 5);
-      field3.LevelUp(game.Players[1], 5);
-      field4.LevelUp(game.Players[1], 5);
-     
-      #endregion
+      field3.LevelUp(game.Players[0], 5);
+      field4.LevelUp(game.Players[0], 5);
+
+      #endregion // TEST!
 
       bool isGameOver = false;
       while (!isGameOver)
       {
-        if(game.Players.Count() == 2)
-         game.Players[1].PayMoney(game.Players[1].Money);//TEST!
+        if (game.Players.Count() == 2)
+          game.Players[1].PayMoney(game.Players[1].Money);//TEST!
 
         try
         {
-          game.NextTurn();
-          //Console.Write("Throw Dice " + game.CurrentPlayer.Name + " (Enter)");
-          //Console.ReadLine();
+          game.NextPlayer();
+          DisplayGame(game);
+          Console.Write("Throw Dice " + game.CurrentPlayer.Name + " (Enter)");
+          Console.ReadLine();
+          game.GoForward(game.CurrentPlayer);
         }
-        catch(NotEnoughMoneyException ex)
+        catch (NotEnoughMoneyException ex)
         {
           int neededAmount = int.Parse(ex.Message);
-          
+    
           if (game.IsPlayerBankrupt(game.CurrentPlayer, neededAmount) == false)
           {
-            while (game.CurrentPlayer.Money - neededAmount < 0 )
+            while (game.CurrentPlayer.Money - neededAmount < 0)
             {
               DisplayGame(game);
-              Console.WriteLine("You have to sell something, because you need "  + (neededAmount-game.CurrentPlayer.Money)+"$" + ": house(h), groundMortage(g)");
+              Console.WriteLine("You have to sell something, because you need " + (neededAmount - game.CurrentPlayer.Money) + "$" + ": house(h), groundMortage(g)");
               string input = Console.ReadLine();
               if (input == "h")
                 SellHouse(game);
@@ -70,17 +72,17 @@ namespace MonopolyConsoleApp
             Console.WriteLine("YOU ARE BANKRUPT PLAYER " + game.CurrentPlayer.Name);
             Console.ReadLine();
             game.RemovePlayer(game.CurrentPlayer);
-          }         
+          }
         }
-        
+
         DisplayGame(game);
-        
+
         bool nextPlayer = false;
         while (!nextPlayer && game.CurrentPlayer.Removed == false) // Dont ask for Action if CurrentPlayer Has been Removed
         {
           DisplayGame(game);
-          
-          Console.WriteLine("You have thrown " + game.GetLastThrow(game.CurrentPlayer)[0]+ " " + game.GetLastThrow(game.CurrentPlayer)[1]);
+
+          Console.WriteLine("You have thrown " + game.GetLastThrow(game.CurrentPlayer)[0] + " " + game.GetLastThrow(game.CurrentPlayer)[1]);
           Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), continue(Enter):");
           string input = Console.ReadLine();
           try
@@ -96,12 +98,11 @@ namespace MonopolyConsoleApp
             if (input == "")
               nextPlayer = true;
           }
-          catch(Exception ex)
+          catch (Exception ex)
           {
             Console.WriteLine("Oops Something went wrong: " + ex.Message + " Press (Enter) to Continue");
             string s = Console.ReadLine();
           }
-          
         }
       }
     }
@@ -234,7 +235,7 @@ namespace MonopolyConsoleApp
         DisPlayOwnerShip(game, f);
         Console.WriteLine();
       }
-      if(game.CurrentPlayer.Removed == false) // If Player has been removed dont display him
+      if (game.CurrentPlayer.Removed == false) // If Player has been removed dont display him
         Console.WriteLine("CurrentPlayer: " + game.CurrentPlayer.Name);
     }
 

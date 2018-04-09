@@ -14,12 +14,12 @@ namespace Test
     public void TestNextTurn()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY")});
-      game.NextTurn();
+      game.NextPlayer();
       
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
-      game.NextTurn();
+      game.NextPlayer();
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[1]));
-      game.NextTurn();
+      game.NextPlayer();
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
     }
 
@@ -85,7 +85,7 @@ namespace Test
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       game.SetPlayerPos(game.Players[0],4);
-      game.NextTurn();
+      game.NextPlayer();
       Assert.That(game.Players[0].Money >= 1700, Is.EqualTo(true));
     }
 
@@ -220,7 +220,7 @@ namespace Test
     }
 
     [Test]
-    public void PlayerisBankrupt()
+    public void PlayerIsBankrupt()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       StreetField field1 = ((StreetField)game.Fields[1]);
@@ -241,8 +241,8 @@ namespace Test
       field3.LevelUp(game.Players[0], 5);
       field4.LevelUp(game.Players[0], 5);
 
-      game.NextTurn();
-      Assert.That(() => game.NextTurn(), Throws.Exception);
+      game.NextPlayer();
+      Assert.That(() => game.NextPlayer(), Throws.Exception);
     }
   }
 }
