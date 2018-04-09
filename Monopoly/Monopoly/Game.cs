@@ -77,10 +77,9 @@ namespace Monopoly
       _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
     }
 
-    public void CallOnEnterAndEnquePlayer(Player player)
+    public void CallOnEnter(Player player)
     {
       _fields[_playerPositions[player]].OnEnter(player);
-      _playerQueue.Enqueue(player);
     }
 
     private int[] ThrowDice(Player player)

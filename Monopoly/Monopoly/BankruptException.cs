@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  class BankruptException : Exception
+  public class BankruptException : Exception
   {
     public BankruptException()
     {

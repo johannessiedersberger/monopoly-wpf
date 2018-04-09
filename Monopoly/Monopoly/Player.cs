@@ -47,8 +47,15 @@ namespace Monopoly
 
     public void PayMoney(int amount)
     {
+      
       if (Money - amount < 0)
-        throw new NotEnoughMoneyException((amount).ToString());
+      {
+        if (_game.IsPlayerBankrupt(this, amount))
+          throw new BankruptException();
+        else
+          throw new NotEnoughMoneyException((amount).ToString());
+      }
+        
       Money -= amount;
     }
 

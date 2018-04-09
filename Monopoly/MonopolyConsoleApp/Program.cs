@@ -21,16 +21,16 @@ namespace MonopolyConsoleApp
       StreetField field4 = ((StreetField)game.Fields[4]);
 
       game.Players[0].GetMoney(20000);
-
+      game.Players[1].GetMoney(20000);
       field1.Buy(game.Players[0]);
       field2.Buy(game.Players[0]);
-      field3.Buy(game.Players[0]);
-      field4.Buy(game.Players[0]);
+      field3.Buy(game.Players[1]);
+      field4.Buy(game.Players[1]);
 
       field1.LevelUp(game.Players[0], 5);
       field2.LevelUp(game.Players[0], 5);
-      field3.LevelUp(game.Players[0], 5);
-      field4.LevelUp(game.Players[0], 5);
+      field3.LevelUp(game.Players[1], 5);
+      field4.LevelUp(game.Players[1], 5);
 
       #endregion // TEST!
 
@@ -48,12 +48,11 @@ namespace MonopolyConsoleApp
           Console.ReadLine();
           game.GoForward(game.CurrentPlayer);
         }
-        catch (NotEnoughMoneyException ex)
+        catch (Exception ex)
         {
-          int neededAmount = int.Parse(ex.Message);
-    
-          if (game.IsPlayerBankrupt(game.CurrentPlayer, neededAmount) == false)
+          if (ex.GetType() == typeof(NotEnoughMoneyException))
           {
+            int neededAmount = int.Parse(ex.Message);
             while (game.CurrentPlayer.Money - neededAmount < 0)
             {
               DisplayGame(game);
@@ -64,9 +63,10 @@ namespace MonopolyConsoleApp
               if (input == "g")
                 Mortage(game);
             }
-            game.CallOnEnterAndEnquePlayer(game.CurrentPlayer);
+            game.CallOnEnter(game.CurrentPlayer);
+
           }
-          else
+          else if (ex.GetType() == typeof(BankruptException))
           {
             DisplayGame(game);
             Console.WriteLine("YOU ARE BANKRUPT PLAYER " + game.CurrentPlayer.Name);
