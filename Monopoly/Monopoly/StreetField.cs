@@ -28,8 +28,6 @@ namespace Monopoly
       }
     }
 
-    
-
     public class Costs
     {
       public int Ground;
@@ -156,6 +154,16 @@ namespace Monopoly
       buyer.AddToOwnerShip(this);
       this.Owner = buyer;
       field.SetOwner(owner);
+    }
+
+    public void BuyInAuction(Player player, int auctionPrice)
+    {
+      if (Owner != null)
+        throw new InvalidOperationException("The Street is already owned by Player " + Owner.Name);
+
+      player.AddToOwnerShip(this);
+      player.PayMoney(auctionPrice);
+      SetOwner(player);
     }
   }
 }

@@ -15,15 +15,15 @@ namespace MonopolyConsoleApp
       DisplayGame(game);
 
       #region test
-      StreetField field1 = ((StreetField)game.Fields[1]);
-      StreetField field2 = ((StreetField)game.Fields[2]);
-      StreetField field3 = ((StreetField)game.Fields[3]);
-      StreetField field4 = ((StreetField)game.Fields[4]);
+      //StreetField field1 = ((StreetField)game.Fields[1]);
+      //StreetField field2 = ((StreetField)game.Fields[2]);
+      //StreetField field3 = ((StreetField)game.Fields[3]);
+      //StreetField field4 = ((StreetField)game.Fields[4]);
 
-      game.Players[0].GetMoney(20000);
-      game.Players[1].GetMoney(20000);
-      field1.Buy(game.Players[0]);
-      field2.Buy(game.Players[1]);
+      //game.Players[0].GetMoney(20000);
+      //game.Players[1].GetMoney(20000);
+      //field1.Buy(game.Players[0]);
+      //field2.Buy(game.Players[1]);
     
 
       #endregion // TEST!
@@ -31,7 +31,7 @@ namespace MonopolyConsoleApp
       bool isGameOver = false;
       while (!isGameOver)
       {
-        try
+        try // Get NextPlayer, Throw Dice, Go Forward
         {
           game.NextPlayer();
           DisplayGame(game);
@@ -39,9 +39,9 @@ namespace MonopolyConsoleApp
           Console.ReadLine();
           game.GoForward(game.CurrentPlayer);
         }
-        catch (Exception ex)
+        catch (Exception ex) // Player has not enough money
         {
-          if (ex.GetType() == typeof(NotEnoughMoneyException))
+          if (ex.GetType() == typeof(NotEnoughMoneyException)) // Player has to sell something
           {
             int neededAmount = int.Parse(ex.Message);
             while (game.CurrentPlayer.Money - neededAmount < 0)
@@ -57,7 +57,7 @@ namespace MonopolyConsoleApp
             game.CallOnEnter(game.CurrentPlayer);
 
           }
-          else if (ex.GetType() == typeof(BankruptException))
+          else if (ex.GetType() == typeof(BankruptException)) // Player is Bankrupt
           {
             DisplayGame(game);
             Console.WriteLine("YOU ARE BANKRUPT PLAYER " + game.CurrentPlayer.Name);
@@ -68,6 +68,7 @@ namespace MonopolyConsoleApp
 
         DisplayGame(game);
 
+        //Actions
         bool nextPlayer = false;
         while (!nextPlayer && game.CurrentPlayer.Removed == false) // Dont ask for Action if CurrentPlayer Has been Removed
         {
@@ -96,6 +97,39 @@ namespace MonopolyConsoleApp
             Console.WriteLine("Oops Something went wrong: " + ex.Message + " Press (Enter) to Continue");
             string s = Console.ReadLine();
           }
+        }
+
+        //Auction
+        IField currentField = game.Fields[game.PlayerPos[game.CurrentPlayer]];
+        if(currentField.GetType() == typeof(StreetField) && ((IRentableField)currentField).Owner == null)
+        {
+          game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
+          Auction(game);
+        }
+      }
+    }
+
+    private static void Auction(Game game)
+    {
+      Dictionary<Player, int> bids = new Dictionary<Player, int>();
+      foreach(IRentableField field in game.AuctionFields)
+      {
+        Console.Write("Is somebody interested in the " + field.Name + " j/n");
+        string interst = Console.ReadLine();
+        if(interst == "j")
+        {
+          foreach (var player in game.Players)
+          {
+            Console.Write("is " + player.Name + " interested in the " + field.Name + " ja(j) / Nein (n)");
+            string decision = Console.ReadLine();
+            if (decision == "j")
+            {
+              Console.Write("What do you want to pay for the " + field.Name + " Proeperty: ");
+              int bid = int.Parse(Console.ReadLine());
+              bids.Add(player, bid);
+            }
+          }
+          game.AuctionField(field, bids);
         }
       }
     }
@@ -199,8 +233,6 @@ namespace MonopolyConsoleApp
         int propNum = int.Parse(Console.ReadLine());
         game.CurrentPlayer.OwnerShip[propetyIndex].ExchangeField(game.CurrentPlayer, game.Players[playerNum], game.Players[playerNum].OwnerShip[propNum]);
       }
-       
-
     }
 
     private static void DisplayGame(Game game)

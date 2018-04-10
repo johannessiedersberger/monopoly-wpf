@@ -14,6 +14,7 @@ namespace Monopoly
     private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
     private Queue<Player> _playerQueue = new Queue<Player>();
     private IEnumerable<IField> _rentableFields;
+    
 
     public Player CurrentPlayer { get; private set; }
 
@@ -219,6 +220,7 @@ namespace Monopoly
       _playerPositions.Remove(player);
       _diceThrows.Remove(player);
       _playerQueue = RemoveFromQueue(_playerQueue,player);
+      StartAuction(player.OwnerShip.ToList());
       CurrentPlayer.Remove();
     }
 
@@ -232,6 +234,76 @@ namespace Monopoly
         newPlayerQueue.Enqueue(currentPlayer);
       }
       return newPlayerQueue;
+    }
+
+    private List<IRentableField> _auction = new List<IRentableField>();
+    public IReadOnlyList<IRentableField> AuctionFields
+    {
+      get { return _auction; }
+    }
+
+    public void StartAuction(List<IRentableField> rentableFields)
+    {
+      _auction = rentableFields;
+    }
+
+    public void FinishAuction()
+    {
+      _auction.Clear();
+    }
+
+    public void AuctionField(IRentableField rentableField, Dictionary<Player, int> bid)
+    {
+      if (SameBid(bid))
+        throw new ArgumentException("The Players have the same bid value");
+      if (_auction.Contains(rentableField) == false)
+        throw new ArgumentException("This field is not available for the auction");
+      rentableField.BuyInAuction(GetHighestbidPlayer(bid), GetHighestBidValue(bid));
+    }
+
+    private bool SameBid(Dictionary<Player, int> bid)
+    {
+      foreach(KeyValuePair<Player, int> currentPlayer in bid)
+      {
+        foreach(KeyValuePair<Player, int> allPlayer in bid)
+        {
+          if (currentPlayer.Key == allPlayer.Key)
+            continue;
+          if (currentPlayer.Value == allPlayer.Value)
+            return true;
+        }
+      }
+      return false;
+    }
+
+    private Player GetHighestbidPlayer(Dictionary<Player, int> bids)
+    {
+      int highestValue = 0;
+      Player highestbidPlayer = null;
+      foreach (KeyValuePair<Player, int> player in bids)
+      {
+        if (player.Value > highestValue)
+        {
+          highestValue = player.Value;
+          highestbidPlayer = player.Key;
+        }
+      }
+      return highestbidPlayer;
+    }
+
+    private int GetHighestBidValue(Dictionary<Player, int> bids)
+    {
+      int highestValue = 0;
+      Player highestbidPlayer = null;
+      foreach (KeyValuePair<Player, int> player in bids)
+      {
+        if (player.Value > highestValue)
+        {
+          highestValue = player.Value;
+          highestbidPlayer = player.Key;
+        }
+      }
+      return highestValue;
     }
   }
 }

@@ -155,7 +155,7 @@ namespace Test
     //  Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
     //  TrainstationField field5 = ((TrainstationField)game.Fields[5]);
     //  TrainstationField field6 = ((TrainstationField)game.Fields[6]);
-      
+
     //  field5.Buy(game.Players[0]);
     //  field6.Buy(game.Players[0]);
     //  Assert.That(() => field5.Buy(game.Players[0]), Throws.InvalidOperationException);
@@ -205,7 +205,7 @@ namespace Test
     //  Assert.That(() => field5.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
     //}
 
-    [Test]
+    //[Test]
     public void TestExChangeFieldMoney()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
