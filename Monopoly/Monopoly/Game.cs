@@ -220,8 +220,17 @@ namespace Monopoly
       _playerPositions.Remove(player);
       _diceThrows.Remove(player);
       _playerQueue = RemoveFromQueue(_playerQueue,player);
+      RemoveOwnerInFieldsOf(player);
       StartAuction(player.OwnerShip.ToList());
       CurrentPlayer.Remove();
+    }
+
+    private void RemoveOwnerInFieldsOf(Player player)
+    {
+      foreach(IRentableField field in player.OwnerShip)
+      {
+        field.SetOwner(null);
+      }
     }
 
     private static Queue<Player> RemoveFromQueue(Queue<Player> playerQueue, Player player)

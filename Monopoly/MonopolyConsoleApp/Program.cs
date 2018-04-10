@@ -15,22 +15,31 @@ namespace MonopolyConsoleApp
       DisplayGame(game);
 
       #region test
-      //StreetField field1 = ((StreetField)game.Fields[1]);
-      //StreetField field2 = ((StreetField)game.Fields[2]);
-      //StreetField field3 = ((StreetField)game.Fields[3]);
-      //StreetField field4 = ((StreetField)game.Fields[4]);
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      StreetField field3 = ((StreetField)game.Fields[3]);
+      StreetField field4 = ((StreetField)game.Fields[4]);
 
-      //game.Players[0].GetMoney(20000);
-      //game.Players[1].GetMoney(20000);
-      //field1.Buy(game.Players[0]);
-      //field2.Buy(game.Players[1]);
-    
+      field1.Buy(game.Players[1]);
+      field2.Buy(game.Players[1]);
+
+      game.Players[0].GetMoney(20000);
+
+      field3.Buy(game.Players[0]);
+      field4.Buy(game.Players[0]);
+
+      field3.LevelUp(game.Players[0], 5);
+      field4.LevelUp(game.Players[0], 5);
+
 
       #endregion // TEST!
 
       bool isGameOver = false;
       while (!isGameOver)
       {
+        if(game.Players.Count() == 2) // Test
+          game.Players[1].PayMoney(game.Players[1].Money);
+
         try // Get NextPlayer, Throw Dice, Go Forward
         {
           game.NextPlayer();
@@ -63,6 +72,7 @@ namespace MonopolyConsoleApp
             Console.WriteLine("YOU ARE BANKRUPT PLAYER " + game.CurrentPlayer.Name);
             Console.ReadLine();
             game.RemovePlayer(game.CurrentPlayer);
+            Auction(game);
           }
         }
 
@@ -98,13 +108,15 @@ namespace MonopolyConsoleApp
             string s = Console.ReadLine();
           }
         }
-
-        //Auction
-        IField currentField = game.Fields[game.PlayerPos[game.CurrentPlayer]];
-        if(currentField.GetType() == typeof(StreetField) && ((IRentableField)currentField).Owner == null)
+        if(game.CurrentPlayer.Removed == false)
         {
-          game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
-          Auction(game);
+          //Auction
+          IField currentField = game.Fields[game.PlayerPos[game.CurrentPlayer]];
+          if (currentField.GetType() == typeof(StreetField) && ((IRentableField)currentField).Owner == null)
+          {
+            game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
+            Auction(game);
+          }
         }
       }
     }
@@ -130,6 +142,7 @@ namespace MonopolyConsoleApp
             }
           }
           game.AuctionField(field, bids);
+          bids.Clear();
         }
       }
     }
