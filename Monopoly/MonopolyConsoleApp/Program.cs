@@ -14,26 +14,6 @@ namespace MonopolyConsoleApp
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
 
-      #region test
-      StreetField field1 = ((StreetField)game.Fields[1]);
-      StreetField field2 = ((StreetField)game.Fields[2]);
-      StreetField field3 = ((StreetField)game.Fields[3]);
-      StreetField field4 = ((StreetField)game.Fields[4]);
-
-      field1.Buy(game.Players[1]);
-      field2.Buy(game.Players[1]);
-
-      game.Players[0].GetMoney(20000);
-
-      field3.Buy(game.Players[0]);
-      field4.Buy(game.Players[0]);
-
-      field3.LevelUp(game.Players[0], 5);
-      field4.LevelUp(game.Players[0], 5);
-
-
-      #endregion // TEST!
-
       bool isGameOver = false;
       while (!isGameOver)
       {
@@ -73,6 +53,7 @@ namespace MonopolyConsoleApp
             Console.ReadLine();
             game.RemovePlayer(game.CurrentPlayer);
             Auction(game);
+            game.FinishAuction();
           }
         }
 
@@ -108,14 +89,15 @@ namespace MonopolyConsoleApp
             string s = Console.ReadLine();
           }
         }
-        if(game.CurrentPlayer.Removed == false)
-        {
-          //Auction
+        
+        if (game.CurrentPlayer.Removed == false) // Auction
+        { 
           IField currentField = game.Fields[game.PlayerPos[game.CurrentPlayer]];
           if (currentField.GetType() == typeof(StreetField) && ((IRentableField)currentField).Owner == null)
           {
             game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
             Auction(game);
+            game.FinishAuction();
           }
         }
       }
