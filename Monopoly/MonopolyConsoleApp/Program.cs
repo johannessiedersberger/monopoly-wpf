@@ -11,12 +11,39 @@ namespace MonopolyConsoleApp
   {
     static void Main(string[] args)
     {
-      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY"), new Player("ZZZ") });
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
+
+      #region test
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      StreetField field2 = ((StreetField)game.Fields[2]);
+      StreetField field3 = ((StreetField)game.Fields[3]);
+      StreetField field4 = ((StreetField)game.Fields[4]);
+      TrainstationField field5 = ((TrainstationField)game.Fields[5]);
+      TrainstationField field6 = ((TrainstationField)game.Fields[6]);
+      SupplierField field7 = ((SupplierField)game.Fields[7]);
+      SupplierField field8 = ((SupplierField)game.Fields[8]);
+
+
+      game.Players[0].GetMoney(20000);
+
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[0]);
+      field3.Buy(game.Players[0]);
+      field4.Buy(game.Players[0]);
+      field5.Buy(game.Players[0]);
+      field6.Buy(game.Players[0]);
+      field7.Buy(game.Players[0]);
+      field8.Buy(game.Players[0]);
+
+      #endregion
 
       bool isGameOver = false;
       while (!isGameOver)
       {
+
+
+
         try // Get NextPlayer, Throw Dice, Go Forward
         {
           game.NextPlayer();
@@ -24,6 +51,13 @@ namespace MonopolyConsoleApp
           Console.Write("Throw Dice " + game.CurrentPlayer.Name + " (Enter)");
           Console.ReadLine();
           game.GoForward(game.CurrentPlayer);
+
+          if (game.LastPayMent.Count() != 0)
+          {
+            Console.WriteLine("You have to pay" + game.LastPayMent[game.CurrentPlayer]);
+            Console.ReadLine();
+          }
+            
         }
         catch (Exception ex) // Player has not enough money
         {
@@ -98,7 +132,6 @@ namespace MonopolyConsoleApp
           }
         }
       }
-
       Console.WriteLine("The Winner Is " + game.Players[0].Name);
     }
 

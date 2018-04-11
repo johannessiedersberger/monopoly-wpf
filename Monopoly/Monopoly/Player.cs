@@ -55,7 +55,7 @@ namespace Monopoly
         else
           throw new NotEnoughMoneyException((amount).ToString());
       }
-        
+      _game.SetLastPayMent(this,amount);
       Money -= amount;
     }
 

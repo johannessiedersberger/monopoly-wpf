@@ -12,6 +12,7 @@ namespace Monopoly
     private List<Player> _players;
     private Dictionary<Player, int> _playerPositions = new Dictionary<Player, int>();
     private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
+    private Dictionary<Player, int> _lastPayMent = new Dictionary<Player, int>();
     private Queue<Player> _playerQueue = new Queue<Player>();
     private IEnumerable<IField> _rentableFields;
     
@@ -43,6 +44,10 @@ namespace Monopoly
       return Array.AsReadOnly(_diceThrows[player][_diceThrows[player].Count() - 1]);
     }
 
+    public IReadOnlyDictionary<Player,int> LastPayMent
+    {
+      get { return _lastPayMent; }
+    }
     public Game(Player[] players)
     {
       _players = players.ToList();
@@ -66,6 +71,7 @@ namespace Monopoly
       CurrentPlayer = player;
 
       _playerQueue.Enqueue(player);
+      _lastPayMent.Clear();
     }
 
     public void GoForward(Player player)
@@ -191,6 +197,14 @@ namespace Monopoly
     public void SetLastThrow(Player player, List<int[]> throwed)
     {
       _diceThrows[player] = throwed;
+    }
+
+    public void SetLastPayMent(Player player, int amount)
+    {
+      if (LastPayMent.ContainsKey(player) == false)
+        _lastPayMent.Add(player, amount);
+      else
+        _lastPayMent[player] = amount;
     }
 
     public bool IsPlayerBankrupt(Player player, int neededAmount)
