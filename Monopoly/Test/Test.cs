@@ -28,7 +28,7 @@ namespace Test
     public void TestCrossedStartField()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      game.SetPlayerPos(game.Players[0], 4);
+      game.SetPlayerPos(game.Players[0], game.Fields.Count()-1);
       game.NextPlayer();
       game.GoForward(game.CurrentPlayer);
       Assert.That(game.Players[0].Money >= 1700, Is.EqualTo(true));
@@ -98,7 +98,30 @@ namespace Test
     }
 
 
-    
+
+    #endregion
+
+    #region Player
+    [Test]
+    public void TestSetPlayerPosition()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      game.SetPlayerPos(game.Players[0], 1);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(1));
+    }
+
+    [Test]
+    public void TestRemovePlayer()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      StreetField field1 = ((StreetField)game.Fields[1]);
+      field1.Buy(game.Players[0]);
+      game.RemovePlayer(game.Players[0]);
+      Assert.That(game.Players.Count(), Is.EqualTo(1));
+      Assert.That(game.PlayerPos.Count(), Is.EqualTo(1));
+      Assert.That(game.CurrentPlayer.Removed, Is.EqualTo(true));
+      Assert.That(game.AuctionFields[0].Name, Is.EqualTo(FieldNames.OldKentRoad));
+    }
     #endregion
 
     #region StreetField
@@ -284,7 +307,6 @@ namespace Test
 
     }
 
-
     [Test]
     public void TestTakeMortageTrainStation()
     {
@@ -323,7 +345,6 @@ namespace Test
       field6.Buy(game.Players[0]);
       Assert.That(() => field5.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
     }
-
 
     [Test]
     public void TestExChangeTrainStationFieldMoney()
@@ -364,28 +385,103 @@ namespace Test
     }
     #endregion
 
-    #region Player
+    #region SupplierField
+
     [Test]
-    public void TestSetPlayerPosition()
+    public void TestBuyAndRentSupplierField()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      game.SetPlayerPos(game.Players[0], 1);
-      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(1));
+      SupplierField field7 = (SupplierField)game.Fields[7];
+      SupplierField field8 = (SupplierField)game.Fields[8];
+
+      field7.Buy(game.Players[0]);
+      field8.Buy(game.Players[0]);
+
+      game.SetLastThrow(game.Players[1], new List<int[]>
+      {
+        new int[]{6,6 },
+      });
+      field7.OnEnter(game.Players[1]);
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - (120)));
     }
 
     [Test]
-    public void TestRemovePlayer()
+    public void TestTakeMortageSupplierField()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      SupplierField field7 = (SupplierField)game.Fields[7];
+      SupplierField field8 = (SupplierField)game.Fields[8];
+     
+      field7.Buy(game.Players[0]);
+
+      field7.TakeMortage(game.Players[0]);
+      Assert.That(field7.IsMortage, Is.EqualTo(true));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 150 + 75));
+
+      game.SetPlayerPos(game.Players[1], 1);
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500));
+
+      Assert.That(() => field8.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
+      Assert.That(() => field7.TakeMortage(game.Players[0]), Throws.InvalidOperationException);
+      Assert.That(() => field7.TakeMortage(game.Players[1]), Throws.InvalidOperationException);
+    }
+
+    [Test]
+    public void TestPayOffMortageSupplierField()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      SupplierField field7 = (SupplierField)game.Fields[7];
+      SupplierField field8 = (SupplierField)game.Fields[8];
+
+      field7.Buy(game.Players[0]);
+      field7.TakeMortage(game.Players[0]);
+      Assert.That(field7.IsMortage, Is.EqualTo(true));
+      field7.PayOffMortage(game.Players[0]);
+      Assert.That(field7.IsMortage, Is.EqualTo(false));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 150 + 75- 82));
+      Assert.That(() => field7.PayOffMortage(game.Players[1]), Throws.InvalidOperationException);
+      field8.Buy(game.Players[0]);
+      Assert.That(() => field8.PayOffMortage(game.Players[0]), Throws.InvalidOperationException);
+    }
+
+    [Test]
+    public void TestBuySupplierFieldInAuction()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      SupplierField field7 = ((SupplierField)game.Fields[7]);
+      field7.BuyInAuction(game.Players[0], 20);
+      Assert.That(game.Players[0].OwnerShip[0].Name, Is.EqualTo(FieldNames.WaterWorks));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 20));
+    }
+
+    [Test]
+    public void TestExChangeSupplierFieldwithField()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       StreetField field1 = ((StreetField)game.Fields[1]);
+      SupplierField field7 = ((SupplierField)game.Fields[7]);
       field1.Buy(game.Players[0]);
-      game.RemovePlayer(game.Players[0]);
-      Assert.That(game.Players.Count(), Is.EqualTo(1));
-      Assert.That(game.PlayerPos.Count(), Is.EqualTo(1));
-      Assert.That(game.CurrentPlayer.Removed, Is.EqualTo(true));
-      Assert.That(game.AuctionFields[0].Name, Is.EqualTo(FieldNames.OldKentRoad));
+      field7.Buy(game.Players[1]);
+      field7.ExchangeField(field7.Owner, game.Players[0], field1);
+      Assert.That(field1.Owner.Name, Is.EqualTo(game.Players[1].Name));
+      Assert.That(field7.Owner.Name, Is.EqualTo(game.Players[0].Name));
+    }
+
+    [Test]
+    public void TestexChangeSupplierFieldMoney()
+    {
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      SupplierField field7 = ((SupplierField)game.Fields[7]);
+      field7.Buy(game.Players[0]);
+      field7.ExchangeField(game.Players[0], game.Players[1], 60);
+      Assert.That(game.Players[0].OwnerShip.Count(), Is.EqualTo(0));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 150 + 60));
+
+      Assert.That(game.Players[1].OwnerShip[0].Name, Is.EqualTo(FieldNames.WaterWorks));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1440));
+      Assert.That(field7.Owner.Name, Is.EqualTo(game.Players[1].Name));
     }
     #endregion
-   
+
   }
 }

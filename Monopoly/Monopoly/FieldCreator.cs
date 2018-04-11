@@ -83,7 +83,9 @@ namespace Monopoly
         CreateParkLane(game),
         CreateMayfair(game),
         CreateKingsCrossStation(game),
-        CreateMaryLeboneStation(game)
+        CreateMaryLeboneStation(game),
+        CreateWaterWorks(game),
+        CreateEnergyCompany(game),
       };
     }
 
@@ -153,6 +155,24 @@ namespace Monopoly
         Ground = 200,
         Rent = new int[] { 25, 50, 100, 200 },
         Mortage = 100
+      });
+    }
+
+    private static SupplierField CreateWaterWorks(Game game)
+    {
+      return new SupplierField(FieldNames.WaterWorks, Groups.Supplier, game, new SupplierField.Costs()
+      {
+        Mortage = 75,
+        Ground = 150,
+      });
+    }
+
+    private static SupplierField CreateEnergyCompany(Game game)
+    {
+      return new SupplierField(FieldNames.EnergyCompany, Groups.Supplier, game, new SupplierField.Costs()
+      {
+        Mortage = 75,
+        Ground = 150
       });
     }
 

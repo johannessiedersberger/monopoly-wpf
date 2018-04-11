@@ -244,6 +244,8 @@ namespace MonopolyConsoleApp
           DisplayStreetFieldData(game, f);
         else if (game.Fields[f].GetType() == typeof(TrainstationField))
           DisplayTrainStationFieldData(game, f);
+        else if (game.Fields[f].GetType() == typeof(SupplierField))
+          DisplaySupplierFieldData(game, f);
         else
           DisplayNormalFieldData(game, f);
         DisplayPlayersOnField(game, f);
@@ -262,6 +264,14 @@ namespace MonopolyConsoleApp
     {
       TrainstationField streetField = (TrainstationField)game.Fields[pos];
       Console.Write(streetField.Name + ", Mortage: " + streetField.IsMortage + ", RentToPay: " + streetField.RentToPay);
+      if (streetField.Owner != null)
+        Console.Write(", Owner: " + streetField.Owner.Name);
+    }
+
+    private static void DisplaySupplierFieldData(Game game, int pos)
+    {
+      SupplierField streetField = (SupplierField)game.Fields[pos];
+      Console.Write(streetField.Name + ", Mortage: " + streetField.IsMortage);
       if (streetField.Owner != null)
         Console.Write(", Owner: " + streetField.Owner.Name);
     }
