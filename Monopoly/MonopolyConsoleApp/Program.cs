@@ -11,15 +11,12 @@ namespace MonopolyConsoleApp
   {
     static void Main(string[] args)
     {
-      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
+      Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY"), new Player("ZZZ") });
       DisplayGame(game);
 
       bool isGameOver = false;
       while (!isGameOver)
       {
-        if(game.Players.Count() == 2) // Test
-          game.Players[1].PayMoney(game.Players[1].Money);
-
         try // Get NextPlayer, Throw Dice, Go Forward
         {
           game.NextPlayer();
@@ -44,7 +41,6 @@ namespace MonopolyConsoleApp
                 Mortage(game);
             }
             game.CallOnEnter(game.CurrentPlayer);
-
           }
           else if (ex.GetType() == typeof(BankruptException)) // Player is Bankrupt
           {
@@ -54,6 +50,7 @@ namespace MonopolyConsoleApp
             game.RemovePlayer(game.CurrentPlayer);
             Auction(game);
             game.FinishAuction();
+            isGameOver = game.IsGameOver();
           }
         }
 
@@ -101,6 +98,8 @@ namespace MonopolyConsoleApp
           }
         }
       }
+
+      Console.WriteLine("The Winner Is " + game.Players[0].Name);
     }
 
     private static void Auction(Game game)
@@ -148,7 +147,6 @@ namespace MonopolyConsoleApp
       int level = int.Parse(Console.ReadLine());
       streetToUpdate.LevelUp(game.CurrentPlayer, level);
     }
-
 
     private static void Mortage(Game game)
     {

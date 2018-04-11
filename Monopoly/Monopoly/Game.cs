@@ -314,6 +314,14 @@ namespace Monopoly
       }
       return highestValue;
     }
+
+    public bool IsGameOver()
+    {
+      if (Players.Count() == 1)
+        return true;
+      else
+        return false;
+    }
   }
 }
 
