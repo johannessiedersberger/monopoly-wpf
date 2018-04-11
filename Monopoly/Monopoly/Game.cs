@@ -123,25 +123,25 @@ namespace Monopoly
       CurrentPlayer.GetMoney(200);
     }
 
-    public int CheckForDoublets(Player player)
-    {
-      int doublets = 0;
-      bool lastCheck = false;
-      for (int i = _diceThrows[player].Count() - 1; i >= 0; i--)
-      {
-        if (_diceThrows[player][i][0] == _diceThrows[player][i][1])
-        {
-          if (lastCheck)
-            doublets++;
-          lastCheck = true;
-        }
-        else
-        {
-          lastCheck = false;
-        }
-      }
-      return doublets;
-    }
+    //public int CheckForDoublets(Player player)
+    //{
+    //  int doublets = 0;
+    //  bool lastCheck = false;
+    //  for (int i = _diceThrows[player].Count() - 1; i >= 0; i--)
+    //  {
+    //    if (_diceThrows[player][i][0] == _diceThrows[player][i][1])
+    //    {
+    //      if (lastCheck)
+    //        doublets++;
+    //      lastCheck = true;
+    //    }
+    //    else
+    //    {
+    //      lastCheck = false;
+    //    }
+    //  }
+    //  return doublets;
+    //}
 
     public void BuyCurrentStreet(Player player)
     {
