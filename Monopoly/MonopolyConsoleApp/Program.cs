@@ -13,48 +13,23 @@ namespace MonopolyConsoleApp
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       DisplayGame(game);
-
-      #region test
-      StreetField field1 = ((StreetField)game.Fields[1]);
-      StreetField field2 = ((StreetField)game.Fields[2]);
-      StreetField field3 = ((StreetField)game.Fields[3]);
-      StreetField field4 = ((StreetField)game.Fields[4]);
-      TrainstationField field5 = ((TrainstationField)game.Fields[5]);
-      TrainstationField field6 = ((TrainstationField)game.Fields[6]);
-      SupplierField field7 = ((SupplierField)game.Fields[7]);
-      SupplierField field8 = ((SupplierField)game.Fields[8]);
-
-
-      game.Players[0].GetMoney(20000);
-
-      field1.Buy(game.Players[0]);
-      field2.Buy(game.Players[0]);
-      field3.Buy(game.Players[0]);
-      field4.Buy(game.Players[0]);
-      field5.Buy(game.Players[0]);
-      field6.Buy(game.Players[0]);
-      field7.Buy(game.Players[0]);
-      field8.Buy(game.Players[0]);
-
-      #endregion
-
+      game.Fields[9].OnEnter(game.Players[0]);
       bool isGameOver = false;
       while (!isGameOver)
       {
-
-
-
         try // Get NextPlayer, Throw Dice, Go Forward
         {
           game.NextPlayer();
           DisplayGame(game);
+          if (game.CurrentPlayer.InPrison)
+            Console.WriteLine("You are in Prison");
           Console.Write("Throw Dice " + game.CurrentPlayer.Name + " (Enter)");
           Console.ReadLine();
           game.GoForward(game.CurrentPlayer);
 
           if (game.LastPayMent.Count() != 0)
           {
-            Console.WriteLine("You have to pay" + game.LastPayMent[game.CurrentPlayer]);
+            Console.WriteLine("You have to pay: " + game.LastPayMent[game.CurrentPlayer] + "$");
             Console.ReadLine();
           }
             
@@ -97,7 +72,7 @@ namespace MonopolyConsoleApp
           DisplayGame(game);
 
           Console.WriteLine("You have thrown " + game.GetLastThrow(game.CurrentPlayer)[0] + " " + game.GetLastThrow(game.CurrentPlayer)[1]);
-          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), exchangeField(e) continue(Enter):");
+          Console.Write("Action: Buy(b), LevelUp(l), Mortage(m), SellHosue(s), exchangeField(e), LeavePrison(f) continue(Enter):");
           string input = Console.ReadLine();
           try
           {
@@ -111,6 +86,8 @@ namespace MonopolyConsoleApp
               SellHouse(game);
             if (input == "e")
               ExchangeField(game);
+            if (input == "f")
+              LeavePrison(game);
             if (input == "")
               nextPlayer = true;
           }
@@ -259,6 +236,12 @@ namespace MonopolyConsoleApp
         int propNum = int.Parse(Console.ReadLine());
         game.CurrentPlayer.OwnerShip[propetyIndex].ExchangeField(game.CurrentPlayer, game.Players[playerNum], game.Players[playerNum].OwnerShip[propNum]);
       }
+    }
+
+    private static void LeavePrison(Game game)
+    {
+      game.PayFineImmediately(game.CurrentPlayer);
+      game.GoForward(game.CurrentPlayer);
     }
 
     private static void DisplayGame(Game game)

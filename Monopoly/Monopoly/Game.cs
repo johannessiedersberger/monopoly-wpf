@@ -133,13 +133,15 @@ namespace Monopoly
     }
     
     public void PayFineImmediately(Player player)
-    {
-      player.PayMoney(50);
+    {     
       RemovePlayerFromPrison(player);
+      player.PayMoney(50);
     }
 
     public void RemovePlayerFromPrison(Player player)
     {
+      if (player.InPrison == false)
+        throw new InvalidOperationException("The player is not in Jail and has not to be removed");
       player.InPrison = false;
       _triesToEscapeFromPrison[player] = 0;
     }
