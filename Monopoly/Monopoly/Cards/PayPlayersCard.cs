@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Monopoly.Cards
 {
-  public class GetMoneyFromPlayersCard : ICard
+  public class PayPlayersCard : ICard
   {
     public string Description { get; }
     private int _money;
-    private Game _game;
-    public GetMoneyFromPlayersCard(string description, int money, Game game)
+    private Game _game; 
+
+    public PayPlayersCard(string description, int money, Game game)
     {
       Description = description;
       _money = money;
@@ -20,12 +21,14 @@ namespace Monopoly.Cards
 
     public void UseCard(Player player)
     {
-      foreach(Player otherPlayer in _game.Players)
+      foreach(Player otherPlayers in _game.Players)
       {
-        if (otherPlayer.Name != player.Name)
-          otherPlayer.PayMoney(_money);
+        if(otherPlayers.Name != player.Name)
+        {
+          otherPlayers.GetMoney(_money);
+        }
       }
-      player.GetMoney((_game.Players.Count() - 1) * _money);
+      player.PayMoney((_game.Players.Count() - 1) * _money);
     }
   }
 }
