@@ -84,6 +84,16 @@ namespace Monopoly
       _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
     }
 
+    public void GoForward(Player player, int[] diceThrow)
+    {
+      int[] dices = ThrowDice(player);
+      SaveDiceThrow(player, dices);
+
+      _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
+
+      _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
+    }
+
     public void CallOnEnter(Player player)
     {
       _fields[_playerPositions[player]].OnEnter(player);
@@ -129,25 +139,25 @@ namespace Monopoly
       CurrentPlayer.GetMoney(200);
     }
 
-    //public int CheckForDoublets(Player player)
-    //{
-    //  int doublets = 0;
-    //  bool lastCheck = false;
-    //  for (int i = _diceThrows[player].Count() - 1; i >= 0; i--)
-    //  {
-    //    if (_diceThrows[player][i][0] == _diceThrows[player][i][1])
-    //    {
-    //      if (lastCheck)
-    //        doublets++;
-    //      lastCheck = true;
-    //    }
-    //    else
-    //    {
-    //      lastCheck = false;
-    //    }
-    //  }
-    //  return doublets;
-    //}
+    public int CheckForDoublets(Player player)
+    {
+      int doublets = 0;
+      bool lastCheck = false;
+      for (int i = _diceThrows[player].Count() - 1; i >= 0; i--)
+      {
+        if (_diceThrows[player][i][0] == _diceThrows[player][i][1])
+        {
+          if (lastCheck)
+            doublets++;
+          lastCheck = true;
+        }
+        else
+        {
+          lastCheck = false;
+        }
+      }
+      return doublets;
+    }
 
     public void BuyCurrentStreet(Player player)
     {
@@ -335,6 +345,12 @@ namespace Monopoly
         return true;
       else
         return false;
+    }
+
+
+    public void PayFineImmediately(Player player)
+    {
+
     }
   }
 }

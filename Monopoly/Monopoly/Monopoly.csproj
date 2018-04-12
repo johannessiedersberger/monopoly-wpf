@@ -43,8 +43,10 @@
     <Compile Include="BankruptException.cs" />
     <Compile Include="FieldCreator.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GoToJailField.cs" />
     <Compile Include="IField.cs" />
     <Compile Include="IRentableField.cs" />
+    <Compile Include="JailField.cs" />
     <Compile Include="NotEnoughMoneyException.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

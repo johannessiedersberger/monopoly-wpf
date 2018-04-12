@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-  class StartField : IField
+  public class JailField : IField
   {
+    public string Name { get; private set; }
     public Groups Group { get; private set; }
-    public string Name { get; }
-    Game _game;
+    private Game _game;
 
-    public StartField(string name, Game game)
+    public JailField(string name, Game game)
     {
-      Name = name;
       _game = game;
+      Name = name;
     }
-
-   
-
     public void OnEnter(Player player)
     {
     }

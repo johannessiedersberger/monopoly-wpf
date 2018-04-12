@@ -86,6 +86,8 @@ namespace Monopoly
         CreateMaryLeboneStation(game),
         CreateWaterWorks(game),
         CreateEnergyCompany(game),
+        CreateGoToJailField(game),//9
+        CreateJailField(game),//10
       };
     }
 
@@ -176,5 +178,14 @@ namespace Monopoly
       });
     }
 
+    private static GoToJailField CreateGoToJailField(Game game)
+    {
+      return new GoToJailField(FieldNames.GoToJail, game);
+    }
+
+    private static JailField CreateJailField(Game game)
+    {
+      return new JailField(FieldNames.Jail, game);
+    }
   }
 }

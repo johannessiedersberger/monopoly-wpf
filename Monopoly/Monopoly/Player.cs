@@ -11,8 +11,10 @@ namespace Monopoly
     public int Money { get; private set; }
     public string Name { get; private set; }
     public bool Removed { get; private set; }
+    public bool InPrison { get; }
     private List<IRentableField> _ownerShip = new List<IRentableField>();
     private Game _game;
+
     public IReadOnlyList<IRentableField> OwnerShip
     {
       get { return _ownerShip; }
@@ -46,8 +48,7 @@ namespace Monopoly
     }
 
     public void PayMoney(int amount)
-    {
-      
+    {     
       if (Money - amount < 0)
       {
         if (_game.IsPlayerBankrupt(this, amount))
@@ -68,6 +69,8 @@ namespace Monopoly
     {
       Removed = true;
     }
+
+    
 
   }
 }
