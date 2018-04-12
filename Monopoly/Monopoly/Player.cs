@@ -11,7 +11,7 @@ namespace Monopoly
     public int Money { get; private set; }
     public string Name { get; private set; }
     public bool Removed { get; private set; }
-    public bool InPrison { get; }
+    public bool InPrison { get; set; }
     private List<IRentableField> _ownerShip = new List<IRentableField>();
     private Game _game;
 

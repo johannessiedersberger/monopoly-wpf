@@ -506,21 +506,23 @@ namespace Test
       Assert.That(game.Players[0].InPrison, Is.EqualTo(false));
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(1));
     }
+
     [Test]
     public void TestPlayerTried3Times()
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
    
-      game.Fields[9].OnEnter(game.Players[1]);
-      Assert.That(game.Players[1].InPrison, Is.EqualTo(true));
+      game.Fields[9].OnEnter(game.Players[0]);
+      Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
 
       game.GoForward(game.CurrentPlayer, new int[] { 1, 2 });
       game.GoForward(game.CurrentPlayer, new int[] { 1, 2 });
       game.GoForward(game.CurrentPlayer, new int[] { 1, 2 });
-      Assert.That(game.Players[1].InPrison, Is.EqualTo(false));
-      Assert.That(game.PlayerPos[game.Players[1]], Is.EqualTo(2));
-      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 50));
+      Assert.That(game.Players[0].InPrison, Is.EqualTo(false));
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 +200- 50));
     }
+
     [Test]
     public void PlayerPayFineImmediately()
     {
@@ -528,11 +530,9 @@ namespace Test
       game.Fields[9].OnEnter(game.Players[0]);
       game.PayFineImmediately(game.Players[0]);
       game.GoForward(game.Players[0], new int[] { 1, 2 });
-      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 50));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 +200- 50));
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
     }
-
-
     #endregion
   }
 }

@@ -1,48 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" name="Test.exe" fullname="C:/Users/jsiedersberger/Documents/GitHub/Monopoly2.0/Monopoly/Test/bin/Debug/Test.exe" testcasecount="29" result="Passed" start-time="2018-04-11 11:13:16Z" end-time="2018-04-11 11:13:17Z" duration="0.795179" total="29" passed="29" failed="0" inconclusive="0" skipped="0" asserts="95" random-seed="1672380308">
+<test-run id="2" name="Test.exe" fullname="C:/Users/jsiedersberger/Documents/GitHub/Monopoly2.0/Monopoly/Test/bin/Debug/Test.exe" testcasecount="33" result="Failed" start-time="2018-04-12 07:53:12Z" end-time="2018-04-12 07:53:14Z" duration="1.780282" total="33" passed="30" failed="3" inconclusive="0" skipped="0" asserts="103" random-seed="1376248068">
   <command-line><![CDATA["C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Test.exe"]]></command-line>
   <filter />
-  <test-suite type="Assembly" id="1030" name="Test.exe" fullname="C:/Users/jsiedersberger/Documents/GitHub/Monopoly2.0/Monopoly/Test/bin/Debug/Test.exe" runstate="Runnable" testcasecount="29" result="Passed" start-time="2018-04-11 11:13:16Z" end-time="2018-04-11 11:13:17Z" duration="0.795179" total="29" passed="29" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="95">
+  <test-suite type="Assembly" id="1034" name="Test.exe" fullname="C:/Users/jsiedersberger/Documents/GitHub/Monopoly2.0/Monopoly/Test/bin/Debug/Test.exe" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2018-04-12 07:53:12Z" end-time="2018-04-12 07:53:14Z" duration="1.780282" total="33" passed="30" failed="3" warnings="0" inconclusive="0" skipped="0" asserts="103">
     <environment framework-version="3.7.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test" machine-name="W-SIEDERSB-10" user="jsiedersberger" user-domain="DE" culture="de-DE" uiculture="de-DE" os-architecture="x86" />
     <settings>
       <setting name="WorkDirectory" value="C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test" />
       <setting name="NumberOfTestWorkers" value="2" />
     </settings>
     <properties>
-      <property name="_PID" value="13360" />
+      <property name="_PID" value="1568" />
       <property name="_APPDOMAIN" value="Test.exe" />
     </properties>
-    <test-suite type="TestSuite" id="1031" name="Test" fullname="Test" runstate="Runnable" testcasecount="29" result="Passed" start-time="2018-04-11 11:13:16Z" end-time="2018-04-11 11:13:17Z" duration="0.773658" total="29" passed="29" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="95">
-      <test-suite type="TestFixture" id="1000" name="Test" fullname="Test.Test" classname="Test.Test" runstate="Runnable" testcasecount="29" result="Passed" start-time="2018-04-11 11:13:16Z" end-time="2018-04-11 11:13:17Z" duration="0.768571" total="29" passed="29" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="95">
-        <test-case id="1005" name="PlayerDoesNotHaveEnoughMoney" fullname="Test.Test.PlayerDoesNotHaveEnoughMoney" methodname="PlayerDoesNotHaveEnoughMoney" classname="Test.Test" runstate="Runnable" seed="1783152706" result="Passed" start-time="2018-04-11 11:13:16Z" end-time="2018-04-11 11:13:17Z" duration="0.516896" asserts="1" />
-        <test-case id="1003" name="PlayerIsBankrupt" fullname="Test.Test.PlayerIsBankrupt" methodname="PlayerIsBankrupt" classname="Test.Test" runstate="Runnable" seed="1026259447" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.004936" asserts="1" />
-        <test-case id="1017" name="TestAuctionField" fullname="Test.Test.TestAuctionField" methodname="TestAuctionField" classname="Test.Test" runstate="Runnable" seed="564721229" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.013785" asserts="2" />
-        <test-case id="1024" name="TestBuyAndRentSupplierField" fullname="Test.Test.TestBuyAndRentSupplierField" methodname="TestBuyAndRentSupplierField" classname="Test.Test" runstate="Runnable" seed="1880247756" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.008817" asserts="1" />
-        <test-case id="1008" name="TestBuyCurrentField" fullname="Test.Test.TestBuyCurrentField" methodname="TestBuyCurrentField" classname="Test.Test" runstate="Runnable" seed="1944865372" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002775" asserts="3" />
-        <test-case id="1016" name="TestBuyInAuction" fullname="Test.Test.TestBuyInAuction" methodname="TestBuyInAuction" classname="Test.Test" runstate="Runnable" seed="1897734177" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.000881" asserts="2" />
-        <test-case id="1027" name="TestBuySupplierFieldInAuction" fullname="Test.Test.TestBuySupplierFieldInAuction" methodname="TestBuySupplierFieldInAuction" classname="Test.Test" runstate="Runnable" seed="292854332" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002916" asserts="2" />
-        <test-case id="1002" name="TestCrossedStartField" fullname="Test.Test.TestCrossedStartField" methodname="TestCrossedStartField" classname="Test.Test" runstate="Runnable" seed="263980949" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.056720" asserts="1" />
-        <test-case id="1014" name="TestExChangeFieldMoney" fullname="Test.Test.TestExChangeFieldMoney" methodname="TestExChangeFieldMoney" classname="Test.Test" runstate="Runnable" seed="2079672541" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002514" asserts="5" />
-        <test-case id="1015" name="TestExChangeFieldwithField" fullname="Test.Test.TestExChangeFieldwithField" methodname="TestExChangeFieldwithField" classname="Test.Test" runstate="Runnable" seed="1695037534" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001788" asserts="2" />
-        <test-case id="1029" name="TestexChangeSupplierFieldMoney" fullname="Test.Test.TestexChangeSupplierFieldMoney" methodname="TestexChangeSupplierFieldMoney" classname="Test.Test" runstate="Runnable" seed="1733955175" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001641" asserts="5" />
-        <test-case id="1028" name="TestExChangeSupplierFieldwithField" fullname="Test.Test.TestExChangeSupplierFieldwithField" methodname="TestExChangeSupplierFieldwithField" classname="Test.Test" runstate="Runnable" seed="26969837" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001564" asserts="2" />
-        <test-case id="1021" name="TestExChangeTrainStationFieldMoney" fullname="Test.Test.TestExChangeTrainStationFieldMoney" methodname="TestExChangeTrainStationFieldMoney" classname="Test.Test" runstate="Runnable" seed="935271624" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.004224" asserts="5" />
-        <test-case id="1022" name="TestExChangeTrainStationFieldwithField" fullname="Test.Test.TestExChangeTrainStationFieldwithField" methodname="TestExChangeTrainStationFieldwithField" classname="Test.Test" runstate="Runnable" seed="1596350697" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001779" asserts="2" />
-        <test-case id="1004" name="TestGameOver" fullname="Test.Test.TestGameOver" methodname="TestGameOver" classname="Test.Test" runstate="Runnable" seed="749911967" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.005856" asserts="2" />
-        <test-case id="1001" name="TestNextTurn" fullname="Test.Test.TestNextTurn" methodname="TestNextTurn" classname="Test.Test" runstate="Runnable" seed="819434965" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.000745" asserts="3" />
-        <test-case id="1013" name="TestPayOffMortage" fullname="Test.Test.TestPayOffMortage" methodname="TestPayOffMortage" classname="Test.Test" runstate="Runnable" seed="1802757833" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002805" asserts="5" />
-        <test-case id="1026" name="TestPayOffMortageSupplierField" fullname="Test.Test.TestPayOffMortageSupplierField" methodname="TestPayOffMortageSupplierField" classname="Test.Test" runstate="Runnable" seed="1991426491" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002698" asserts="5" />
-        <test-case id="1020" name="TestPayOffMortageTrainStation" fullname="Test.Test.TestPayOffMortageTrainStation" methodname="TestPayOffMortageTrainStation" classname="Test.Test" runstate="Runnable" seed="462015994" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.003248" asserts="5" />
-        <test-case id="1011" name="TestPayRent" fullname="Test.Test.TestPayRent" methodname="TestPayRent" classname="Test.Test" runstate="Runnable" seed="1741704679" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001087" asserts="2" />
-        <test-case id="1007" name="TestRemovePlayer" fullname="Test.Test.TestRemovePlayer" methodname="TestRemovePlayer" classname="Test.Test" runstate="Runnable" seed="321482947" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001563" asserts="4" />
-        <test-case id="1010" name="TestSellHouse" fullname="Test.Test.TestSellHouse" methodname="TestSellHouse" classname="Test.Test" runstate="Runnable" seed="1656576180" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002172" asserts="4" />
-        <test-case id="1006" name="TestSetPlayerPosition" fullname="Test.Test.TestSetPlayerPosition" methodname="TestSetPlayerPosition" classname="Test.Test" runstate="Runnable" seed="1885038535" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.000616" asserts="1" />
-        <test-case id="1012" name="TestTakeMortage" fullname="Test.Test.TestTakeMortage" methodname="TestTakeMortage" classname="Test.Test" runstate="Runnable" seed="1797627439" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002351" asserts="7" />
-        <test-case id="1025" name="TestTakeMortageSupplierField" fullname="Test.Test.TestTakeMortageSupplierField" methodname="TestTakeMortageSupplierField" classname="Test.Test" runstate="Runnable" seed="471251001" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001798" asserts="6" />
-        <test-case id="1019" name="TestTakeMortageTrainStation" fullname="Test.Test.TestTakeMortageTrainStation" methodname="TestTakeMortageTrainStation" classname="Test.Test" runstate="Runnable" seed="1472677976" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002225" asserts="6" />
-        <test-case id="1018" name="TestTrainStationField" fullname="Test.Test.TestTrainStationField" methodname="TestTrainStationField" classname="Test.Test" runstate="Runnable" seed="938945490" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002809" asserts="3" />
-        <test-case id="1023" name="TestTrainStationFieldBuyInAuction" fullname="Test.Test.TestTrainStationFieldBuyInAuction" methodname="TestTrainStationFieldBuyInAuction" classname="Test.Test" runstate="Runnable" seed="1513156702" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.001255" asserts="2" />
-        <test-case id="1009" name="TestUpdateLevel" fullname="Test.Test.TestUpdateLevel" methodname="TestUpdateLevel" classname="Test.Test" runstate="Runnable" seed="156433791" result="Passed" start-time="2018-04-11 11:13:17Z" end-time="2018-04-11 11:13:17Z" duration="0.002226" asserts="6" />
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="1035" name="Test" fullname="Test" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2018-04-12 07:53:12Z" end-time="2018-04-12 07:53:14Z" duration="1.735095" total="33" passed="30" failed="3" warnings="0" inconclusive="0" skipped="0" asserts="103">
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1000" name="Test" fullname="Test.Test" classname="Test.Test" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2018-04-12 07:53:12Z" end-time="2018-04-12 07:53:14Z" duration="1.706734" total="33" passed="30" failed="3" warnings="0" inconclusive="0" skipped="0" asserts="103">
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1005" name="PlayerDoesNotHaveEnoughMoney" fullname="Test.Test.PlayerDoesNotHaveEnoughMoney" methodname="PlayerDoesNotHaveEnoughMoney" classname="Test.Test" runstate="Runnable" seed="1557395638" result="Passed" start-time="2018-04-12 07:53:12Z" end-time="2018-04-12 07:53:13Z" duration="0.486121" asserts="1" />
+        <test-case id="1003" name="PlayerIsBankrupt" fullname="Test.Test.PlayerIsBankrupt" methodname="PlayerIsBankrupt" classname="Test.Test" runstate="Runnable" seed="456222666" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.005039" asserts="1" />
+        <test-case id="1033" name="PlayerPayFineImmediately" fullname="Test.Test.PlayerPayFineImmediately" methodname="PlayerPayFineImmediately" classname="Test.Test" runstate="Runnable" seed="1728330919" result="Failed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.201118" asserts="1">
+          <failure>
+            <message><![CDATA[  Expected: 1450
+  But was:  1700
+]]></message>
+            <stack-trace><![CDATA[bei Test.Test.PlayerPayFineImmediately() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 531.
+]]></stack-trace>
+          </failure>
+          <assertions>
+            <assertion result="Failed">
+              <message><![CDATA[  Expected: 1450
+  But was:  1700
+]]></message>
+              <stack-trace><![CDATA[bei Test.Test.PlayerPayFineImmediately() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 531.
+]]></stack-trace>
+            </assertion>
+          </assertions>
+        </test-case>
+        <test-case id="1017" name="TestAuctionField" fullname="Test.Test.TestAuctionField" methodname="TestAuctionField" classname="Test.Test" runstate="Runnable" seed="384047618" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.006445" asserts="2" />
+        <test-case id="1024" name="TestBuyAndRentSupplierField" fullname="Test.Test.TestBuyAndRentSupplierField" methodname="TestBuyAndRentSupplierField" classname="Test.Test" runstate="Runnable" seed="38400639" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.007488" asserts="1" />
+        <test-case id="1008" name="TestBuyCurrentField" fullname="Test.Test.TestBuyCurrentField" methodname="TestBuyCurrentField" classname="Test.Test" runstate="Runnable" seed="645428856" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.002346" asserts="3" />
+        <test-case id="1016" name="TestBuyInAuction" fullname="Test.Test.TestBuyInAuction" methodname="TestBuyInAuction" classname="Test.Test" runstate="Runnable" seed="2068347046" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.000787" asserts="2" />
+        <test-case id="1027" name="TestBuySupplierFieldInAuction" fullname="Test.Test.TestBuySupplierFieldInAuction" methodname="TestBuySupplierFieldInAuction" classname="Test.Test" runstate="Runnable" seed="2082521154" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.001540" asserts="2" />
+        <test-case id="1002" name="TestCrossedStartField" fullname="Test.Test.TestCrossedStartField" methodname="TestCrossedStartField" classname="Test.Test" runstate="Runnable" seed="1470304835" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.007209" asserts="1" />
+        <test-case id="1014" name="TestExChangeFieldMoney" fullname="Test.Test.TestExChangeFieldMoney" methodname="TestExChangeFieldMoney" classname="Test.Test" runstate="Runnable" seed="1253420364" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.002572" asserts="5" />
+        <test-case id="1015" name="TestExChangeFieldwithField" fullname="Test.Test.TestExChangeFieldwithField" methodname="TestExChangeFieldwithField" classname="Test.Test" runstate="Runnable" seed="1858107993" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.001757" asserts="2" />
+        <test-case id="1029" name="TestexChangeSupplierFieldMoney" fullname="Test.Test.TestexChangeSupplierFieldMoney" methodname="TestexChangeSupplierFieldMoney" classname="Test.Test" runstate="Runnable" seed="1997904621" result="Passed" start-time="2018-04-12 07:53:13Z" end-time="2018-04-12 07:53:13Z" duration="0.001665" asserts="5" />
+        <test-case id="1028" name="TestExChangeSupplierFieldwithField" fullname="Test.Test.TestExChangeSupplierFieldwithField" methodname="TestExChangeSupplierFieldwithField" classname="Test.Test" runstate="Runnable" seed="171146379" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001630" asserts="2" />
+        <test-case id="1021" name="TestExChangeTrainStationFieldMoney" fullname="Test.Test.TestExChangeTrainStationFieldMoney" methodname="TestExChangeTrainStationFieldMoney" classname="Test.Test" runstate="Runnable" seed="213081158" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.004089" asserts="5" />
+        <test-case id="1022" name="TestExChangeTrainStationFieldwithField" fullname="Test.Test.TestExChangeTrainStationFieldwithField" methodname="TestExChangeTrainStationFieldwithField" classname="Test.Test" runstate="Runnable" seed="377889659" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001817" asserts="2" />
+        <test-case id="1004" name="TestGameOver" fullname="Test.Test.TestGameOver" methodname="TestGameOver" classname="Test.Test" runstate="Runnable" seed="506664752" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.005822" asserts="2" />
+        <test-case id="1030" name="TestGoToJailField" fullname="Test.Test.TestGoToJailField" methodname="TestGoToJailField" classname="Test.Test" runstate="Runnable" seed="123645433" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001031" asserts="3" />
+        <test-case id="1001" name="TestNextTurn" fullname="Test.Test.TestNextTurn" methodname="TestNextTurn" classname="Test.Test" runstate="Runnable" seed="839517305" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.000772" asserts="3" />
+        <test-case id="1013" name="TestPayOffMortage" fullname="Test.Test.TestPayOffMortage" methodname="TestPayOffMortage" classname="Test.Test" runstate="Runnable" seed="327421476" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002955" asserts="5" />
+        <test-case id="1026" name="TestPayOffMortageSupplierField" fullname="Test.Test.TestPayOffMortageSupplierField" methodname="TestPayOffMortageSupplierField" classname="Test.Test" runstate="Runnable" seed="484761753" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002733" asserts="5" />
+        <test-case id="1020" name="TestPayOffMortageTrainStation" fullname="Test.Test.TestPayOffMortageTrainStation" methodname="TestPayOffMortageTrainStation" classname="Test.Test" runstate="Runnable" seed="1489080575" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.003324" asserts="5" />
+        <test-case id="1011" name="TestPayRent" fullname="Test.Test.TestPayRent" methodname="TestPayRent" classname="Test.Test" runstate="Runnable" seed="1977055101" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001168" asserts="2" />
+        <test-case id="1031" name="TestPlayerThrowsDouble" fullname="Test.Test.TestPlayerThrowsDouble" methodname="TestPlayerThrowsDouble" classname="Test.Test" runstate="Runnable" seed="278336210" result="Failed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.003560" asserts="2">
+          <failure>
+            <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[bei Test.Test.TestPlayerThrowsDouble() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 506.
+]]></stack-trace>
+          </failure>
+          <assertions>
+            <assertion result="Failed">
+              <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+              <stack-trace><![CDATA[bei Test.Test.TestPlayerThrowsDouble() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 506.
+]]></stack-trace>
+            </assertion>
+          </assertions>
+        </test-case>
+        <test-case id="1032" name="TestPlayerTried3Times" fullname="Test.Test.TestPlayerTried3Times" methodname="TestPlayerTried3Times" classname="Test.Test" runstate="Runnable" seed="1264922248" result="Failed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.003543" asserts="2">
+          <failure>
+            <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[bei Test.Test.TestPlayerTried3Times() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 520.
+]]></stack-trace>
+          </failure>
+          <assertions>
+            <assertion result="Failed">
+              <message><![CDATA[  Expected: False
+  But was:  True
+]]></message>
+              <stack-trace><![CDATA[bei Test.Test.TestPlayerTried3Times() in C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\Test.cs:Zeile 520.
+]]></stack-trace>
+            </assertion>
+          </assertions>
+        </test-case>
+        <test-case id="1007" name="TestRemovePlayer" fullname="Test.Test.TestRemovePlayer" methodname="TestRemovePlayer" classname="Test.Test" runstate="Runnable" seed="1788135033" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001696" asserts="4" />
+        <test-case id="1010" name="TestSellHouse" fullname="Test.Test.TestSellHouse" methodname="TestSellHouse" classname="Test.Test" runstate="Runnable" seed="1838600296" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002246" asserts="4" />
+        <test-case id="1006" name="TestSetPlayerPosition" fullname="Test.Test.TestSetPlayerPosition" methodname="TestSetPlayerPosition" classname="Test.Test" runstate="Runnable" seed="1439073285" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.000749" asserts="1" />
+        <test-case id="1012" name="TestTakeMortage" fullname="Test.Test.TestTakeMortage" methodname="TestTakeMortage" classname="Test.Test" runstate="Runnable" seed="2063046668" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002498" asserts="7" />
+        <test-case id="1025" name="TestTakeMortageSupplierField" fullname="Test.Test.TestTakeMortageSupplierField" methodname="TestTakeMortageSupplierField" classname="Test.Test" runstate="Runnable" seed="1996759524" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001842" asserts="6" />
+        <test-case id="1019" name="TestTakeMortageTrainStation" fullname="Test.Test.TestTakeMortageTrainStation" methodname="TestTakeMortageTrainStation" classname="Test.Test" runstate="Runnable" seed="1820671636" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002392" asserts="6" />
+        <test-case id="1018" name="TestTrainStationField" fullname="Test.Test.TestTrainStationField" methodname="TestTrainStationField" classname="Test.Test" runstate="Runnable" seed="1694154519" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002457" asserts="3" />
+        <test-case id="1023" name="TestTrainStationFieldBuyInAuction" fullname="Test.Test.TestTrainStationFieldBuyInAuction" methodname="TestTrainStationFieldBuyInAuction" classname="Test.Test" runstate="Runnable" seed="1521786044" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.001318" asserts="2" />
+        <test-case id="1009" name="TestUpdateLevel" fullname="Test.Test.TestUpdateLevel" methodname="TestUpdateLevel" classname="Test.Test" runstate="Runnable" seed="1739663420" result="Passed" start-time="2018-04-12 07:53:14Z" end-time="2018-04-12 07:53:14Z" duration="0.002256" asserts="6" />
       </test-suite>
     </test-suite>
   </test-suite>

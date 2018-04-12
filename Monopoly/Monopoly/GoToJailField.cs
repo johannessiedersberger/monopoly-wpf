@@ -19,7 +19,7 @@ namespace Monopoly
     }
     public void OnEnter(Player player)
     {
-      
+      _game.SetPlayerInPrison(player);
     }
   }
 }

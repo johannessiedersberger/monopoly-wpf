@@ -13,6 +13,7 @@ namespace Monopoly
     private Dictionary<Player, int> _playerPositions = new Dictionary<Player, int>();
     private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
     private Dictionary<Player, int> _lastPayMent = new Dictionary<Player, int>();
+    private Dictionary<Player, int> _triesToEscapeFromPrison = new Dictionary<Player, int>();
     private Queue<Player> _playerQueue = new Queue<Player>();
     private IEnumerable<IField> _rentableFields;
     
@@ -61,6 +62,8 @@ namespace Monopoly
         _diceThrows.Add(player, new List<int[]>());
       foreach (Player player in _players)
         player.SetGame(this);
+      foreach (Player player in _players)
+        _triesToEscapeFromPrison.Add(player, 0);
       CurrentPlayer = _playerQueue.First();
     }
 
@@ -74,29 +77,15 @@ namespace Monopoly
       _lastPayMent.Clear();
     }
 
-    public void GoForward(Player player)
-    {
-      int[] dices = ThrowDice(player);
-      SaveDiceThrow(player, dices);
-
-      _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
-
-      _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
-    }
-
+    
     public void GoForward(Player player, int[] diceThrow)
     {
-      int[] dices = ThrowDice(player);
-      SaveDiceThrow(player, dices);
-
-      _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
-
-      _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
+      SetPlayerPos(player, diceThrow);
     }
 
-    public void CallOnEnter(Player player)
+    public void GoForward(Player player)
     {
-      _fields[_playerPositions[player]].OnEnter(player);
+      SetPlayerPos(player, ThrowDice(player));
     }
 
     private int[] ThrowDice(Player player)
@@ -105,7 +94,65 @@ namespace Monopoly
       int value1 = random.Next(1, 6);
       int value2 = random.Next(1, 6);
       int[] dices = new int[] { value1, value2 };
+      SaveDiceThrow(player, dices);
       return dices;
+    }
+
+    private void SetPlayerPos(Player player, int[] dices)
+    {
+      if (CheckForPrison(player, dices) == false)
+        return;
+
+      _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
+
+      _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
+    }
+    
+    private bool CheckForPrison(Player player, int[] dices)
+    {
+      if (player.InPrison == false)
+        return true;
+      else
+        _triesToEscapeFromPrison[player]++;
+
+      if (Double(player, dices) == false && _triesToEscapeFromPrison[player] >= 3)// if inPrison
+      {
+        PayFineImmediately(player);
+        return true;
+      }     
+      else if (player.InPrison && Double(player, dices))
+      {
+        RemovePlayerFromPrison(player);
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+      
+    }
+    
+    public void PayFineImmediately(Player player)
+    {
+      player.PayMoney(50);
+      RemovePlayerFromPrison(player);
+    }
+
+    public void RemovePlayerFromPrison(Player player)
+    {
+      player.InPrison = false;
+      _triesToEscapeFromPrison[player] = 0;
+    }
+
+    public void SetPlayerInPrison(Player player)
+    {
+      _playerPositions[player] = 10;
+      player.InPrison = true;
+    }
+    
+    public void CallOnEnter(Player player)
+    {
+      _fields[_playerPositions[player]].OnEnter(player);
     }
 
     private void SaveDiceThrow(Player player, int[] dices)
@@ -139,7 +186,7 @@ namespace Monopoly
       CurrentPlayer.GetMoney(200);
     }
 
-    public int CheckForDoublets(Player player)
+    public int CheckForDoubletsInARow(Player player)
     {
       int doublets = 0;
       bool lastCheck = false;
@@ -157,6 +204,11 @@ namespace Monopoly
         }
       }
       return doublets;
+    }
+
+    public bool Double(Player player, int[] diceThrow)
+    {
+      return diceThrow[0] == diceThrow[1];
     }
 
     public void BuyCurrentStreet(Player player)
@@ -347,11 +399,6 @@ namespace Monopoly
         return false;
     }
 
-
-    public void PayFineImmediately(Player player)
-    {
-
-    }
   }
 }
 
