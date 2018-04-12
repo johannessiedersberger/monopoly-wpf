@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\GetMoneyFromPlayersCard.cs" />
+    <Compile Include="Cards\GoToJailCard.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="Cards\MoneyCard.cs" />
     <Compile Include="Cards\PayPlayersCard.cs" />
