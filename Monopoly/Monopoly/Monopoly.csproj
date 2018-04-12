@@ -40,20 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankruptException.cs" />
-    <Compile Include="FieldCreator.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="GoToJailField.cs" />
-    <Compile Include="IField.cs" />
-    <Compile Include="IRentableField.cs" />
-    <Compile Include="JailField.cs" />
-    <Compile Include="NotEnoughMoneyException.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Cards\ICard.cs" />
+    <Compile Include="Cards\MoneyCard.cs" />
+    <Compile Include="Exceptions\BankruptException.cs" />
+    <Compile Include="Fields\FieldCreator.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Fields\GoToJailField.cs" />
+    <Compile Include="Fields\IField.cs" />
+    <Compile Include="Fields\IRentableField.cs" />
+    <Compile Include="Fields\JailField.cs" />
+    <Compile Include="Exceptions\NotEnoughMoneyException.cs" />
+    <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartField.cs" />
-    <Compile Include="StreetField.cs" />
-    <Compile Include="SupplierField.cs" />
-    <Compile Include="TrainstationField.cs" />
+    <Compile Include="Fields\StartField.cs" />
+    <Compile Include="Fields\StreetField.cs" />
+    <Compile Include="Fields\SupplierField.cs" />
+    <Compile Include="Fields\TrainstationField.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

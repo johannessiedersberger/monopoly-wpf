@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Monopoly;
-
+using Monopoly.Cards;
 namespace Test
 {
   class Test
@@ -532,6 +532,17 @@ namespace Test
       game.GoForward(game.Players[0], new int[] { 1, 2 });
       Assert.That(game.Players[0].Money, Is.EqualTo(1500 +200- 50));
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+    }
+    #endregion
+
+    #region Cards
+    [Test]
+    public void TestMoneyCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y") });
+      MoneyCard card = new MoneyCard("Pay 50", -50, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 50));
     }
     #endregion
   }
