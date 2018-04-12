@@ -544,6 +544,20 @@ namespace Test
       card.UseCard(game.Players[0]);
       Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 50));
     }
+
+    [Test]
+    public void TestGetMoneyFromPlayersCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      GetMoneyFromPlayersCard card = new GetMoneyFromPlayersCard("", 50, game);
+
+      card.UseCard(game.Players[0]);
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 + 2 * 50));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 50));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 50));
+    }
+
+
     #endregion
   }
 }

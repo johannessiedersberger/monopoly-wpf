@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\GetMoneyFromPlayersCard.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="Cards\MoneyCard.cs" />
     <Compile Include="Exceptions\BankruptException.cs" />
