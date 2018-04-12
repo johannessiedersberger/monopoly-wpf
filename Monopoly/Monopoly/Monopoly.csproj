@@ -43,6 +43,7 @@
     <Compile Include="Cards\GetMoneyFromPlayersCard.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="Cards\MoneyCard.cs" />
+    <Compile Include="Cards\StreetRepairCard.cs" />
     <Compile Include="Exceptions\BankruptException.cs" />
     <Compile Include="Fields\FieldCreator.cs" />
     <Compile Include="Game\Game.cs" />

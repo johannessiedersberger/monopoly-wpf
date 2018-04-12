@@ -557,7 +557,23 @@ namespace Test
       Assert.That(game.Players[1].Money, Is.EqualTo(1500 - 50));
     }
 
+    [Test]
+    public void TestStreetRepairCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      StreetField field1 = (StreetField)game.Fields[1];
+      StreetField field2 = (StreetField)game.Fields[2];
 
+      field1.Buy(game.Players[0]);
+      field2.Buy(game.Players[0]);
+
+      field1.LevelUp(game.Players[0], 5);
+      field2.LevelUp(game.Players[0], 4);
+
+      StreetRepairCard card = new StreetRepairCard("", 50, 100, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 2*60 - 9*50 - 4 * 50 - 1 * 100));
+    }
     #endregion
   }
 }
