@@ -595,6 +595,19 @@ namespace Test
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(10));
       Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
     }
+    [Test]
+    public void TestGoToCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int position = 3;
+      game.SetPlayerPos(game.Players[0], game.Fields.Count() - 1);
+      MoveToCard card = new MoveToCard("", position, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(position));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1700));
+    }
+    
+   
     #endregion
   }
 }

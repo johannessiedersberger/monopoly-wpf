@@ -80,12 +80,12 @@ namespace Monopoly
     
     public void GoForward(Player player, int[] diceThrow)
     {
-      SetPlayerPos(player, diceThrow);
+      SetPlayerPosition(player, diceThrow);
     }
 
     public void GoForward(Player player)
     {
-      SetPlayerPos(player, ThrowDice(player));
+      SetPlayerPosition(player, ThrowDice(player));
     }
 
     private int[] ThrowDice(Player player)
@@ -98,14 +98,20 @@ namespace Monopoly
       return dices;
     }
 
-    private void SetPlayerPos(Player player, int[] dices)
+    private void SetPlayerPosition(Player player, int[] dices)
     {
       if (CheckForPrison(player, dices) == false)
         return;
 
       _playerPositions[player] = SetInRange(dices, PlayerPos[player]);
 
-      _fields[_playerPositions[player]].OnEnter(CurrentPlayer);
+      _fields[_playerPositions[player]].OnEnter(player);
+    }
+
+    private void SetPlayerPosition(Player player, int position)
+    {
+      _playerPositions[player] = position;
+      _fields[_playerPositions[player]].OnEnter(player);
     }
     
     private bool CheckForPrison(Player player, int[] dices)
@@ -401,6 +407,19 @@ namespace Monopoly
         return false;
     }
 
+    public void MoveTo(Player player, int destination)
+    {
+      if (destination > PlayerPos[player])
+      {
+        SetPlayerPosition(player, destination);
+      }
+      else if (destination < PlayerPos[player])
+      {
+        SetPlayerPosition(player, destination);
+        player.GetMoney(200);
+      }
+    }
+   
   }
 }
 
