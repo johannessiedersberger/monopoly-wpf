@@ -419,6 +419,33 @@ namespace Monopoly
         player.GetMoney(200);
       }
     }
+
+    public void Move(Player player, int stepsToGo)
+    {
+      if(stepsToGo < 0) // Go Back
+      {
+        if(PlayerPos[player] + stepsToGo < 0)
+        {
+          SetPlayerPosition(player, (PlayerPos[player] + stepsToGo) + Fields.Count());
+        }
+        else // PlayerPos[player] + stepsToGo >= 0
+        {
+          SetPlayerPosition(player, (PlayerPos[player] + stepsToGo));
+        }
+      }
+      else // stepstoGo >= 0 // GoForward
+      {
+        if(PlayerPos[player] + stepsToGo > Fields.Count() - 1) // Go over start Field
+        {
+          SetPlayerPos(player, PlayerPos[player] + stepsToGo - Fields.Count());
+          player.GetMoney(200);
+        }
+        else // PlayerPos[player] + stepsToGo <= Fields.Count() - 1
+        {
+          SetPlayerPosition(player, (PlayerPos[player] + stepsToGo));
+        }
+      }
+    }
    
   }
 }

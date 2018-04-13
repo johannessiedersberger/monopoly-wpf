@@ -596,7 +596,7 @@ namespace Test
       Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
     }
     [Test]
-    public void TestGoToCard()
+    public void TestMoveToCard()
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       int position = 3;
@@ -606,7 +606,29 @@ namespace Test
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(position));
       Assert.That(game.Players[0].Money, Is.EqualTo(1700));
     }
-    
+    [Test]
+    public void TestMoveCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int stepsToGo = 3;
+      game.SetPlayerPos(game.Players[0], game.Fields.Count() - 1);
+      MoveCard card = new MoveCard("", stepsToGo, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+      Assert.That(game.Players[0].Money, Is.EqualTo(1700));
+    }
+    [Test]
+    public void GoToNextMemberofGroup()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      GoToNextMemberofGroupCard card = new GoToNextMemberofGroupCard("", Groups.TrainStation, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(5));
+
+      game.SetPlayerPos(game.Players[1], 8);
+      card.UseCard(game.Players[1]);
+      Assert.That(game.PlayerPos[game.Players[1]], Is.EqualTo(5));
+    }
    
     #endregion
   }
