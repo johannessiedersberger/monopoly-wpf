@@ -81,13 +81,9 @@ namespace Monopoly
       _card.Add(cardToAdd);
     }
 
-    public void RemoveGoToJailCard()
+    public void RemoveCard(ICard card)
     {
-      foreach(ICard card in _card)
-      {
-        if (card.GetType() == typeof(GetOutOfJailCard))
-          _card.Remove(card);
-      }
+      _card.Remove(card);
     }
 
   }

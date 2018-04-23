@@ -20,8 +20,9 @@ namespace Monopoly.Cards
     public void UseCard(Player player)
     {
       if (player.Cards.Contains(this))
-      {
+      {      
         _game.RemovePlayerFromPrison(player);
+        player.RemoveCard(this);
       }
       else
       {

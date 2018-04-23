@@ -659,7 +659,18 @@ namespace Test
       card.UseCard(game.Players[1]);
       Assert.That(game.Players[1].InPrison, Is.EqualTo(false));
     }
-    
+    [Test]
+    public void TestCommunityChestField()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      game.Fields[11].OnEnter(game.Players[0]);
+    }
+    //[Test]
+    //public void TestChangeField()
+    //{
+    //  Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+    //  game.Fields[12].OnEnter(game.Players[0]);
+    //}
     #endregion
   }
 }
