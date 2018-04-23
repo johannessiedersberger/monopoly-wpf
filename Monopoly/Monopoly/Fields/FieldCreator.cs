@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Monopoly.Fields;
 
 namespace Monopoly
 {
@@ -68,7 +69,10 @@ namespace Monopoly
     Green,
     DarkBlue,
     TrainStation,
-    Supplier
+    Supplier,
+    change,
+    communityChest,
+    
   };
   #endregion
 
@@ -84,10 +88,12 @@ namespace Monopoly
         CreateMayfair(game),
         CreateKingsCrossStation(game),
         CreateMaryLeboneStation(game),
-        CreateWaterWorks(game),
-        CreateEnergyCompany(game),
+        CreateWaterWorks(game),//7
+        CreateEnergyCompany(game),//8
         CreateGoToJailField(game),//9
         CreateJailField(game),//10
+        CreateCommunityChestField(game),//11
+        CreateChangeField(game)//12
       };
     }
 
@@ -186,6 +192,16 @@ namespace Monopoly
     private static JailField CreateJailField(Game game)
     {
       return new JailField(FieldNames.Jail, game);
+    }
+
+    private static CommunityChestField CreateCommunityChestField(Game game)
+    {
+      return new CommunityChestField(FieldNames.CommunityChest, Groups.communityChest, game);
+    } 
+
+    private static ChangeField CreateChangeField(Game game)
+    {
+      return new ChangeField(FieldNames.CommunityChest, Groups.communityChest, game);
     }
   }
 }

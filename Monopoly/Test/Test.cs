@@ -28,7 +28,7 @@ namespace Test
     public void TestCrossedStartField()
     {
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-      game.SetPlayerPos(game.Players[0], game.Fields.Count()-1);
+      game.SetPlayerPos(game.Players[0], 10);
       game.NextPlayer();
       game.GoForward(game.CurrentPlayer);
       Assert.That(game.Players[0].Money >= 1700, Is.EqualTo(true));
@@ -502,7 +502,7 @@ namespace Test
       game.Fields[9].OnEnter(game.Players[0]);
       Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
 
-      game.GoForward(game.CurrentPlayer, new int[] { 1, 1 });
+      game.GoForward(game.CurrentPlayer, new int[] { 2, 2 });
       Assert.That(game.Players[0].InPrison, Is.EqualTo(false));
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(1));
     }
@@ -519,7 +519,7 @@ namespace Test
       game.GoForward(game.CurrentPlayer, new int[] { 1, 2 });
       game.GoForward(game.CurrentPlayer, new int[] { 1, 2 });
       Assert.That(game.Players[0].InPrison, Is.EqualTo(false));
-      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(0));
       Assert.That(game.Players[0].Money, Is.EqualTo(1500 +200- 50));
     }
 
@@ -531,7 +531,17 @@ namespace Test
       game.PayFineImmediately(game.Players[0]);
       game.GoForward(game.Players[0], new int[] { 1, 2 });
       Assert.That(game.Players[0].Money, Is.EqualTo(1500 +200- 50));
-      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(0));
+    }
+
+    [Test]
+    public void PlayerThrowsDoubleThreeTimes()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      game.GoForward(game.Players[0], new int[] { 1, 1 });
+      game.GoForward(game.Players[0], new int[] { 1, 1 });
+      game.GoForward(game.Players[0], new int[] { 1, 1 });
+      Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
     }
     #endregion
 
@@ -541,8 +551,11 @@ namespace Test
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y") });
       MoneyCard card = new MoneyCard("Pay 50", -50, game);
+      MoneyCard card2 = new MoneyCard("Pay 50", 50, game);
       card.UseCard(game.Players[0]);
+      card2.UseCard(game.Players[1]);
       Assert.That(game.Players[0].Money, Is.EqualTo(1500 - 50));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 + 50));
     }
 
     [Test]
@@ -595,15 +608,16 @@ namespace Test
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(10));
       Assert.That(game.Players[0].InPrison, Is.EqualTo(true));
     }
+
     [Test]
     public void TestMoveToCard()
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       int position = 3;
-      game.SetPlayerPos(game.Players[0], game.Fields.Count() - 1);
+      game.SetPlayerPos(game.Players[0], 10);
       MoveToCard card = new MoveToCard("", position, game);
       card.UseCard(game.Players[0]);
-      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(position));
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(3));
       Assert.That(game.Players[0].Money, Is.EqualTo(1700));
     }
     [Test]
@@ -611,10 +625,10 @@ namespace Test
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       int stepsToGo = 3;
-      game.SetPlayerPos(game.Players[0], game.Fields.Count() - 1);
+      game.SetPlayerPos(game.Players[0], 10);
       MoveCard card = new MoveCard("", stepsToGo, game);
       card.UseCard(game.Players[0]);
-      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(2));
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(0));
       Assert.That(game.Players[0].Money, Is.EqualTo(1700));
     }
     [Test]
@@ -629,7 +643,23 @@ namespace Test
       card.UseCard(game.Players[1]);
       Assert.That(game.PlayerPos[game.Players[1]], Is.EqualTo(5));
     }
-   
+    [Test]
+    public void GetOutofJail()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      GetOutOfJailCard card = new GetOutOfJailCard("", game);
+
+      game.Fields[9].OnEnter(game.Players[0]);
+      game.Players[0].AddCard(card);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.Players[0].InPrison, Is.EqualTo(false));
+
+      game.Fields[9].OnEnter(game.Players[1]);
+      card.UseCard(game.Players[1]);
+      card.UseCard(game.Players[1]);
+      Assert.That(game.Players[1].InPrison, Is.EqualTo(false));
+    }
+    
     #endregion
   }
 }

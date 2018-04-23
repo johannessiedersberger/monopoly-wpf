@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Monopoly.Cards;
 
 namespace Monopoly
 {
   public class Game
   {
     private IField[] _fields;
+    private ICard[] _changeCard;
+    private ICard[] _communityChestCards;
     private List<Player> _players;
     private Dictionary<Player, int> _playerPositions = new Dictionary<Player, int>();
     private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
@@ -49,11 +52,25 @@ namespace Monopoly
     {
       get { return _lastPayMent; }
     }
+
+    public IReadOnlyList<ICard> CommunityChest
+    {
+      get { return _communityChestCards; }
+    }
+
+    public IReadOnlyList<ICard> Change
+    {
+      get { return _changeCard; }
+    }
+
     public Game(Player[] players)
     {
       _players = players.ToList();
       _fields = FieldCreator.Create(this);
       _rentableFields = _fields.Where(i => i is IRentableField);
+      _changeCard = CardCreator.ChanceCards(this);
+      _communityChestCards = CardCreator.ComunityChestCards(this);
+      
       foreach (Player player in _players)
         _playerQueue.Enqueue(player);
       foreach (Player player in _players)
@@ -64,6 +81,7 @@ namespace Monopoly
         player.SetGame(this);
       foreach (Player player in _players)
         _triesToEscapeFromPrison.Add(player, 0);
+      
       CurrentPlayer = _playerQueue.First();
     }
 
@@ -80,7 +98,8 @@ namespace Monopoly
     
     public void GoForward(Player player, int[] diceThrow)
     {
-      SetPlayerPosition(player, diceThrow);
+      SaveDiceThrow(player, diceThrow);
+      SetPlayerPosition(player, diceThrow);     
     }
 
     public void GoForward(Player player)
@@ -95,11 +114,19 @@ namespace Monopoly
       int value2 = random.Next(1, 6);
       int[] dices = new int[] { value1, value2 };
       SaveDiceThrow(player, dices);
+     
       return dices;
     }
 
+
     private void SetPlayerPosition(Player player, int[] dices)
     {
+      if (Double(player, dices) && CheckForDoubletsInARow(player) >= 2)
+      {
+        SetPlayerInPrison(player);
+        return;
+      }
+
       if (CheckForPrison(player, dices) == false)
         return;
 
@@ -115,12 +142,12 @@ namespace Monopoly
     }
     
     private bool CheckForPrison(Player player, int[] dices)
-    {
-      if (player.InPrison == false)
-        return true;
-      else
+    {     
+      if (player.InPrison == false)     
+        return true;      
+      else      
         _triesToEscapeFromPrison[player]++;
-
+      
       if (Double(player, dices) == false && _triesToEscapeFromPrison[player] >= 3)// if inPrison
       {
         PayFineImmediately(player);
@@ -134,8 +161,7 @@ namespace Monopoly
       else
       {
         return false;
-      }
-      
+      }      
     }
     
     public void PayFineImmediately(Player player)
@@ -166,7 +192,7 @@ namespace Monopoly
     private void SaveDiceThrow(Player player, int[] dices)
     {
       _diceThrows[player].Add(dices);
-      if (_diceThrows[player].Count() >= 3)
+      if (_diceThrows[player].Count() > 3)
         _diceThrows[player].RemoveAt(0);
     }
 
@@ -446,6 +472,14 @@ namespace Monopoly
         }
       }
     }
+
+    public static ICard GetCard(ICard[] cards)
+    {
+      Random random = new Random(System.DateTime.Now.Millisecond.GetHashCode());
+      return cards[random.Next(0, cards.Length - 1)];
+    }
+    
+
    
   }
 }

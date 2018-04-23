@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Monopoly.Cards
 {
-  public class GoToJailCard : ICard
+  public class GetOutOfJailCard : ICard
   {
     public string Description { get; private set; }
     private Game _game;
-    
-    public GoToJailCard(string description, Game game)
+
+    public GetOutOfJailCard(string description, Game game)
     {
       Description = description;
       _game = game;
@@ -19,7 +19,15 @@ namespace Monopoly.Cards
 
     public void UseCard(Player player)
     {
-      _game.SetPlayerInPrison(player);
+      if (player.Cards.Contains(this))
+      {
+        _game.RemovePlayerFromPrison(player);
+      }
+      else
+      {
+        player.AddCard(this);
+      }
+      
     }
   }
 }

@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\CardCreator.cs" />
     <Compile Include="Cards\GetMoneyFromPlayersCard.cs" />
+    <Compile Include="Cards\GetOutOfJailCard.cs" />
     <Compile Include="Cards\GoToJailCard.cs" />
     <Compile Include="Cards\GoToNextMemberofGroupCard.cs" />
     <Compile Include="Cards\ICard.cs" />
@@ -50,6 +52,8 @@
     <Compile Include="Cards\PayPlayersCard.cs" />
     <Compile Include="Cards\StreetRepairCard.cs" />
     <Compile Include="Exceptions\BankruptException.cs" />
+    <Compile Include="Fields\ChangeField.cs" />
+    <Compile Include="Fields\CommunityChestField.cs" />
     <Compile Include="Fields\FieldCreator.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Fields\GoToJailField.cs" />

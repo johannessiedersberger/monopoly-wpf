@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Monopoly.Cards;
 
 namespace Monopoly
 {
@@ -13,6 +14,7 @@ namespace Monopoly
     public bool Removed { get; private set; }
     public bool InPrison { get; set; }
     private List<IRentableField> _ownerShip = new List<IRentableField>();
+    private List<ICard> _card = new List<ICard>();
     private Game _game;
 
     public IReadOnlyList<IRentableField> OwnerShip
@@ -20,6 +22,10 @@ namespace Monopoly
       get { return _ownerShip; }
     }
 
+    public IReadOnlyList<ICard> Cards
+    {
+      get { return _card; }
+    }
     public Player(string name)
     {
       Name = name;
@@ -70,7 +76,19 @@ namespace Monopoly
       Removed = true;
     }
 
-    
+    public void AddCard(ICard cardToAdd)
+    {
+      _card.Add(cardToAdd);
+    }
+
+    public void RemoveGoToJailCard()
+    {
+      foreach(ICard card in _card)
+      {
+        if (card.GetType() == typeof(GetOutOfJailCard))
+          _card.Remove(card);
+      }
+    }
 
   }
 }
