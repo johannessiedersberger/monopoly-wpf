@@ -8,7 +8,7 @@ namespace Monopoly.Cards
 {
   public class GoToNextMemberofGroupCard : ICard
   {
-    public string Description { get; }
+    public string Description { get; private set; }
     private Groups _group;
     private Game _game;
 

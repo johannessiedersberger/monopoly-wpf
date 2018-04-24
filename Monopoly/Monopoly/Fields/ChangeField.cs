@@ -13,6 +13,8 @@ namespace Monopoly.Fields
     public string Name { get; private set; }
     public Groups Group { get; private set; }
     private Game _game;
+  
+
 
     public ChangeField(string name, Groups group, Game game)
     {

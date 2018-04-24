@@ -478,9 +478,6 @@ namespace Monopoly
       Random random = new Random(System.DateTime.Now.Millisecond.GetHashCode());
       return cards[random.Next(0, cards.Length - 1)];
     }
-    
-
-   
   }
 }
 

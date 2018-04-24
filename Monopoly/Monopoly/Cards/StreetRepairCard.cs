@@ -8,7 +8,7 @@ namespace Monopoly.Cards
 {
   public class StreetRepairCard : ICard
   {
-    public string Description { get; }
+    public string Description { get; private set; }
     private Game _game;
     private int _costsPerHouse;
     private int _costsperHotel;

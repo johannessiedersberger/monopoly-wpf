@@ -9,7 +9,7 @@ namespace Monopoly
   class StartField : IField
   {
     public Groups Group { get; private set; }
-    public string Name { get; }
+    public string Name { get; private set; }
     Game _game;
 
     public StartField(string name, Game game)
@@ -17,8 +17,6 @@ namespace Monopoly
       Name = name;
       _game = game;
     }
-
-   
 
     public void OnEnter(Player player)
     {

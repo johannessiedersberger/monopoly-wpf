@@ -19,9 +19,12 @@ namespace Test
 
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
       game.NextPlayer();
+      game.GoForward(game.CurrentPlayer);
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[1]));
       game.NextPlayer();
+      game.GoForward(game.CurrentPlayer);
       Assert.That(game.CurrentPlayer, Is.EqualTo(game.Players[0]));
+      
     }
 
     [Test]
@@ -30,7 +33,7 @@ namespace Test
       Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
       game.SetPlayerPos(game.Players[0], 10);
       game.NextPlayer();
-      game.GoForward(game.CurrentPlayer);
+      game.GoForward(game.CurrentPlayer, new int[] { 2, 2 });
       Assert.That(game.Players[0].Money >= 1700, Is.EqualTo(true));
     }
 
@@ -394,7 +397,17 @@ namespace Test
       SupplierField field7 = (SupplierField)game.Fields[7];
       SupplierField field8 = (SupplierField)game.Fields[8];
 
+      field7.OnEnter(game.Players[1]);
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500));
+
       field7.Buy(game.Players[0]);
+      game.SetLastThrow(game.Players[1], new List<int[]>
+      {
+        new int[]{6,6 },
+      });
+      field7.OnEnter(game.Players[1]);
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - (48)));
+
       field8.Buy(game.Players[0]);
 
       game.SetLastThrow(game.Players[1], new List<int[]>
@@ -402,7 +415,7 @@ namespace Test
         new int[]{6,6 },
       });
       field7.OnEnter(game.Players[1]);
-      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - (120)));
+      Assert.That(game.Players[1].Money, Is.EqualTo(1500 - (120) - 48));
     }
 
     [Test]
@@ -610,7 +623,7 @@ namespace Test
     }
 
     [Test]
-    public void TestMoveToCard()
+    public void TestMoveToCardAndCrossStart()
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       int position = 3;
@@ -620,8 +633,32 @@ namespace Test
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(3));
       Assert.That(game.Players[0].Money, Is.EqualTo(1700));
     }
+
     [Test]
-    public void TestMoveCard()
+    public void TestMoveToCard()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int position = 3;
+      game.SetPlayerPos(game.Players[0], 0);
+      MoveToCard card = new MoveToCard("", position, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(3));
+    }
+
+
+    [Test]
+    public void TestMoveCardForwards()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int stepsToGo = 3;
+      game.SetPlayerPos(game.Players[0], 0);
+      MoveCard card = new MoveCard("", stepsToGo, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(3));
+    }
+
+    [Test]
+    public void TestMoveCardForwardsAndCrossStart()
     {
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       int stepsToGo = 3;
@@ -631,6 +668,29 @@ namespace Test
       Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(0));
       Assert.That(game.Players[0].Money, Is.EqualTo(1700));
     }
+
+    [Test]
+    public void TestMoveCardBackWards()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int stepsToGo = -3;
+      game.SetPlayerPos(game.Players[0], 10);
+      MoveCard card = new MoveCard("", stepsToGo, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(7)); 
+    }
+
+    [Test]
+    public void TestMoveCardBackWardsAndCrossStart()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      int stepsToGo = -3;
+      game.SetPlayerPos(game.Players[0], 0);
+      MoveCard card = new MoveCard("", stepsToGo, game);
+      card.UseCard(game.Players[0]);
+      Assert.That(game.PlayerPos[game.Players[0]], Is.EqualTo(10));
+    }
+
     [Test]
     public void GoToNextMemberofGroup()
     {
@@ -665,12 +725,12 @@ namespace Test
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       game.Fields[11].OnEnter(game.Players[0]);
     }
-    //[Test]
-    //public void TestChangeField()
-    //{
-    //  Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
-    //  game.Fields[12].OnEnter(game.Players[0]);
-    //}
+    [Test]
+    public void TestChangeField()
+    {
+      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
+      game.Fields[12].OnEnter(game.Players[0]);
+    }
     #endregion
   }
 }
