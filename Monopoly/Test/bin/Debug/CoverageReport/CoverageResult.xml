@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Summary numSequencePoints="1104" visitedSequencePoints="1035" numBranchPoints="437" visitedBranchPoints="375" sequenceCoverage="93.75" branchCoverage="85.81" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" visitedClasses="25" numClasses="25" visitedMethods="210" numMethods="235" />
+  <Summary numSequencePoints="1104" visitedSequencePoints="1035" numBranchPoints="437" visitedBranchPoints="374" sequenceCoverage="93.75" branchCoverage="85.58" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" visitedClasses="25" numClasses="25" visitedMethods="210" numMethods="235" />
   <Modules>
     <Module skippedDueTo="Filter" hash="77-4F-9A-4C-09-29-60-46-23-FD-83-E9-79-2B-F5-77-B5-7F-46-94">
       <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
@@ -39,7 +39,7 @@
       <Classes />
     </Module>
     <Module hash="01-33-FB-92-C8-BB-9D-47-BB-94-37-AB-19-CF-2D-E2-67-AB-80-8C">
-      <Summary numSequencePoints="1104" visitedSequencePoints="1035" numBranchPoints="437" visitedBranchPoints="375" sequenceCoverage="93.75" branchCoverage="85.81" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" visitedClasses="25" numClasses="25" visitedMethods="210" numMethods="235" />
+      <Summary numSequencePoints="1104" visitedSequencePoints="1035" numBranchPoints="437" visitedBranchPoints="374" sequenceCoverage="93.75" branchCoverage="85.58" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" visitedClasses="25" numClasses="25" visitedMethods="210" numMethods="235" />
       <ModulePath>C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\Test\bin\Debug\Monopoly.dll</ModulePath>
       <ModuleTime>2018-04-24T08:07:12.5563166Z</ModuleTime>
       <ModuleName>Monopoly</ModuleName>
@@ -368,7 +368,7 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="386" visitedSequencePoints="372" numBranchPoints="115" visitedBranchPoints="101" sequenceCoverage="96.37" branchCoverage="87.83" maxCyclomaticComplexity="7" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="48" numMethods="49" />
+          <Summary numSequencePoints="386" visitedSequencePoints="372" numBranchPoints="115" visitedBranchPoints="100" sequenceCoverage="96.37" branchCoverage="86.96" maxCyclomaticComplexity="7" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="48" numMethods="49" />
           <FullName>Monopoly.Game</FullName>
           <Methods>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
@@ -399,12 +399,12 @@
               <Name>System.Collections.Generic.IReadOnlyDictionary`2&lt;Monopoly.Player,System.Int32&gt; Monopoly.Game::get_PlayerPos()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="38" uspid="91" ordinal="0" offset="0" sl="28" sc="11" el="28" ec="12" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="38" uspid="92" ordinal="1" offset="1" sl="28" sc="13" el="28" ec="37" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="38" uspid="93" ordinal="2" offset="10" sl="28" sc="38" el="28" ec="39" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="37" uspid="91" ordinal="0" offset="0" sl="28" sc="11" el="28" ec="12" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="37" uspid="92" ordinal="1" offset="1" sl="28" sc="13" el="28" ec="37" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="37" uspid="93" ordinal="2" offset="10" sl="28" sc="38" el="28" ec="39" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="38" uspid="91" ordinal="0" offset="0" sl="28" sc="11" el="28" ec="12" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="37" uspid="91" ordinal="0" offset="0" sl="28" sc="11" el="28" ec="12" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -412,12 +412,12 @@
               <Name>System.Collections.Generic.IReadOnlyList`1&lt;Monopoly.Player&gt; Monopoly.Game::get_Players()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="259" uspid="94" ordinal="0" offset="0" sl="33" sc="11" el="33" ec="12" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="259" uspid="95" ordinal="1" offset="1" sl="33" sc="13" el="33" ec="29" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="259" uspid="96" ordinal="2" offset="10" sl="33" sc="30" el="33" ec="31" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="257" uspid="94" ordinal="0" offset="0" sl="33" sc="11" el="33" ec="12" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="257" uspid="95" ordinal="1" offset="1" sl="33" sc="13" el="33" ec="29" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="257" uspid="96" ordinal="2" offset="10" sl="33" sc="30" el="33" ec="31" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="259" uspid="94" ordinal="0" offset="0" sl="33" sc="11" el="33" ec="12" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="257" uspid="94" ordinal="0" offset="0" sl="33" sc="11" el="33" ec="12" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -425,12 +425,12 @@
               <Name>System.Collections.Generic.IReadOnlyList`1&lt;Monopoly.IField&gt; Monopoly.Game::get_Fields()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="95" uspid="97" ordinal="0" offset="0" sl="38" sc="11" el="38" ec="12" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="95" uspid="98" ordinal="1" offset="1" sl="38" sc="13" el="38" ec="28" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="95" uspid="99" ordinal="2" offset="10" sl="38" sc="29" el="38" ec="30" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="111" uspid="97" ordinal="0" offset="0" sl="38" sc="11" el="38" ec="12" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="111" uspid="98" ordinal="1" offset="1" sl="38" sc="13" el="38" ec="28" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="111" uspid="99" ordinal="2" offset="10" sl="38" sc="29" el="38" ec="30" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="95" uspid="97" ordinal="0" offset="0" sl="38" sc="11" el="38" ec="12" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="111" uspid="97" ordinal="0" offset="0" sl="38" sc="11" el="38" ec="12" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -451,12 +451,12 @@
               <Name>System.Collections.Generic.IReadOnlyDictionary`2&lt;Monopoly.Player,System.Int32&gt; Monopoly.Game::get_LastPayMent()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="78" uspid="103" ordinal="0" offset="0" sl="53" sc="11" el="53" ec="12" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="78" uspid="104" ordinal="1" offset="1" sl="53" sc="13" el="53" ec="33" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="78" uspid="105" ordinal="2" offset="10" sl="53" sc="34" el="53" ec="35" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="103" ordinal="0" offset="0" sl="53" sc="11" el="53" ec="12" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="104" ordinal="1" offset="1" sl="53" sc="13" el="53" ec="33" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="105" ordinal="2" offset="10" sl="53" sc="34" el="53" ec="35" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="78" uspid="103" ordinal="0" offset="0" sl="53" sc="11" el="53" ec="12" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="76" uspid="103" ordinal="0" offset="0" sl="53" sc="11" el="53" ec="12" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -886,13 +886,13 @@
               <Name>System.Void Monopoly.Game::SetPlayerPos(Monopoly.Player,System.Int32)</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="19" uspid="319" ordinal="0" offset="0" sl="258" sc="5" el="258" ec="6" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="19" uspid="320" ordinal="1" offset="1" sl="259" sc="7" el="259" ec="38" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="19" uspid="321" ordinal="2" offset="15" sl="260" sc="7" el="260" ec="57" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="19" uspid="322" ordinal="3" offset="41" sl="261" sc="5" el="261" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="20" uspid="319" ordinal="0" offset="0" sl="258" sc="5" el="258" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="20" uspid="320" ordinal="1" offset="1" sl="259" sc="7" el="259" ec="38" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="20" uspid="321" ordinal="2" offset="15" sl="260" sc="7" el="260" ec="57" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="20" uspid="322" ordinal="3" offset="41" sl="261" sc="5" el="261" ec="6" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="319" ordinal="0" offset="0" sl="258" sc="5" el="258" ec="6" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="20" uspid="319" ordinal="0" offset="0" sl="258" sc="5" el="258" ec="6" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="6" nPathComplexity="8" sequenceCoverage="93.75" branchCoverage="85.71" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="16" visitedSequencePoints="15" numBranchPoints="7" visitedBranchPoints="6" sequenceCoverage="93.75" branchCoverage="85.71" maxCyclomaticComplexity="6" minCyclomaticComplexity="6" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -976,17 +976,17 @@
               <Name>System.Void Monopoly.Game::SetLastPayMent(Monopoly.Player,System.Int32)</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="78" uspid="373" ordinal="0" offset="0" sl="299" sc="5" el="299" ec="6" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="78" uspid="374" ordinal="1" offset="1" sl="300" sc="7" el="300" ec="52" bec="2" bev="2" fileid="4" />
-                <SequencePoint vc="48" uspid="375" ordinal="2" offset="20" sl="301" sc="9" el="301" ec="42" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="373" ordinal="0" offset="0" sl="299" sc="5" el="299" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="374" ordinal="1" offset="1" sl="300" sc="7" el="300" ec="52" bec="2" bev="2" fileid="4" />
+                <SequencePoint vc="46" uspid="375" ordinal="2" offset="20" sl="301" sc="9" el="301" ec="42" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="30" uspid="376" ordinal="3" offset="36" sl="303" sc="9" el="303" ec="39" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="78" uspid="377" ordinal="4" offset="50" sl="304" sc="5" el="304" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="76" uspid="377" ordinal="4" offset="50" sl="304" sc="5" el="304" ec="6" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="48" uspid="378" ordinal="0" offset="18" sl="300" path="0" offsetend="20" fileid="4" />
+                <BranchPoint vc="46" uspid="378" ordinal="0" offset="18" sl="300" path="0" offsetend="20" fileid="4" />
                 <BranchPoint vc="30" uspid="379" ordinal="1" offset="18" sl="300" path="1" offsetend="36" fileid="4" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="78" uspid="373" ordinal="0" offset="0" sl="299" sc="5" el="299" ec="6" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="76" uspid="373" ordinal="0" offset="0" sl="299" sc="5" el="299" ec="6" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1252,31 +1252,31 @@
               </BranchPoints>
               <MethodPoint xsi:type="SequencePoint" vc="1" uspid="525" ordinal="0" offset="0" sl="429" sc="5" el="429" ec="6" bec="0" bev="0" fileid="4" />
             </Method>
-            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
-              <Summary numSequencePoints="11" visitedSequencePoints="11" numBranchPoints="5" visitedBranchPoints="5" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="4" sequenceCoverage="100" branchCoverage="80" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="11" visitedSequencePoints="11" numBranchPoints="5" visitedBranchPoints="4" sequenceCoverage="100" branchCoverage="80" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken>100663362</MetadataToken>
               <Name>System.Void Monopoly.Game::MoveTo(Monopoly.Player,System.Int32)</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="3" uspid="532" ordinal="0" offset="0" sl="437" sc="5" el="437" ec="6" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="3" uspid="533" ordinal="1" offset="1" sl="438" sc="7" el="438" ec="43" bec="2" bev="2" fileid="4" />
+                <SequencePoint vc="2" uspid="532" ordinal="0" offset="0" sl="437" sc="5" el="437" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="2" uspid="533" ordinal="1" offset="1" sl="438" sc="7" el="438" ec="43" bec="2" bev="2" fileid="4" />
                 <SequencePoint vc="1" uspid="534" ordinal="2" offset="20" sl="439" sc="7" el="439" ec="8" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="1" uspid="535" ordinal="3" offset="21" sl="440" sc="9" el="440" ec="48" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="1" uspid="536" ordinal="4" offset="30" sl="441" sc="7" el="441" ec="8" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="2" uspid="537" ordinal="5" offset="33" sl="442" sc="12" el="442" ec="48" bec="2" bev="2" fileid="4" />
+                <SequencePoint vc="1" uspid="537" ordinal="5" offset="33" sl="442" sc="12" el="442" ec="48" bec="2" bev="1" fileid="4" />
                 <SequencePoint vc="1" uspid="538" ordinal="6" offset="52" sl="443" sc="7" el="443" ec="8" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="1" uspid="539" ordinal="7" offset="53" sl="444" sc="9" el="444" ec="48" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="1" uspid="540" ordinal="8" offset="62" sl="445" sc="9" el="445" ec="30" bec="0" bev="0" fileid="4" />
                 <SequencePoint vc="1" uspid="541" ordinal="9" offset="74" sl="446" sc="7" el="446" ec="8" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="3" uspid="542" ordinal="10" offset="75" sl="447" sc="5" el="447" ec="6" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="2" uspid="542" ordinal="10" offset="75" sl="447" sc="5" el="447" ec="6" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="1" uspid="543" ordinal="0" offset="18" sl="438" path="0" offsetend="20" fileid="4" />
-                <BranchPoint vc="2" uspid="544" ordinal="1" offset="18" sl="438" path="1" offsetend="33" fileid="4" />
+                <BranchPoint vc="1" uspid="544" ordinal="1" offset="18" sl="438" path="1" offsetend="33" fileid="4" />
                 <BranchPoint vc="1" uspid="545" ordinal="2" offset="50" sl="442" path="0" offsetend="52" fileid="4" />
-                <BranchPoint vc="1" uspid="546" ordinal="3" offset="50" sl="442" path="1" offsetend="75" fileid="4" />
+                <BranchPoint vc="0" uspid="546" ordinal="3" offset="50" sl="442" path="1" offsetend="75" fileid="4" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="532" ordinal="0" offset="0" sl="437" sc="5" el="437" ec="6" bec="0" bev="0" fileid="4" />
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="532" ordinal="0" offset="0" sl="437" sc="5" el="437" ec="6" bec="0" bev="0" fileid="4" />
             </Method>
             <Method visited="true" cyclomaticComplexity="4" nPathComplexity="8" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="22" visitedSequencePoints="22" numBranchPoints="7" visitedBranchPoints="7" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1576,10 +1576,10 @@
               <Name>System.Int32 Monopoly.Player::get_Money()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="234" uspid="614" ordinal="0" offset="0" sl="12" sc="24" el="12" ec="28" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="229" uspid="614" ordinal="0" offset="0" sl="12" sc="24" el="12" ec="28" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="234" uspid="614" ordinal="0" offset="0" sl="12" sc="24" el="12" ec="28" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="229" uspid="614" ordinal="0" offset="0" sl="12" sc="24" el="12" ec="28" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1587,10 +1587,10 @@
               <Name>System.Void Monopoly.Player::set_Money(System.Int32)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="224" uspid="615" ordinal="0" offset="0" sl="12" sc="29" el="12" ec="41" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="221" uspid="615" ordinal="0" offset="0" sl="12" sc="29" el="12" ec="41" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="224" uspid="615" ordinal="0" offset="0" sl="12" sc="29" el="12" ec="41" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="221" uspid="615" ordinal="0" offset="0" sl="12" sc="29" el="12" ec="41" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1598,10 +1598,10 @@
               <Name>System.String Monopoly.Player::get_Name()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="258" uspid="616" ordinal="0" offset="0" sl="13" sc="26" el="13" ec="30" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="252" uspid="616" ordinal="0" offset="0" sl="13" sc="26" el="13" ec="30" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="258" uspid="616" ordinal="0" offset="0" sl="13" sc="26" el="13" ec="30" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="252" uspid="616" ordinal="0" offset="0" sl="13" sc="26" el="13" ec="30" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1677,12 +1677,12 @@
               <Name>System.Collections.Generic.IReadOnlyList`1&lt;Monopoly.Cards.ICard&gt; Monopoly.Player::get_Cards()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="3" uspid="625" ordinal="0" offset="0" sl="27" sc="11" el="27" ec="12" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="3" uspid="626" ordinal="1" offset="1" sl="27" sc="13" el="27" ec="26" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="3" uspid="627" ordinal="2" offset="10" sl="27" sc="27" el="27" ec="28" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="4" uspid="625" ordinal="0" offset="0" sl="27" sc="11" el="27" ec="12" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="4" uspid="626" ordinal="1" offset="1" sl="27" sc="13" el="27" ec="26" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="4" uspid="627" ordinal="2" offset="10" sl="27" sc="27" el="27" ec="28" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="625" ordinal="0" offset="0" sl="27" sc="11" el="27" ec="12" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="625" ordinal="0" offset="0" sl="27" sc="11" el="27" ec="12" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1759,23 +1759,23 @@
               <Name>System.Void Monopoly.Player::PayMoney(System.Int32)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="81" uspid="656" ordinal="0" offset="0" sl="57" sc="5" el="57" ec="6" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="81" uspid="657" ordinal="1" offset="1" sl="58" sc="7" el="58" ec="30" bec="2" bev="2" fileid="9" />
+                <SequencePoint vc="79" uspid="656" ordinal="0" offset="0" sl="57" sc="5" el="57" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="79" uspid="657" ordinal="1" offset="1" sl="58" sc="7" el="58" ec="30" bec="2" bev="2" fileid="9" />
                 <SequencePoint vc="3" uspid="658" ordinal="2" offset="16" sl="59" sc="7" el="59" ec="8" bec="0" bev="0" fileid="9" />
                 <SequencePoint vc="3" uspid="659" ordinal="3" offset="17" sl="60" sc="9" el="60" ec="50" bec="2" bev="2" fileid="9" />
                 <SequencePoint vc="2" uspid="660" ordinal="4" offset="34" sl="61" sc="11" el="61" ec="41" bec="0" bev="0" fileid="9" />
                 <SequencePoint vc="1" uspid="661" ordinal="5" offset="40" sl="63" sc="11" el="63" ec="66" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="78" uspid="662" ordinal="6" offset="53" sl="65" sc="7" el="65" ec="41" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="78" uspid="663" ordinal="7" offset="67" sl="66" sc="7" el="66" ec="23" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="78" uspid="664" ordinal="8" offset="82" sl="67" sc="5" el="67" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="76" uspid="662" ordinal="6" offset="53" sl="65" sc="7" el="65" ec="41" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="76" uspid="663" ordinal="7" offset="67" sl="66" sc="7" el="66" ec="23" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="76" uspid="664" ordinal="8" offset="82" sl="67" sc="5" el="67" ec="6" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="3" uspid="665" ordinal="0" offset="14" sl="58" path="0" offsetend="16" fileid="9" />
-                <BranchPoint vc="78" uspid="666" ordinal="1" offset="14" sl="58" path="1" offsetend="53" fileid="9" />
+                <BranchPoint vc="76" uspid="666" ordinal="1" offset="14" sl="58" path="1" offsetend="53" fileid="9" />
                 <BranchPoint vc="2" uspid="667" ordinal="2" offset="32" sl="60" path="0" offsetend="34" fileid="9" />
                 <BranchPoint vc="1" uspid="668" ordinal="3" offset="32" sl="60" path="1" offsetend="40" fileid="9" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="81" uspid="656" ordinal="0" offset="0" sl="57" sc="5" el="57" ec="6" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="79" uspid="656" ordinal="0" offset="0" sl="57" sc="5" el="57" ec="6" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1783,12 +1783,12 @@
               <Name>System.Void Monopoly.Player::GetMoney(System.Int32)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="29" uspid="669" ordinal="0" offset="0" sl="70" sc="5" el="70" ec="6" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="29" uspid="670" ordinal="1" offset="1" sl="71" sc="7" el="71" ec="23" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="29" uspid="671" ordinal="2" offset="16" sl="72" sc="5" el="72" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="28" uspid="669" ordinal="0" offset="0" sl="70" sc="5" el="70" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="28" uspid="670" ordinal="1" offset="1" sl="71" sc="7" el="71" ec="23" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="28" uspid="671" ordinal="2" offset="16" sl="72" sc="5" el="72" ec="6" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="29" uspid="669" ordinal="0" offset="0" sl="70" sc="5" el="70" ec="6" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="28" uspid="669" ordinal="0" offset="0" sl="70" sc="5" el="70" ec="6" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1809,12 +1809,12 @@
               <Name>System.Void Monopoly.Player::AddCard(Monopoly.Cards.ICard)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="2" uspid="675" ordinal="0" offset="0" sl="80" sc="5" el="80" ec="6" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="2" uspid="676" ordinal="1" offset="1" sl="81" sc="7" el="81" ec="28" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="2" uspid="677" ordinal="2" offset="14" sl="82" sc="5" el="82" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="3" uspid="675" ordinal="0" offset="0" sl="80" sc="5" el="80" ec="6" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="3" uspid="676" ordinal="1" offset="1" sl="81" sc="7" el="81" ec="28" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="3" uspid="677" ordinal="2" offset="14" sl="82" sc="5" el="82" ec="6" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="675" ordinal="0" offset="0" sl="80" sc="5" el="80" ec="6" bec="0" bev="0" fileid="9" />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="675" ordinal="0" offset="0" sl="80" sc="5" el="80" ec="6" bec="0" bev="0" fileid="9" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -1841,10 +1841,10 @@
               <Name>Monopoly.Groups Monopoly.StartField::get_Group()</Name>
               <FileRef uid="10" />
               <SequencePoints>
-                <SequencePoint vc="2" uspid="681" ordinal="0" offset="0" sl="11" sc="27" el="11" ec="31" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="3" uspid="681" ordinal="0" offset="0" sl="11" sc="27" el="11" ec="31" bec="0" bev="0" fileid="10" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="681" ordinal="0" offset="0" sl="11" sc="27" el="11" ec="31" bec="0" bev="0" fileid="10" />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="681" ordinal="0" offset="0" sl="11" sc="27" el="11" ec="31" bec="0" bev="0" fileid="10" />
             </Method>
             <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
@@ -1940,10 +1940,10 @@
               <Name>Monopoly.Groups Monopoly.StreetField::get_Group()</Name>
               <FileRef uid="11" />
               <SequencePoints>
-                <SequencePoint vc="105" uspid="694" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="109" uspid="694" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="11" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="105" uspid="694" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="11" />
+              <MethodPoint xsi:type="SequencePoint" vc="109" uspid="694" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="11" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2028,10 +2028,10 @@
               <Name>Monopoly.Player Monopoly.StreetField::get_Owner()</Name>
               <FileRef uid="11" />
               <SequencePoints>
-                <SequencePoint vc="161" uspid="702" ordinal="0" offset="0" sl="16" sc="27" el="16" ec="31" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="163" uspid="702" ordinal="0" offset="0" sl="16" sc="27" el="16" ec="31" bec="0" bev="0" fileid="11" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="161" uspid="702" ordinal="0" offset="0" sl="16" sc="27" el="16" ec="31" bec="0" bev="0" fileid="11" />
+              <MethodPoint xsi:type="SequencePoint" vc="163" uspid="702" ordinal="0" offset="0" sl="16" sc="27" el="16" ec="31" bec="0" bev="0" fileid="11" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2090,12 +2090,12 @@
               <Name>System.Void Monopoly.StreetField::OnEnter(Monopoly.Player)</Name>
               <FileRef uid="11" />
               <SequencePoints>
-                <SequencePoint vc="17" uspid="713" ordinal="0" offset="0" sl="40" sc="5" el="40" ec="6" bec="0" bev="0" fileid="11" />
-                <SequencePoint vc="17" uspid="714" ordinal="1" offset="1" sl="41" sc="7" el="41" ec="23" bec="0" bev="0" fileid="11" />
-                <SequencePoint vc="14" uspid="715" ordinal="2" offset="9" sl="42" sc="5" el="42" ec="6" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="19" uspid="713" ordinal="0" offset="0" sl="40" sc="5" el="40" ec="6" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="19" uspid="714" ordinal="1" offset="1" sl="41" sc="7" el="41" ec="23" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="16" uspid="715" ordinal="2" offset="9" sl="42" sc="5" el="42" ec="6" bec="0" bev="0" fileid="11" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="17" uspid="713" ordinal="0" offset="0" sl="40" sc="5" el="40" ec="6" bec="0" bev="0" fileid="11" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="713" ordinal="0" offset="0" sl="40" sc="5" el="40" ec="6" bec="0" bev="0" fileid="11" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2121,19 +2121,19 @@
               <Name>System.Void Monopoly.StreetField::PayRent(Monopoly.Player)</Name>
               <FileRef uid="11" />
               <SequencePoints>
-                <SequencePoint vc="17" uspid="724" ordinal="0" offset="0" sl="54" sc="5" el="54" ec="6" bec="0" bev="0" fileid="11" />
-                <SequencePoint vc="17" uspid="725" ordinal="1" offset="1" sl="55" sc="7" el="55" ec="76" bec="2" bev="2" fileid="11" />
+                <SequencePoint vc="19" uspid="724" ordinal="0" offset="0" sl="54" sc="5" el="54" ec="6" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="19" uspid="725" ordinal="1" offset="1" sl="55" sc="7" el="55" ec="76" bec="2" bev="2" fileid="11" />
                 <SequencePoint vc="5" uspid="726" ordinal="2" offset="49" sl="56" sc="7" el="56" ec="8" bec="0" bev="0" fileid="11" />
                 <SequencePoint vc="5" uspid="727" ordinal="3" offset="50" sl="57" sc="9" el="57" ec="36" bec="0" bev="0" fileid="11" />
                 <SequencePoint vc="2" uspid="728" ordinal="4" offset="63" sl="58" sc="9" el="58" ec="35" bec="0" bev="0" fileid="11" />
                 <SequencePoint vc="2" uspid="729" ordinal="5" offset="81" sl="59" sc="7" el="59" ec="8" bec="0" bev="0" fileid="11" />
-                <SequencePoint vc="14" uspid="730" ordinal="6" offset="82" sl="60" sc="5" el="60" ec="6" bec="0" bev="0" fileid="11" />
+                <SequencePoint vc="16" uspid="730" ordinal="6" offset="82" sl="60" sc="5" el="60" ec="6" bec="0" bev="0" fileid="11" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="5" uspid="735" ordinal="4" offset="47" sl="55" path="0" offsetend="49" fileid="11" />
-                <BranchPoint vc="12" uspid="736" ordinal="5" offset="47" sl="55" path="1" offsetend="82" fileid="11" />
+                <BranchPoint vc="14" uspid="736" ordinal="5" offset="47" sl="55" path="1" offsetend="82" fileid="11" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="17" uspid="724" ordinal="0" offset="0" sl="54" sc="5" el="54" ec="6" bec="0" bev="0" fileid="11" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="724" ordinal="0" offset="0" sl="54" sc="5" el="54" ec="6" bec="0" bev="0" fileid="11" />
             </Method>
             <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2409,10 +2409,10 @@
               <Name>Monopoly.Player Monopoly.SupplierField::get_Owner()</Name>
               <FileRef uid="12" />
               <SequencePoints>
-                <SequencePoint vc="48" uspid="870" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="49" uspid="870" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="12" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="48" uspid="870" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="12" />
+              <MethodPoint xsi:type="SequencePoint" vc="49" uspid="870" ordinal="0" offset="0" sl="12" sc="27" el="12" ec="31" bec="0" bev="0" fileid="12" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2453,10 +2453,10 @@
               <Name>Monopoly.Groups Monopoly.SupplierField::get_Group()</Name>
               <FileRef uid="12" />
               <SequencePoints>
-                <SequencePoint vc="46" uspid="874" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="47" uspid="874" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="12" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="46" uspid="874" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="12" />
+              <MethodPoint xsi:type="SequencePoint" vc="47" uspid="874" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="12" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2569,12 +2569,12 @@
               <Name>System.Void Monopoly.SupplierField::OnEnter(Monopoly.Player)</Name>
               <FileRef uid="12" />
               <SequencePoints>
-                <SequencePoint vc="5" uspid="899" ordinal="0" offset="0" sl="51" sc="5" el="51" ec="6" bec="0" bev="0" fileid="12" />
-                <SequencePoint vc="5" uspid="900" ordinal="1" offset="1" sl="52" sc="7" el="52" ec="23" bec="0" bev="0" fileid="12" />
-                <SequencePoint vc="5" uspid="901" ordinal="2" offset="9" sl="53" sc="5" el="53" ec="6" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="6" uspid="899" ordinal="0" offset="0" sl="51" sc="5" el="51" ec="6" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="6" uspid="900" ordinal="1" offset="1" sl="52" sc="7" el="52" ec="23" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="6" uspid="901" ordinal="2" offset="9" sl="53" sc="5" el="53" ec="6" bec="0" bev="0" fileid="12" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="899" ordinal="0" offset="0" sl="51" sc="5" el="51" ec="6" bec="0" bev="0" fileid="12" />
+              <MethodPoint xsi:type="SequencePoint" vc="6" uspid="899" ordinal="0" offset="0" sl="51" sc="5" el="51" ec="6" bec="0" bev="0" fileid="12" />
             </Method>
             <Method visited="true" cyclomaticComplexity="4" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2582,20 +2582,20 @@
               <Name>System.Void Monopoly.SupplierField::PayRent(Monopoly.Player)</Name>
               <FileRef uid="12" />
               <SequencePoints>
-                <SequencePoint vc="5" uspid="902" ordinal="0" offset="0" sl="56" sc="5" el="56" ec="6" bec="0" bev="0" fileid="12" />
-                <SequencePoint vc="5" uspid="903" ordinal="1" offset="1" sl="57" sc="7" el="57" ec="76" bec="2" bev="2" fileid="12" />
+                <SequencePoint vc="6" uspid="902" ordinal="0" offset="0" sl="56" sc="5" el="56" ec="6" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="6" uspid="903" ordinal="1" offset="1" sl="57" sc="7" el="57" ec="76" bec="2" bev="2" fileid="12" />
                 <SequencePoint vc="2" uspid="904" ordinal="2" offset="49" sl="58" sc="7" el="58" ec="8" bec="0" bev="0" fileid="12" />
                 <SequencePoint vc="2" uspid="905" ordinal="3" offset="50" sl="59" sc="9" el="59" ec="46" bec="0" bev="0" fileid="12" />
                 <SequencePoint vc="2" uspid="906" ordinal="4" offset="58" sl="60" sc="9" el="60" ec="36" bec="0" bev="0" fileid="12" />
                 <SequencePoint vc="2" uspid="907" ordinal="5" offset="66" sl="61" sc="9" el="61" ec="35" bec="0" bev="0" fileid="12" />
                 <SequencePoint vc="2" uspid="908" ordinal="6" offset="79" sl="62" sc="7" el="62" ec="8" bec="0" bev="0" fileid="12" />
-                <SequencePoint vc="5" uspid="909" ordinal="7" offset="80" sl="63" sc="5" el="63" ec="6" bec="0" bev="0" fileid="12" />
+                <SequencePoint vc="6" uspid="909" ordinal="7" offset="80" sl="63" sc="5" el="63" ec="6" bec="0" bev="0" fileid="12" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="2" uspid="914" ordinal="4" offset="47" sl="57" path="0" offsetend="49" fileid="12" />
-                <BranchPoint vc="3" uspid="915" ordinal="5" offset="47" sl="57" path="1" offsetend="80" fileid="12" />
+                <BranchPoint vc="4" uspid="915" ordinal="5" offset="47" sl="57" path="1" offsetend="80" fileid="12" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="902" ordinal="0" offset="0" sl="56" sc="5" el="56" ec="6" bec="0" bev="0" fileid="12" />
+              <MethodPoint xsi:type="SequencePoint" vc="6" uspid="902" ordinal="0" offset="0" sl="56" sc="5" el="56" ec="6" bec="0" bev="0" fileid="12" />
             </Method>
             <Method visited="true" cyclomaticComplexity="3" nPathComplexity="4" sequenceCoverage="87.5" branchCoverage="80" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="8" visitedSequencePoints="7" numBranchPoints="5" visitedBranchPoints="4" sequenceCoverage="87.5" branchCoverage="80" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2830,10 +2830,10 @@
               <Name>Monopoly.Player Monopoly.TrainstationField::get_Owner()</Name>
               <FileRef uid="13" />
               <SequencePoints>
-                <SequencePoint vc="89" uspid="1008" ordinal="0" offset="0" sl="13" sc="27" el="13" ec="31" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="87" uspid="1008" ordinal="0" offset="0" sl="13" sc="27" el="13" ec="31" bec="0" bev="0" fileid="13" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="89" uspid="1008" ordinal="0" offset="0" sl="13" sc="27" el="13" ec="31" bec="0" bev="0" fileid="13" />
+              <MethodPoint xsi:type="SequencePoint" vc="87" uspid="1008" ordinal="0" offset="0" sl="13" sc="27" el="13" ec="31" bec="0" bev="0" fileid="13" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -2852,10 +2852,10 @@
               <Name>Monopoly.Groups Monopoly.TrainstationField::get_Group()</Name>
               <FileRef uid="13" />
               <SequencePoints>
-                <SequencePoint vc="44" uspid="1010" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="46" uspid="1010" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="13" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="44" uspid="1010" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="13" />
+              <MethodPoint xsi:type="SequencePoint" vc="46" uspid="1010" ordinal="0" offset="0" sl="14" sc="27" el="14" ec="31" bec="0" bev="0" fileid="13" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -3034,12 +3034,12 @@
               <Name>System.Void Monopoly.TrainstationField::OnEnter(Monopoly.Player)</Name>
               <FileRef uid="13" />
               <SequencePoints>
-                <SequencePoint vc="5" uspid="1067" ordinal="0" offset="0" sl="71" sc="5" el="71" ec="6" bec="0" bev="0" fileid="13" />
-                <SequencePoint vc="5" uspid="1068" ordinal="1" offset="1" sl="72" sc="7" el="72" ec="23" bec="0" bev="0" fileid="13" />
-                <SequencePoint vc="5" uspid="1069" ordinal="2" offset="9" sl="73" sc="5" el="73" ec="6" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="3" uspid="1067" ordinal="0" offset="0" sl="71" sc="5" el="71" ec="6" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="3" uspid="1068" ordinal="1" offset="1" sl="72" sc="7" el="72" ec="23" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="3" uspid="1069" ordinal="2" offset="9" sl="73" sc="5" el="73" ec="6" bec="0" bev="0" fileid="13" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="1067" ordinal="0" offset="0" sl="71" sc="5" el="71" ec="6" bec="0" bev="0" fileid="13" />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="1067" ordinal="0" offset="0" sl="71" sc="5" el="71" ec="6" bec="0" bev="0" fileid="13" />
             </Method>
             <Method visited="true" cyclomaticComplexity="4" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -3047,19 +3047,19 @@
               <Name>System.Void Monopoly.TrainstationField::PayRent(Monopoly.Player)</Name>
               <FileRef uid="13" />
               <SequencePoints>
-                <SequencePoint vc="5" uspid="1070" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="6" bec="0" bev="0" fileid="13" />
-                <SequencePoint vc="5" uspid="1071" ordinal="1" offset="1" sl="77" sc="7" el="77" ec="76" bec="2" bev="2" fileid="13" />
+                <SequencePoint vc="3" uspid="1070" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="6" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="3" uspid="1071" ordinal="1" offset="1" sl="77" sc="7" el="77" ec="76" bec="2" bev="2" fileid="13" />
                 <SequencePoint vc="1" uspid="1072" ordinal="2" offset="49" sl="78" sc="7" el="78" ec="8" bec="0" bev="0" fileid="13" />
                 <SequencePoint vc="1" uspid="1073" ordinal="3" offset="50" sl="79" sc="9" el="79" ec="36" bec="0" bev="0" fileid="13" />
                 <SequencePoint vc="1" uspid="1074" ordinal="4" offset="63" sl="80" sc="9" el="80" ec="35" bec="0" bev="0" fileid="13" />
                 <SequencePoint vc="1" uspid="1075" ordinal="5" offset="81" sl="81" sc="7" el="81" ec="8" bec="0" bev="0" fileid="13" />
-                <SequencePoint vc="5" uspid="1076" ordinal="6" offset="82" sl="82" sc="5" el="82" ec="6" bec="0" bev="0" fileid="13" />
+                <SequencePoint vc="3" uspid="1076" ordinal="6" offset="82" sl="82" sc="5" el="82" ec="6" bec="0" bev="0" fileid="13" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="1" uspid="1081" ordinal="4" offset="47" sl="77" path="0" offsetend="49" fileid="13" />
-                <BranchPoint vc="4" uspid="1082" ordinal="5" offset="47" sl="77" path="1" offsetend="82" fileid="13" />
+                <BranchPoint vc="2" uspid="1082" ordinal="5" offset="47" sl="77" path="1" offsetend="82" fileid="13" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="1070" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="6" bec="0" bev="0" fileid="13" />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="1070" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="6" bec="0" bev="0" fileid="13" />
             </Method>
             <Method visited="true" cyclomaticComplexity="4" nPathComplexity="8" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="10" visitedSequencePoints="10" numBranchPoints="7" visitedBranchPoints="7" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -3454,23 +3454,23 @@
               <Name>System.Void Monopoly.Cards.GetMoneyFromPlayersCard::UseCard(Monopoly.Player)</Name>
               <FileRef uid="17" />
               <SequencePoints>
-                <SequencePoint vc="2" uspid="1201" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="2" uspid="1202" ordinal="1" offset="1" sl="23" sc="7" el="23" ec="14" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="2" uspid="1203" ordinal="2" offset="2" sl="23" sc="37" el="23" ec="50" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="6" uspid="1204" ordinal="3" offset="21" sl="23" sc="15" el="23" ec="33" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="6" uspid="1205" ordinal="4" offset="28" sl="24" sc="7" el="24" ec="8" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="6" uspid="1206" ordinal="5" offset="29" sl="25" sc="9" el="25" ec="45" bec="2" bev="2" fileid="17" />
-                <SequencePoint vc="4" uspid="1207" ordinal="6" offset="50" sl="26" sc="11" el="26" ec="40" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="6" uspid="1208" ordinal="7" offset="63" sl="27" sc="7" el="27" ec="8" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="8" uspid="1209" ordinal="8" offset="64" sl="23" sc="34" el="23" ec="36" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="2" uspid="1210" ordinal="9" offset="85" sl="28" sc="7" el="28" ec="61" bec="0" bev="0" fileid="17" />
-                <SequencePoint vc="2" uspid="1211" ordinal="10" offset="117" sl="29" sc="5" el="29" ec="6" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="1" uspid="1201" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="1" uspid="1202" ordinal="1" offset="1" sl="23" sc="7" el="23" ec="14" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="1" uspid="1203" ordinal="2" offset="2" sl="23" sc="37" el="23" ec="50" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="3" uspid="1204" ordinal="3" offset="21" sl="23" sc="15" el="23" ec="33" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="3" uspid="1205" ordinal="4" offset="28" sl="24" sc="7" el="24" ec="8" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="3" uspid="1206" ordinal="5" offset="29" sl="25" sc="9" el="25" ec="45" bec="2" bev="2" fileid="17" />
+                <SequencePoint vc="2" uspid="1207" ordinal="6" offset="50" sl="26" sc="11" el="26" ec="40" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="3" uspid="1208" ordinal="7" offset="63" sl="27" sc="7" el="27" ec="8" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="4" uspid="1209" ordinal="8" offset="64" sl="23" sc="34" el="23" ec="36" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="1" uspid="1210" ordinal="9" offset="85" sl="28" sc="7" el="28" ec="61" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="1" uspid="1211" ordinal="10" offset="117" sl="29" sc="5" el="29" ec="6" bec="0" bev="0" fileid="17" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="4" uspid="1212" ordinal="0" offset="48" sl="25" path="0" offsetend="50" fileid="17" />
-                <BranchPoint vc="2" uspid="1213" ordinal="1" offset="48" sl="25" path="1" offsetend="63" fileid="17" />
+                <BranchPoint vc="2" uspid="1212" ordinal="0" offset="48" sl="25" path="0" offsetend="50" fileid="17" />
+                <BranchPoint vc="1" uspid="1213" ordinal="1" offset="48" sl="25" path="1" offsetend="63" fileid="17" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="1201" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="17" />
+              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="1201" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="17" />
             </Method>
           </Methods>
         </Class>
@@ -3521,22 +3521,22 @@
               <Name>System.Void Monopoly.Cards.GetOutOfJailCard::UseCard(Monopoly.Player)</Name>
               <FileRef uid="18" />
               <SequencePoints>
-                <SequencePoint vc="3" uspid="1223" ordinal="0" offset="0" sl="21" sc="5" el="21" ec="6" bec="0" bev="0" fileid="18" />
-                <SequencePoint vc="3" uspid="1224" ordinal="1" offset="1" sl="22" sc="7" el="22" ec="39" bec="2" bev="2" fileid="18" />
+                <SequencePoint vc="4" uspid="1223" ordinal="0" offset="0" sl="21" sc="5" el="21" ec="6" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="4" uspid="1224" ordinal="1" offset="1" sl="22" sc="7" el="22" ec="39" bec="2" bev="2" fileid="18" />
                 <SequencePoint vc="2" uspid="1225" ordinal="2" offset="17" sl="23" sc="7" el="23" ec="8" bec="0" bev="0" fileid="18" />
                 <SequencePoint vc="2" uspid="1226" ordinal="3" offset="18" sl="24" sc="9" el="24" ec="46" bec="0" bev="0" fileid="18" />
                 <SequencePoint vc="2" uspid="1227" ordinal="4" offset="31" sl="25" sc="9" el="25" ec="33" bec="0" bev="0" fileid="18" />
                 <SequencePoint vc="2" uspid="1228" ordinal="5" offset="39" sl="26" sc="7" el="26" ec="8" bec="0" bev="0" fileid="18" />
-                <SequencePoint vc="1" uspid="1229" ordinal="6" offset="42" sl="28" sc="7" el="28" ec="8" bec="0" bev="0" fileid="18" />
-                <SequencePoint vc="1" uspid="1230" ordinal="7" offset="43" sl="29" sc="9" el="29" ec="30" bec="0" bev="0" fileid="18" />
-                <SequencePoint vc="1" uspid="1231" ordinal="8" offset="51" sl="30" sc="7" el="30" ec="8" bec="0" bev="0" fileid="18" />
-                <SequencePoint vc="3" uspid="1232" ordinal="9" offset="52" sl="32" sc="5" el="32" ec="6" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="2" uspid="1229" ordinal="6" offset="42" sl="28" sc="7" el="28" ec="8" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="2" uspid="1230" ordinal="7" offset="43" sl="29" sc="9" el="29" ec="30" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="2" uspid="1231" ordinal="8" offset="51" sl="30" sc="7" el="30" ec="8" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="4" uspid="1232" ordinal="9" offset="52" sl="32" sc="5" el="32" ec="6" bec="0" bev="0" fileid="18" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="2" uspid="1233" ordinal="0" offset="15" sl="22" path="0" offsetend="17" fileid="18" />
-                <BranchPoint vc="1" uspid="1234" ordinal="1" offset="15" sl="22" path="1" offsetend="42" fileid="18" />
+                <BranchPoint vc="2" uspid="1234" ordinal="1" offset="15" sl="22" path="1" offsetend="42" fileid="18" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="1223" ordinal="0" offset="0" sl="21" sc="5" el="21" ec="6" bec="0" bev="0" fileid="18" />
+              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="1223" ordinal="0" offset="0" sl="21" sc="5" el="21" ec="6" bec="0" bev="0" fileid="18" />
             </Method>
           </Methods>
         </Class>
@@ -3644,17 +3644,17 @@
               <Name>System.Void Monopoly.Cards.GoToNextMemberofGroupCard::UseCard(Monopoly.Player)</Name>
               <FileRef uid="20" />
               <SequencePoints>
-                <SequencePoint vc="2" uspid="1253" ordinal="0" offset="0" sl="23" sc="5" el="23" ec="6" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="2" uspid="1254" ordinal="1" offset="1" sl="24" sc="7" el="24" ec="47" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="2" uspid="1255" ordinal="2" offset="19" sl="27" sc="12" el="27" ec="43" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="11" uspid="1256" ordinal="3" offset="23" sl="28" sc="7" el="28" ec="8" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="11" uspid="1257" ordinal="4" offset="24" sl="29" sc="9" el="29" ec="58" bec="2" bev="2" fileid="20" />
-                <SequencePoint vc="1" uspid="1258" ordinal="5" offset="58" sl="30" sc="9" el="30" ec="10" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="1" uspid="1259" ordinal="6" offset="59" sl="31" sc="11" el="31" ec="55" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="1" uspid="1260" ordinal="7" offset="73" sl="32" sc="11" el="32" ec="18" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="10" uspid="1261" ordinal="8" offset="75" sl="34" sc="7" el="34" ec="8" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="10" uspid="1262" ordinal="9" offset="76" sl="27" sc="88" el="27" ec="105" bec="0" bev="0" fileid="20" />
-                <SequencePoint vc="12" uspid="1263" ordinal="10" offset="80" sl="27" sc="45" el="27" ec="86" bec="2" bev="2" fileid="20" />
+                <SequencePoint vc="3" uspid="1253" ordinal="0" offset="0" sl="23" sc="5" el="23" ec="6" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="3" uspid="1254" ordinal="1" offset="1" sl="24" sc="7" el="24" ec="47" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="3" uspid="1255" ordinal="2" offset="19" sl="27" sc="12" el="27" ec="43" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="19" uspid="1256" ordinal="3" offset="23" sl="28" sc="7" el="28" ec="8" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="19" uspid="1257" ordinal="4" offset="24" sl="29" sc="9" el="29" ec="58" bec="2" bev="2" fileid="20" />
+                <SequencePoint vc="2" uspid="1258" ordinal="5" offset="58" sl="30" sc="9" el="30" ec="10" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="2" uspid="1259" ordinal="6" offset="59" sl="31" sc="11" el="31" ec="55" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="2" uspid="1260" ordinal="7" offset="73" sl="32" sc="11" el="32" ec="18" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="17" uspid="1261" ordinal="8" offset="75" sl="34" sc="7" el="34" ec="8" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="17" uspid="1262" ordinal="9" offset="76" sl="27" sc="88" el="27" ec="105" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="20" uspid="1263" ordinal="10" offset="80" sl="27" sc="45" el="27" ec="86" bec="2" bev="2" fileid="20" />
                 <SequencePoint vc="1" uspid="1264" ordinal="11" offset="108" sl="36" sc="12" el="36" ec="35" bec="0" bev="0" fileid="20" />
                 <SequencePoint vc="6" uspid="1265" ordinal="12" offset="113" sl="37" sc="7" el="37" ec="8" bec="0" bev="0" fileid="20" />
                 <SequencePoint vc="6" uspid="1266" ordinal="13" offset="114" sl="38" sc="9" el="38" ec="59" bec="2" bev="2" fileid="20" />
@@ -3664,19 +3664,19 @@
                 <SequencePoint vc="5" uspid="1270" ordinal="17" offset="169" sl="43" sc="7" el="43" ec="8" bec="0" bev="0" fileid="20" />
                 <SequencePoint vc="5" uspid="1271" ordinal="18" offset="170" sl="36" sc="66" el="36" ec="83" bec="0" bev="0" fileid="20" />
                 <SequencePoint vc="6" uspid="1272" ordinal="19" offset="176" sl="36" sc="37" el="36" ec="64" bec="2" bev="1" fileid="20" />
-                <SequencePoint vc="2" uspid="1273" ordinal="20" offset="187" sl="45" sc="5" el="45" ec="6" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="3" uspid="1273" ordinal="20" offset="187" sl="45" sc="5" el="45" ec="6" bec="0" bev="0" fileid="20" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="1" uspid="1274" ordinal="0" offset="56" sl="29" path="0" offsetend="58" fileid="20" />
-                <BranchPoint vc="10" uspid="1275" ordinal="1" offset="56" sl="29" path="1" offsetend="75" fileid="20" />
+                <BranchPoint vc="2" uspid="1274" ordinal="0" offset="56" sl="29" path="0" offsetend="58" fileid="20" />
+                <BranchPoint vc="17" uspid="1275" ordinal="1" offset="56" sl="29" path="1" offsetend="75" fileid="20" />
                 <BranchPoint vc="1" uspid="1276" ordinal="2" offset="106" sl="27" path="0" offsetend="108" fileid="20" />
-                <BranchPoint vc="11" uspid="1277" ordinal="3" offset="106" sl="27" path="1" offsetend="23" fileid="20" />
+                <BranchPoint vc="19" uspid="1277" ordinal="3" offset="106" sl="27" path="1" offsetend="23" fileid="20" />
                 <BranchPoint vc="1" uspid="1278" ordinal="4" offset="149" sl="38" path="0" offsetend="151" fileid="20" />
                 <BranchPoint vc="5" uspid="1279" ordinal="5" offset="149" sl="38" path="1" offsetend="169" fileid="20" />
                 <BranchPoint vc="0" uspid="1280" ordinal="6" offset="185" sl="36" path="0" offsetend="187" fileid="20" />
                 <BranchPoint vc="6" uspid="1281" ordinal="7" offset="185" sl="36" path="1" offsetend="113" fileid="20" />
               </BranchPoints>
-              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="1253" ordinal="0" offset="0" sl="23" sc="5" el="23" ec="6" bec="0" bev="0" fileid="20" />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="1253" ordinal="0" offset="0" sl="23" sc="5" el="23" ec="6" bec="0" bev="0" fileid="20" />
             </Method>
           </Methods>
         </Class>
@@ -3850,12 +3850,12 @@
               <Name>System.Void Monopoly.Cards.MoveToCard::UseCard(Monopoly.Player)</Name>
               <FileRef uid="23" />
               <SequencePoints>
-                <SequencePoint vc="3" uspid="1319" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="23" />
-                <SequencePoint vc="3" uspid="1320" ordinal="1" offset="1" sl="23" sc="7" el="23" ec="39" bec="0" bev="0" fileid="23" />
-                <SequencePoint vc="3" uspid="1321" ordinal="2" offset="20" sl="24" sc="5" el="24" ec="6" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="2" uspid="1319" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="2" uspid="1320" ordinal="1" offset="1" sl="23" sc="7" el="23" ec="39" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="2" uspid="1321" ordinal="2" offset="20" sl="24" sc="5" el="24" ec="6" bec="0" bev="0" fileid="23" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="1319" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="23" />
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="1319" ordinal="0" offset="0" sl="22" sc="5" el="22" ec="6" bec="0" bev="0" fileid="23" />
             </Method>
           </Methods>
         </Class>

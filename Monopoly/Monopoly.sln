@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyConsoleApp", "MonopolyConsoleApp\MonopolyConsoleApp.csproj", "{D47D869C-5BD6-4E3D-B11B-1F3D0A749831}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyWPFApp", "MonopolyWPFApp\MonopolyWPFApp.csproj", "{1E72A16D-1838-4642-A460-076EA26DEE74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D47D869C-5BD6-4E3D-B11B-1F3D0A749831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47D869C-5BD6-4E3D-B11B-1F3D0A749831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47D869C-5BD6-4E3D-B11B-1F3D0A749831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E72A16D-1838-4642-A460-076EA26DEE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E72A16D-1838-4642-A460-076EA26DEE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E72A16D-1838-4642-A460-076EA26DEE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E72A16D-1838-4642-A460-076EA26DEE74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

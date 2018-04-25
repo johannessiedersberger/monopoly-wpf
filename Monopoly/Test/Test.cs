@@ -725,12 +725,7 @@ namespace Test
       Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
       game.Fields[11].OnEnter(game.Players[0]);
     }
-    [Test]
-    public void TestChangeField()
-    {
-      Game game = new Game(new Player[] { new Player("X"), new Player("Y"), new Player("Z") });
-      game.Fields[12].OnEnter(game.Players[0]);
-    }
+    
     #endregion
   }
 }
