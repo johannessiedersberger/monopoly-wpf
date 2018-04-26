@@ -5,8 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MonopolyWPFApp"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="1000">
     <Grid>
-            
-    </Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="200"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="200"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="200"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="200"/>
+    </Grid.RowDefinitions> 
+
+    <local:BigField Grid.Row="0" Grid.Column="0"/>
+    <local:BigField Grid.Row="0" Grid.Column="2"/>
+    <local:BigField Grid.Row="2" Grid.Column="0"/>
+    <local:BigField Grid.Row="2" Grid.Column="2"/>
+
+    <local:FieldRow Grid.Row="0" Grid.Column="1"/>
+    <local:FieldRow Grid.Row="2" Grid.Column="1" >
+      <local:FieldRow.LayoutTransform>
+        <RotateTransform Angle="180"/>
+      </local:FieldRow.LayoutTransform>
+    </local:FieldRow>
+
+    <local:FieldRow Grid.Row="1" Grid.Column="0" >
+      <local:FieldRow.LayoutTransform>
+        <RotateTransform Angle="-90"/>
+      </local:FieldRow.LayoutTransform>
+    </local:FieldRow>
+
+    <local:FieldRow Grid.Row="1" Grid.Column="2" >
+      <local:FieldRow.LayoutTransform>
+        <RotateTransform Angle="90"/>
+      </local:FieldRow.LayoutTransform>
+    </local:FieldRow>
+
+  </Grid>
 </UserControl>

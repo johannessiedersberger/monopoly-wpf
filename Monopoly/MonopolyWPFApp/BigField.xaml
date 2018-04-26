@@ -5,15 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MonopolyWPFApp"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="450">
-    <Grid Background="White">
+             d:DesignHeight="100" d:DesignWidth="100">
+  <Grid Background="White">
     <Grid.RowDefinitions>
       <RowDefinition Height="0.3*"/>
       <RowDefinition Height="0.3*"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Label Grid.Row="0" x:Name="fieldNameLabel" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="25"/>
-    <Label Grid.Row="1" x:Name="fieldTextLabel" Content="Collect 200$" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="25"/>
+    <Label Grid.Row="0" x:Name="fieldNameLabel" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="10"/>
+    <Label Grid.Row="1" x:Name="fieldTextLabel" Content="Collect 200$" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="10"/>
     <Image Grid.Row="3" x:Name="fieldImage" Source="C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\Resources\cartoon-2423365_1280.png" />
   </Grid>
 </UserControl>

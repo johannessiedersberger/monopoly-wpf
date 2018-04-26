@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FieldRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +80,9 @@
     </Compile>
     <Compile Include="Field.xaml.cs">
       <DependentUpon>Field.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FieldRow.xaml.cs">
+      <DependentUpon>FieldRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -112,6 +119,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -129,13 +137,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home-1110868_1280.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hotel-1976102_1280.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cartoon-2423365_1280.png" />
+    <Resource Include="Images\Hotel.png" />
+    <Resource Include="Images\House.png" />
+    <Resource Include="Images\Train.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
