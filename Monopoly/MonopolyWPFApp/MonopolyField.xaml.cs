@@ -12,17 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Monopoly;
 namespace MonopolyWPFApp
 {
-    /// <summary>
-    /// Interaction logic for monopolyField.xaml
-    /// </summary>
-    public partial class MonopolyField : UserControl
+  /// <summary>
+  /// Interaction logic for monopolyField.xaml
+  /// </summary>
+  public partial class MonopolyField : UserControl
+  {
+    private Game _game;
+    private List<Field> _fields;
+    public MonopolyField(Game game)
     {
-        public MonopolyField()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+      UpdateField();
     }
+    private List<Field> GetAllFields(List<FieldRow> rows)
+    {
+      return new List<Field>()
+      {
+        
+      };
+    }
+    public void UpdateField()
+    {
+      
+    }
+  }
 }

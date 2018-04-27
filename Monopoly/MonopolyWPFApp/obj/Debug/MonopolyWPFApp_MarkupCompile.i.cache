@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\App.xaml
-6761343389
+91520747715
 
-141780686638
+171741400216
 151277986336
-BigField.xaml;Field.xaml;FieldRow.xaml;MainWindow.xaml;Menu.xaml;MonopolyField.xaml;
+FreeParking.xaml;GoField.xaml;Field.xaml;FieldRow.xaml;GoToJail.xaml;MainWindow.xaml;Menu.xaml;MonopolyField.xaml;Prison.xaml;
 
 False
 

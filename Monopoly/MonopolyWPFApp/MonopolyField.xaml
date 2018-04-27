@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MonopolyWPFApp"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
-    <Grid>
+  <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="200"/>
       <ColumnDefinition Width="*"/>
@@ -17,29 +17,39 @@
       <RowDefinition Height="200"/>
       <RowDefinition Height="*"/>
       <RowDefinition Height="200"/>
-    </Grid.RowDefinitions> 
+    </Grid.RowDefinitions>
 
-    <local:BigField Grid.Row="0" Grid.Column="0"/>
-    <local:BigField Grid.Row="0" Grid.Column="2"/>
-    <local:BigField Grid.Row="2" Grid.Column="0"/>
-    <local:BigField Grid.Row="2" Grid.Column="2"/>
+    <!--BigFields-->
+    <local:GoField Grid.Row="2" Grid.Column="0">
+      <local:GoField.LayoutTransform>
+        <RotateTransform Angle="-90"/>
+      </local:GoField.LayoutTransform>
+    </local:GoField>
 
-    <local:FieldRow Grid.Row="0" Grid.Column="1"/>
-    <local:FieldRow Grid.Row="2" Grid.Column="1" >
-      <local:FieldRow.LayoutTransform>
-        <RotateTransform Angle="180"/>
-      </local:FieldRow.LayoutTransform>
-    </local:FieldRow>
+    <local:Prison Grid.Row="0" Grid.Column="0"/>
 
-    <local:FieldRow Grid.Row="1" Grid.Column="0" >
+    <local:FreeParking Grid.Row="0" Grid.Column="2"/>
+
+    <local:GoToJail Grid.Row="2" Grid.Column="2"/>
+
+    <!--Rows-->
+    <local:FieldRow x:Name="row0" Grid.Row="1" Grid.Column="0" >
       <local:FieldRow.LayoutTransform>
         <RotateTransform Angle="-90"/>
       </local:FieldRow.LayoutTransform>
     </local:FieldRow>
 
-    <local:FieldRow Grid.Row="1" Grid.Column="2" >
+    <local:FieldRow x:Name="row1" Grid.Row="0" Grid.Column="1"/>
+    
+    <local:FieldRow x:Name="row2" Grid.Row="1" Grid.Column="2" >
       <local:FieldRow.LayoutTransform>
         <RotateTransform Angle="90"/>
+      </local:FieldRow.LayoutTransform>
+    </local:FieldRow>
+
+    <local:FieldRow x:Name="row3" Grid.Row="2" Grid.Column="1" >
+      <local:FieldRow.LayoutTransform>
+        <RotateTransform Angle="180"/>
       </local:FieldRow.LayoutTransform>
     </local:FieldRow>
 

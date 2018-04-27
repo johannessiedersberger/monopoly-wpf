@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace MonopolyWPFApp
 {
     /// <summary>
-    /// Interaction logic for FieldRow.xaml
+    /// Interaction logic for FreeParking.xaml
     /// </summary>
-    public partial class FieldRow : UserControl
+    public partial class FreeParking : UserControl
     {
-        public FieldRow()
+        public FreeParking()
         {
             InitializeComponent();
         }
-
-    private void feld8_Loaded(object sender, RoutedEventArgs e)
-    {
-
     }
-  }
 }

@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace MonopolyWPFApp
 {
     /// <summary>
-    /// Interaction logic for FieldRow.xaml
+    /// Interaction logic for BigField.xaml
     /// </summary>
-    public partial class FieldRow : UserControl
+    public partial class GoField : UserControl
     {
-        public FieldRow()
+        public GoField()
         {
             InitializeComponent();
         }
-
-    private void feld8_Loaded(object sender, RoutedEventArgs e)
-    {
-
     }
-  }
 }

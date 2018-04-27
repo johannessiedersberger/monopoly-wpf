@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace MonopolyWPFApp
 {
     /// <summary>
-    /// Interaction logic for FieldRow.xaml
+    /// Interaction logic for GoToJail.xaml
     /// </summary>
-    public partial class FieldRow : UserControl
+    public partial class GoToJail : UserControl
     {
-        public FieldRow()
+        public GoToJail()
         {
             InitializeComponent();
         }
-
-    private void feld8_Loaded(object sender, RoutedEventArgs e)
-    {
-
     }
-  }
 }

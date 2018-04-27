@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Monopoly;
 namespace MonopolyWPFApp
 {
   /// <summary>
@@ -21,18 +21,18 @@ namespace MonopolyWPFApp
   public partial class MainWindow : Window
   {
     public Menu _menu { get; }
-    public MonopolyField _monopolyField { get; }
+    public MonopolyField _monopolyField { get; private set; }
 
     public MainWindow()
     {
       InitializeComponent();
       _menu = new Menu(this);
-      _monopolyField = new MonopolyField();
       contentControl.Content = _menu;
     }
 
-    public void ShowMonopolyField()
+    public void ShowMonopolyField(Game game)
     {
+      _monopolyField = new MonopolyField(game);
       contentControl.Content = _monopolyField;
     }
   }

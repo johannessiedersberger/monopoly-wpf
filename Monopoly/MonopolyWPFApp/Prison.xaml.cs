@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MonopolyWPFApp
 {
     /// <summary>
-    /// Interaction logic for BigField.xaml
+    /// Interaction logic for Prison.xaml
     /// </summary>
-    public partial class BigField : UserControl
+    public partial class Prison : UserControl
     {
-        public BigField()
+        public Prison()
         {
             InitializeComponent();
         }
