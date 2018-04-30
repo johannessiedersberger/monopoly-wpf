@@ -55,6 +55,8 @@
     <Compile Include="Fields\ChangeField.cs" />
     <Compile Include="Fields\CommunityChestField.cs" />
     <Compile Include="Fields\FieldCreator.cs" />
+    <Compile Include="Fields\FreeParkingField.cs" />
+    <Compile Include="Fields\TaxField.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Fields\GoToJailField.cs" />
     <Compile Include="Fields\IField.cs" />

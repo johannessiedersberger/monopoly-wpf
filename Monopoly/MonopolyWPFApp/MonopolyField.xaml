@@ -5,53 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MonopolyWPFApp"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000">
+        
+     d:DesignHeight="1000" d:DesignWidth="1000">
   <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="200"/>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="200"/>
-    </Grid.ColumnDefinitions>
-
-    <Grid.RowDefinitions>
-      <RowDefinition Height="200"/>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="200"/>
-    </Grid.RowDefinitions>
-
-    <!--BigFields-->
-    <local:GoField Grid.Row="2" Grid.Column="0">
-      <local:GoField.LayoutTransform>
-        <RotateTransform Angle="-90"/>
-      </local:GoField.LayoutTransform>
-    </local:GoField>
-
-    <local:Prison Grid.Row="0" Grid.Column="0"/>
-
-    <local:FreeParking Grid.Row="0" Grid.Column="2"/>
-
-    <local:GoToJail Grid.Row="2" Grid.Column="2"/>
-
-    <!--Rows-->
-    <local:FieldRow x:Name="row0" Grid.Row="1" Grid.Column="0" >
-      <local:FieldRow.LayoutTransform>
-        <RotateTransform Angle="-90"/>
-      </local:FieldRow.LayoutTransform>
-    </local:FieldRow>
-
-    <local:FieldRow x:Name="row1" Grid.Row="0" Grid.Column="1"/>
     
-    <local:FieldRow x:Name="row2" Grid.Row="1" Grid.Column="2" >
-      <local:FieldRow.LayoutTransform>
-        <RotateTransform Angle="90"/>
-      </local:FieldRow.LayoutTransform>
-    </local:FieldRow>
+    <Grid>
 
-    <local:FieldRow x:Name="row3" Grid.Row="2" Grid.Column="1" >
-      <local:FieldRow.LayoutTransform>
-        <RotateTransform Angle="180"/>
-      </local:FieldRow.LayoutTransform>
-    </local:FieldRow>
 
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="150"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="150"/>
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="150"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="150"/>
+      </Grid.RowDefinitions>
+
+      <!--BigFields-->
+      <local:GoField x:Name="gofield" Grid.Row="2" Grid.Column="0">
+        <local:GoField.LayoutTransform>
+          <RotateTransform Angle="-90"/>
+        </local:GoField.LayoutTransform>
+      </local:GoField>
+
+      <local:Prison x:Name="prison" Grid.Row="0" Grid.Column="0"/>
+
+      <local:FreeParking x:Name="freeParking" Grid.Row="0" Grid.Column="2"/>
+
+      <local:GoToJail x:Name="goToJail" Grid.Row="2" Grid.Column="2"/>
+
+      <!--Rows-->
+      <local:FieldRow x:Name="row0" Grid.Row="1" Grid.Column="0" >
+        <local:FieldRow.LayoutTransform>
+          <RotateTransform Angle="-90"/>
+        </local:FieldRow.LayoutTransform>
+      </local:FieldRow>
+
+      <local:FieldRow x:Name="row1" Grid.Row="0" Grid.Column="1"/>
+
+      <local:FieldRow x:Name="row2" Grid.Row="1" Grid.Column="2" >
+        <local:FieldRow.LayoutTransform>
+          <RotateTransform Angle="90"/>
+        </local:FieldRow.LayoutTransform>
+      </local:FieldRow>
+
+      <local:FieldRow x:Name="row3" Grid.Row="2" Grid.Column="1"  >
+        <local:FieldRow.LayoutTransform>
+          <RotateTransform Angle="180"/>
+        </local:FieldRow.LayoutTransform>
+        
+      </local:FieldRow>
+      <Button Content="Throw Cubes" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Click="ThrowCubesButton"/>
+      <Button Content="Finish Turn" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,50" Click="FinishTurnButton"/>
+      <Button Content="Buy" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,100"/>
+      <Button Content="Level Up" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,150"/>
+    </Grid>
   </Grid>
+  
 </UserControl>

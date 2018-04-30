@@ -51,6 +51,7 @@ namespace MonopolyWPFApp
       _mainWindow.ShowMonopolyField(_game);
     }
 
+
     
   }
 }
