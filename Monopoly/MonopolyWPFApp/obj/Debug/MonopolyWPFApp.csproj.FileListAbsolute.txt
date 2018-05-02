@@ -29,7 +29,5 @@ C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj
 C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\GoField.baml
 C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\Prison.g.cs
 C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\Prison.baml
-C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\FreeParking.g.cs
-C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\GoToJail.g.cs
-C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\FreeParking.baml
-C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\GoToJail.baml
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\BigField.g.cs
+C:\Users\jsiedersberger\Documents\GitHub\Monopoly2.0\Monopoly\MonopolyWPFApp\obj\Debug\BigField.baml

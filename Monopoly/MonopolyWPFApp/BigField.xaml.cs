@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace MonopolyWPFApp
 {
-    /// <summary>
-    /// Interaction logic for GoToJail.xaml
-    /// </summary>
-    public partial class GoToJail : UserControl
+  /// <summary>
+  /// Interaction logic for GoToJail.xaml
+  /// </summary>
+  public partial class BigField : UserControl
+  {
+    public BigField()
     {
-        public GoToJail()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

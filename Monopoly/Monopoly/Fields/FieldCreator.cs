@@ -73,6 +73,7 @@ namespace Monopoly
     change,
     communityChest,
     tax,
+    freeParking
 
   };
   #endregion
@@ -477,7 +478,7 @@ namespace Monopoly
     #region freeparking
     private  static FreeParkingField CreateFreeParking(Game game)
     {
-      return new FreeParkingField();
+      return new FreeParkingField(FieldNames.FreeParking, Groups.freeParking);
     }
     #endregion
 

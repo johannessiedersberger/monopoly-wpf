@@ -30,7 +30,7 @@ namespace MonopolyWPFApp
       _game = game;
       UpdateField();
 
-
+      
     }
 
     private List<Field> GetAllFields()
@@ -68,20 +68,27 @@ namespace MonopolyWPFApp
 
         if (i == 0)//StartField
         {
-
-
+          gofield.fieldNameLabel.Content = _game.Fields[0].Name;
+          gofield.arrow.Visibility = Visibility.Visible;
+          SetPlayersOnBigField(gofield, i);
         }
         else if (i == 10)//Prison
         {
-
+          prison.fieldNameLabel.Content = _game.Fields[10].Name;
+          prison.prison.Visibility = Visibility.Visible;
+          SetPlayersOnBigField(prison, i);
         }
         else if (i == 20)//Free Parking
         {
-
+          freeParking.fieldNameLabel.Content = _game.Fields[20].Name;
+          freeParking.car.Visibility = Visibility.Visible;
+          SetPlayersOnBigField(freeParking, i);
         }
         else if (i == 30)//Go To Jail
         {
-
+          goToJail.fieldNameLabel.Content = _game.Fields[30].Name;
+          goToJail.prison.Visibility = Visibility.Visible;
+          SetPlayersOnBigField(goToJail, i);
         }
         else if (i < 10)
         {
@@ -201,6 +208,45 @@ namespace MonopolyWPFApp
       }
     }
 
+    private void SetPlayersOnBigField(BigField bigField, int position)
+    {
+      if (_game.PlayerPos.Count() >= 1 && _game.PlayerPos[_game.Players[0]] == position)
+      {
+        bigField.Player1.Visibility = Visibility.Visible;
+      }
+      else
+      {
+        bigField.Player1.Visibility = Visibility.Hidden;
+      }
+
+      if (_game.PlayerPos.Count() >= 2 && _game.PlayerPos[_game.Players[1]] == position)
+      {
+        bigField.Player2.Visibility = Visibility.Visible;
+      }
+      else
+      {
+        bigField.Player2.Visibility = Visibility.Hidden;
+      }
+
+      if (_game.PlayerPos.Count() >= 3 && _game.PlayerPos[_game.Players[2]] == position)
+      {
+        bigField.Player3.Visibility = Visibility.Visible;
+      }
+      else
+      {
+        bigField.Player3.Visibility = Visibility.Hidden;
+      }
+
+      if (_game.PlayerPos.Count() >= 4 && _game.PlayerPos[_game.Players[3]] == position)
+      {
+        bigField.Player4.Visibility = Visibility.Visible;
+      }
+      else
+      {
+        bigField.Player4.Visibility = Visibility.Hidden;
+      }
+    }
+
     private void ThrowCubesButton(object sender, RoutedEventArgs e)
     {
       _game.GoForward(_game.CurrentPlayer);
@@ -210,6 +256,7 @@ namespace MonopolyWPFApp
     private void FinishTurnButton(object sender, RoutedEventArgs e)
     {
       _game.NextPlayer();
+      UpdateField();
     }
   }
 }

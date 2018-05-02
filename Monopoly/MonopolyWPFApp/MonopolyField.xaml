@@ -4,13 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MonopolyWPFApp"
-             mc:Ignorable="d" 
-        
+             mc:Ignorable="d"        
      d:DesignHeight="1000" d:DesignWidth="1000">
+  
   <Grid>
-    
     <Grid>
-
 
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="150"/>
@@ -25,17 +23,17 @@
       </Grid.RowDefinitions>
 
       <!--BigFields-->
-      <local:GoField x:Name="gofield" Grid.Row="2" Grid.Column="0">
-        <local:GoField.LayoutTransform>
+      <local:BigField x:Name="gofield" Grid.Row="2" Grid.Column="0">
+        <local:BigField.LayoutTransform>
           <RotateTransform Angle="-90"/>
-        </local:GoField.LayoutTransform>
-      </local:GoField>
+        </local:BigField.LayoutTransform>
+      </local:BigField>
 
-      <local:Prison x:Name="prison" Grid.Row="0" Grid.Column="0"/>
+      <local:BigField x:Name="prison" Grid.Row="0" Grid.Column="0"/>
 
-      <local:FreeParking x:Name="freeParking" Grid.Row="0" Grid.Column="2"/>
+      <local:BigField x:Name="freeParking" Grid.Row="0" Grid.Column="2"/>
 
-      <local:GoToJail x:Name="goToJail" Grid.Row="2" Grid.Column="2"/>
+      <local:BigField x:Name="goToJail" Grid.Row="2" Grid.Column="2"/>
 
       <!--Rows-->
       <local:FieldRow x:Name="row0" Grid.Row="1" Grid.Column="0" >

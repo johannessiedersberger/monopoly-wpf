@@ -55,10 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FreeParking.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="GoField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,7 +67,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GoToJail.xaml">
+    <Page Include="BigField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,9 +79,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FreeParking.xaml.cs">
-      <DependentUpon>FreeParking.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GoField.xaml.cs">
       <DependentUpon>GoField.xaml</DependentUpon>
     </Compile>
@@ -95,8 +88,8 @@
     <Compile Include="FieldRow.xaml.cs">
       <DependentUpon>FieldRow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GoToJail.xaml.cs">
-      <DependentUpon>GoToJail.xaml</DependentUpon>
+    <Compile Include="BigField.xaml.cs">
+      <DependentUpon>BigField.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -12,6 +12,12 @@ namespace Monopoly.Fields
 
     public Groups Group { get; private set; }
 
+    public FreeParkingField(string name, Groups groups)
+    {
+      Group = groups;
+      Name = name;
+    }
+
     public void OnEnter(Player player)
     {
     }
