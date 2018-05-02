@@ -82,7 +82,7 @@ namespace Monopoly
       foreach (Player player in _players)
         _triesToEscapeFromPrison.Add(player, 0);
       
-      CurrentPlayer = _playerQueue.First();
+      NextPlayer();//TEST
     }
 
     public void NextPlayer()
@@ -301,6 +301,11 @@ namespace Monopoly
         _lastPayMent.Add(player, amount);
       else
         _lastPayMent[player] = amount;
+    }
+
+    public void ClearLastPayment()
+    {
+      _lastPayMent.Clear();
     }
 
     public bool IsPlayerBankrupt(Player player, int neededAmount)

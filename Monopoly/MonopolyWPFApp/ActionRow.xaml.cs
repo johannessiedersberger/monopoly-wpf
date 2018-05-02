@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace MonopolyWPFApp
 {
-    /// <summary>
-    /// Interaction logic for BigField.xaml
-    /// </summary>
-    public partial class GoField : UserControl
+  /// <summary>
+  /// Interaction logic for ActionRow.xaml
+  /// </summary>
+  public partial class ActionRow : UserControl
+  {
+    public ActionRow()
     {
-        public GoField()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

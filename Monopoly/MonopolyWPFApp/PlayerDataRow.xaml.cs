@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace MonopolyWPFApp
 {
-    /// <summary>
-    /// Interaction logic for Prison.xaml
-    /// </summary>
-    public partial class Prison : UserControl
+  /// <summary>
+  /// Interaction logic for PlayerDataRow.xaml
+  /// </summary>
+  public partial class PlayerDataRow : UserControl
+  {
+    public PlayerDataRow()
     {
-        public Prison()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+  }
 }

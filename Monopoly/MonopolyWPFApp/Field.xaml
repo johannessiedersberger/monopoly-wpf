@@ -536,10 +536,10 @@
       </Grid.RowDefinitions>
 
 
-      <Ellipse x:Name="Player1" Grid.Row="0" Fill="Green" Visibility="Hidden"/>
-      <Ellipse x:Name="Player2" Grid.Column="1" Grid.Row="0" Fill="Yellow" Visibility="Hidden"/>
-      <Ellipse x:Name="Player3" Grid.Column="0" Grid.Row="1" Fill="Blue" Visibility="Hidden"/>
-      <Ellipse x:Name="Player4" Grid.Column="1" Grid.Row="1" Fill="Red" Visibility="Hidden"/>
+      <Ellipse x:Name="Player1" Grid.Row="0" Fill="Green" Visibility="Hidden" Stretch="Uniform"/>
+      <Ellipse x:Name="Player2" Grid.Column="1" Grid.Row="0" Fill="Yellow" Visibility="Hidden" Stretch="Uniform"/>
+      <Ellipse x:Name="Player3" Grid.Column="0" Grid.Row="1" Fill="Blue" Visibility="Hidden" Stretch="Uniform"/>
+      <Ellipse x:Name="Player4" Grid.Column="1" Grid.Row="1" Fill="Red" Visibility="Hidden" Stretch="Uniform"/>
     </Grid>
 
 

@@ -28,9 +28,9 @@ namespace MonopolyWPFApp
       InitializeComponent();
       _fields = GetAllFields();
       _game = game;
-      UpdateField();
+      Update();
 
-      
+
     }
 
     private List<Field> GetAllFields()
@@ -61,7 +61,7 @@ namespace MonopolyWPFApp
       };
     }
 
-    public void UpdateField()
+    public void Update()
     {
       for (int i = 0; i < _game.Fields.Count(); i++)
       {
@@ -87,7 +87,7 @@ namespace MonopolyWPFApp
         else if (i == 30)//Go To Jail
         {
           goToJail.fieldNameLabel.Content = _game.Fields[30].Name;
-          goToJail.prison.Visibility = Visibility.Visible;
+          goToJail.policeMan.Visibility = Visibility.Visible;
           SetPlayersOnBigField(goToJail, i);
         }
         else if (i < 10)
@@ -105,6 +105,45 @@ namespace MonopolyWPFApp
         else if (i > 30 && i < 40)
         {
           SetFieldData(i, -4);
+        }
+      }
+
+      SetPlayerData();
+    }
+
+    private void SetPlayerData()
+    {
+      PlayerData[] playerDatas = GetPlayerDatas();
+      for (int i = 0; i < playerDatas.Length; i++)
+      {
+        playerDatas[i].Visibility = Visibility.Visible;
+        playerDatas[i].playerName.Content = _game.Players[i].Name;
+        playerDatas[i].playerPoints[i].Visibility = Visibility.Visible;
+        playerDatas[i].playerMoney.Content = _game.Players[i].Money;
+        SetPlayerOwnerShip(playerDatas);
+        playerDatas[i].playerOwnerShip.ItemsSource = playerDatas[i].PlayerOwnerShip;
+        if (_game.Players[i].Name == _game.CurrentPlayer.Name)
+          playerDatas[i].playerName.Background = new SolidColorBrush(Colors.Yellow);
+        else
+          playerDatas[i].playerName.Background = new SolidColorBrush(Colors.Wheat);
+      }
+    }
+
+    private PlayerData[] GetPlayerDatas()
+    {
+      PlayerData[] datas = new PlayerData[] { playerDataRow.Player1Data, playerDataRow.Player2Data, playerDataRow.Player3Data, playerDataRow.Player4Data };
+      Array.Resize(ref datas, _game.Players.Count());
+      return datas;
+    }
+
+    private void SetPlayerOwnerShip(PlayerData[] playerDatas)
+    {
+      for (int data = 0; data < playerDatas.Length; data++)
+      {
+        playerDatas[data].PlayerOwnerShip.Clear();///!!!!!!!
+        for (int ownership = 0; ownership < _game.Players[data].OwnerShip.Count(); ownership++)
+        {
+          playerDatas[data].PlayerOwnerShip.Add(_game.Players[data].OwnerShip[ownership].Name);
         }
       }
     }
@@ -171,11 +210,11 @@ namespace MonopolyWPFApp
     }
     private void SetPlayers(int position, int c)
     {
-      if(_game.PlayerPos.Count() >= 1 && _game.PlayerPos[_game.Players[0]] == position)
+      if (_game.PlayerPos.Count() >= 1 && _game.PlayerPos[_game.Players[0]] == position)
       {
         _fields[position + c].Player1.Visibility = Visibility.Visible;
       }
-      else 
+      else
       {
         _fields[position + c].Player1.Visibility = Visibility.Hidden;
       }
@@ -247,16 +286,66 @@ namespace MonopolyWPFApp
       }
     }
 
+    private int cubeThrows;
     private void ThrowCubesButton(object sender, RoutedEventArgs e)
     {
-      _game.GoForward(_game.CurrentPlayer);
-      UpdateField();
+      if (cubeThrows >= 1)
+      {
+        MessageBox.Show("You can not throw again");
+      }     
+      else
+      {
+        _game.GoForward(_game.CurrentPlayer);
+        Update();
+        PayMessageBox();
+        cubeThrows++;
+      }   
     }
 
     private void FinishTurnButton(object sender, RoutedEventArgs e)
     {
-      _game.NextPlayer();
-      UpdateField();
+      if(cubeThrows < 1)
+      {
+        MessageBox.Show("You have to Throw the Cubes");
+      }
+      else
+      {
+        _game.NextPlayer();
+        Update();
+        cubeThrows = 0;
+      }      
+    }
+
+    private void BuyButton(object sender, RoutedEventArgs e)
+    {
+      IField field = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
+     
+      try
+      {
+        ((IRentableField)field).Buy(_game.CurrentPlayer);
+        Update();
+      }
+      catch(Exception ex)
+      {
+        MessageBox.Show("You cant buy this Field");
+      }
+      PayMessageBox();
+    }
+
+    private void LevelUpButton(object sender, RoutedEventArgs e)
+    {
+      
+    }
+
+
+    
+    private void PayMessageBox()
+    {
+      if (_game.LastPayMent.Count() != 0)
+      {
+        MessageBox.Show("You have to pay " + _game.LastPayMent[_game.CurrentPlayer] + "$");
+        _game.ClearLastPayment();
+      }
     }
   }
 }

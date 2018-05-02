@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GoField.xaml">
+    <Page Include="ActionRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,12 +75,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="ActionRow.xaml.cs">
+      <DependentUpon>ActionRow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GoField.xaml.cs">
-      <DependentUpon>GoField.xaml</DependentUpon>
     </Compile>
     <Compile Include="Field.xaml.cs">
       <DependentUpon>Field.xaml</DependentUpon>
@@ -103,7 +103,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Prison.xaml">
+    <Page Include="PlayerData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerDataRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,8 +119,11 @@
     <Compile Include="MonopolyField.xaml.cs">
       <DependentUpon>MonopolyField.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Prison.xaml.cs">
-      <DependentUpon>Prison.xaml</DependentUpon>
+    <Compile Include="PlayerData.xaml.cs">
+      <DependentUpon>PlayerData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDataRow.xaml.cs">
+      <DependentUpon>PlayerDataRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
