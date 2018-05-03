@@ -56,17 +56,16 @@
         </local:FieldRow.LayoutTransform>
         
       </local:FieldRow>
-      <Button Content="Throw Cubes" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Click="ThrowCubesButton"/>
-      <Button Content="Finish Turn" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,50" Click="FinishTurnButton"/>
-      <Button Content="Buy" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,100" Click="BuyButton"/>
-      <Button Content="Level Up" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="75" Height="20" Margin="0,0,0,150" Click="LevelUpButton"/>
-
+      
+      
       <Grid Grid.Column="1" Grid.Row="1">
         <Grid.RowDefinitions>
           <RowDefinition Height="0.3*"/>
-          <RowDefinition Height="0.7*"/>
+          <RowDefinition Height="0.3*"/>
+          <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
-        <local:PlayerDataRow x:Name="playerDataRow"/>
+        <local:PlayerDataRow Grid.Row="0" x:Name="playerDataRow"/>
+        <local:ActionRow Grid.Row="1" x:Name="actionRow"/>
       </Grid>
       
       

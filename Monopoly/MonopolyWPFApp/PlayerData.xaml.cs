@@ -20,7 +20,7 @@ namespace MonopolyWPFApp
   /// <summary>
   /// Interaction logic for PlayerData.xaml
   /// </summary>
-  public partial class PlayerData : UserControl, INotifyPropertyChanged
+  public partial class PlayerData : UserControl //,INotifyPropertyChanged
   {
     public PlayerData()
     {
@@ -29,30 +29,30 @@ namespace MonopolyWPFApp
       DataContext = this;
     }
 
-    private string _selected;
-    public string SelectedField
-    {
-      get
-      {
-        return _selected;
-      }
-      set
-      {
-        _selected = value;
-        OnPropertyChanged("SelectedField");
-      }
-    }
+    //private string _selected;
+    //public string SelectedField
+    //{
+    //  get
+    //  {
+    //    return _selected;
+    //  }
+    //  set
+    //  {
+    //    _selected = value;
+    //    OnPropertyChanged("SelectedField");
+    //  }
+    //}
 
     public ObservableCollection<string> PlayerOwnerShip { get; set; } = new ObservableCollection<string>();
     public Ellipse[] playerPoints;
 
-    public event PropertyChangedEventHandler PropertyChanged;
-    private void OnPropertyChanged(String name)
-    {
-      if (PropertyChanged != null)
-      {
-        PropertyChanged(this, new PropertyChangedEventArgs(name));
-      }
-    }
+    //public event PropertyChangedEventHandler PropertyChanged;
+    //private void OnPropertyChanged(String name)
+    //{
+    //  if (PropertyChanged != null)
+    //  {
+    //    PropertyChanged(this, new PropertyChangedEventArgs(name));
+    //  }
+    //}
   }
 }

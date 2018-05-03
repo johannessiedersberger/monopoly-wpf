@@ -6,7 +6,62 @@
              xmlns:local="clr-namespace:MonopolyWPFApp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+  <Grid>
+    <Grid.ColumnDefinitions >
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <ListBox x:Name="currentPlayerOwnerShip" Grid.Row="0" PreviewMouseDown="PlaceholdersListBox_OnPreviewMouseDown"/>
+    <TextBox x:Name="inputField" Grid.Column="2" />
+    
+    <Grid Grid.Column="1" Background="Aqua">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Label x:Name="groupLabel" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="nameLabel" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="levelLabel" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="mortageValueLabel"  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="isMortageLabel" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="pricePerHouseLabel"  Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="rentCosts"  Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      <Label x:Name="rentToPay"  Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
+    
+    <Grid Grid.Column="3">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        
+      </Grid.RowDefinitions>
+     
+      <Button Grid.Column="2" Grid.Row="0" Content="Throw Cubes" Click="ThrowCubesButton" />
+      
+      <Button Grid.Column="2" Grid.Row="1" Content="Finish Turn" Click="FinishTurnButton" />
+      <Button Grid.Column="2" Grid.Row="2" Content="Buy" Click="BuyButton" />
+      <Button Grid.Column="2" Grid.Row="3" Content="Level Up" Click="LevelUpButton" />
+      <Button Grid.Column="2" Grid.Row="4" Content="Mortage" Click="MortageButton" />
+      <Button Grid.Column="2" Grid.Row="5" Content="Sell House" Click="SellHouseButton" />
+      <Button Grid.Column="2" Grid.Row="6" Content="Exchange Field" Click="ExchangeFieldButton" />
+      <Button Grid.Column="2" Grid.Row="7" Content="Leave Prison" />
+    </Grid>
+
+
+  </Grid>
 </UserControl>

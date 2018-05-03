@@ -22,7 +22,7 @@
       </Grid.ColumnDefinitions>
       
 
-      <Ellipse x:Name="Player1Point" Grid.Row="0" Fill="Green" Visibility="Visible" Stretch="Uniform" />
+      <Ellipse x:Name="Player1Point" Grid.Row="0" Fill="Green" Visibility="Visible" Stretch="Uniform"  />
       <Ellipse x:Name="Player2Point"  Grid.Row="0" Fill="Yellow" Visibility="Hidden" Stretch="Uniform"/>
       <Ellipse x:Name="Player3Point" Grid.Column="0" Grid.Row="0" Fill="Blue" Visibility="Hidden" Stretch="Uniform"/>
       <Ellipse x:Name="Player4Point" Grid.Column="0" Grid.Row="0" Fill="Red" Visibility="Hidden" Stretch="Uniform"/>
@@ -41,7 +41,7 @@
       
 
      
-      <ListBox x:Name="playerOwnerShip" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SelectedItem="{Binding SelectedItem}"/>
+      <ListBox x:Name="playerOwnerShip" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SelectedItem="{Binding SelectedField}"/>
     </Grid>
     
     <Label x:Name="playerMoney" Content="PlayerMoney" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
