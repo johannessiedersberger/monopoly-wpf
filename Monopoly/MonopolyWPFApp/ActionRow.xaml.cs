@@ -65,33 +65,145 @@ namespace MonopolyWPFApp
       }
       else
       {
-        Auction();
         _game.NextPlayer();
         _monopolyField.Update();
         ResetVariables();
         ResetFieldDataPreview();
-       
+        
       }
     }
 
-    private void Auction()
+    
+
+    private bool IsRentableField(IField currentField)
     {
-      if (_game.CurrentPlayer.Removed == false) // Auction
-      {
-        IField currentField = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
-        if (currentField.GetType() == typeof(StreetField)
+      return currentField.GetType() == typeof(StreetField)
           || currentField.GetType() == typeof(TrainstationField)
-          || currentField.GetType() == typeof(SupplierField)
-          && ((IRentableField)currentField).Owner == null)
-        {
-          _game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
-          //Auction(_game);
-          _game.FinishAuction();
-        }
-      }
-     
-      MessageBox.Show("Is Someone interested in that field", "", MessageBoxButton.YesNo);
+          || currentField.GetType() == typeof(SupplierField);
     }
+
+    #region 
+
+    //private bool CheckForAuction()
+    //{
+    //  if (_game.CurrentPlayer.Removed == false) // Auction
+    //  {
+    //    IField currentField = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
+    //    if (IsRentableField(currentField) && ((IRentableField)currentField).Owner == null)
+    //    {
+
+    //      return true;
+    //    }
+    //  }
+    //  return false;
+    //}
+
+    //private bool IsAuctionRunning = false;
+    //private void AskForAuction()
+    //{
+    //  IField currentField = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
+    //  var result = MessageBox.Show("Is Someone interested in the " + currentField.Name, "Auction", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+    //  if (result == MessageBoxResult.Yes)
+    //  {
+    //    Auction(currentField);
+    //  }
+    //}
+
+    //private void Auction(IField currentField)
+    //{
+    //  SetPlayerAuctionControls();
+    //}
+
+    //private void SetPlayerAuctionControls()
+    //{
+    //  auctionGrid.Visibility = Visibility.Visible;
+    //  if (_game.Players.Count() >= 1)
+    //  {
+    //    player1bidNameLabel.Visibility = Visibility.Visible;
+    //    player1bid.Visibility = Visibility.Visible;
+    //  }
+    //  else
+    //  {
+    //    player1bidNameLabel.Visibility = Visibility.Hidden;
+    //    player1bid.Visibility = Visibility.Hidden;
+    //  }
+    //  if (_game.Players.Count() >= 2)
+    //  {
+    //    player2bidNameLabel.Visibility = Visibility.Visible;
+    //    player2bid.Visibility = Visibility.Visible;
+
+    //  }
+    //  else
+    //  {
+    //    player2bidNameLabel.Visibility = Visibility.Hidden;
+    //    player2bid.Visibility = Visibility.Hidden;
+    //  }
+    //  if (_game.Players.Count() >= 3)
+    //  {
+    //    player3bidNameLabel.Visibility = Visibility.Visible;
+    //    player3bid.Visibility = Visibility.Visible;
+    //  }
+    //  else
+    //  {
+    //    player3bidNameLabel.Visibility = Visibility.Hidden;
+    //    player3bid.Visibility = Visibility.Hidden;
+    //  }
+    //  if (_game.Players.Count() >= 4)
+    //  {
+    //    player4bidNameLabel.Visibility = Visibility.Visible;
+    //    player4bid.Visibility = Visibility.Visible;
+    //  }
+    //  else
+    //  {
+    //    player4bidNameLabel.Visibility = Visibility.Hidden;
+    //    player4bid.Visibility = Visibility.Hidden;
+    //  }
+    //}
+
+    //private void FinishAuctionButton(object sender, RoutedEventArgs e)
+    //{
+    //  IField currentField = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
+    //  _game.StartAuction(new List<IRentableField> { (IRentableField)currentField });
+
+    //  ////Auction(_game);
+    //  //_game.FinishAuction();
+    //}
+
+    //private bool CheckBids()
+    //{
+    //  try
+    //  {
+    //    List<int> bids = new List<int>();
+    //    TextBox[] playerBids = GetBidTextBoxes();
+    //    foreach(TextBox box in playerBids)
+    //    {
+    //      if(box.Text == string.Empty || box.Text== "")
+    //      {
+    //        box.Text = "0";
+    //      }
+    //      else
+    //      {
+    //        bids.Add(int.Parse(box.Text));
+    //      }
+    //    }
+
+    //    foreach(int currentBid in bids)
+    //    {
+    //      currentBid = 
+    //    }
+    //  }
+    //  catch
+    //  {
+    //    MessageBox.Show("Wrong Input");
+    //  }
+    //}
+    //private TextBox[] GetBidTextBoxes()
+    //{
+    //  return new TextBox[] { player1bid, player2bid, player3bid, player4bid };
+    //}
+    #endregion
+
 
     private void ResetVariables()
     {
@@ -167,18 +279,18 @@ namespace MonopolyWPFApp
         return;
       groupLabel.Content = selectedField.Group.ToString();
       nameLabel.Content = selectedField.Name;
-      mortageValueLabel.Content = "Mortage Value " + ((IRentableField)selectedField).MortageValue +"$" ;
+      mortageValueLabel.Content = "Mortage Value " + ((IRentableField)selectedField).MortageValue + "$";
       isMortageLabel.Content = "Mortage Taken: " + ((IRentableField)selectedField).IsMortage;
-      
+
       if (selectedField.GetType() == typeof(StreetField))
       {
         levelLabel.Content = "Level " + ((StreetField)selectedField).Level;
-        pricePerHouseLabel.Content = "Price Per House " + ((StreetField)selectedField).Cost.House +"$" ;
+        pricePerHouseLabel.Content = "Price Per House " + ((StreetField)selectedField).Cost.House + "$";
         int[] rent = ((StreetField)selectedField).Cost.Rent;
-        rentCosts.Content = "Rent: " + rent[0] +"$ "+ rent[1] + "$ "+ rent[2] + "$ " + rent[3] + "$ " + rent[4] + "$ " + rent[5] + "$";
+        rentCosts.Content = "Rent: " + rent[0] + "$ " + rent[1] + "$ " + rent[2] + "$ " + rent[3] + "$ " + rent[4] + "$ " + rent[5] + "$";
         rentToPay.Content = "Rent To Pay: " + ((IRentableField)selectedField).RentToPay + "$";
       }
-      else if(selectedField.GetType() == typeof(TrainstationField))
+      else if (selectedField.GetType() == typeof(TrainstationField))
       {
         rentCosts.Content = "Rent: 25$/50$/100$/200$";
         levelLabel.Content = null;
@@ -191,7 +303,7 @@ namespace MonopolyWPFApp
         levelLabel.Content = null;
         pricePerHouseLabel.Content = null;
         rentToPay.Content = "Rent Depends on Dice Throw";
-        
+
       }
       else
       {
@@ -245,7 +357,9 @@ namespace MonopolyWPFApp
 
     private void ExchangeFieldButton(object sender, RoutedEventArgs e)
     {
-      
+
     }
+
+    
   }
 }

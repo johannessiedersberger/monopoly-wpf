@@ -15,8 +15,51 @@
     </Grid.ColumnDefinitions>
 
     <ListBox x:Name="currentPlayerOwnerShip" Grid.Row="0" PreviewMouseDown="PlaceholdersListBox_OnPreviewMouseDown"/>
-    <TextBox x:Name="inputField" Grid.Column="2" />
-    
+
+
+    <Grid Grid.Column="2" Background="White">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="0.2*"/>
+        <RowDefinition Height="0.8*"/>
+      </Grid.RowDefinitions>
+      <TextBox x:Name="inputField"  Grid.Row="0" />
+
+      <Grid x:Name="auctionGrid" Visibility="Visible" Grid.Row="1" >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Button Content="Finish Auction" Click="FinishAuctionButton"/>
+          <Button Grid.Row="1" Content="Cancel Auction"/>
+        </Grid>
+        <Label Content="Bids" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+
+        <Label x:Name="player1bidNameLabel" Content="Player1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="player2bidNameLabel" Content="Player2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="player3bidNameLabel" Content="Player3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="player4bidNameLabel" Content="Player4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBox  x:Name="player1bid" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="player2bid" Grid.Row="2" Grid.Column="1"/>
+        <TextBox x:Name="player3bid" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="player4bid" Grid.Row="4" Grid.Column="1"/>
+      </Grid>
+    </Grid>
+
     <Grid Grid.Column="1" Background="Aqua">
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>
@@ -37,7 +80,7 @@
       <Label x:Name="rentCosts"  Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
       <Label x:Name="rentToPay"  Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
-    
+
     <Grid Grid.Column="3">
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>
@@ -48,11 +91,11 @@
         <RowDefinition Height="*"/>
         <RowDefinition Height="*"/>
         <RowDefinition Height="*"/>
-        
+
       </Grid.RowDefinitions>
-     
+
       <Button Grid.Column="2" Grid.Row="0" Content="Throw Cubes" Click="ThrowCubesButton" />
-      
+
       <Button Grid.Column="2" Grid.Row="1" Content="Finish Turn" Click="FinishTurnButton" />
       <Button Grid.Column="2" Grid.Row="2" Content="Buy" Click="BuyButton" />
       <Button Grid.Column="2" Grid.Row="3" Content="Level Up" Click="LevelUpButton" />
