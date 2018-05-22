@@ -337,10 +337,17 @@ namespace MonopolyWPFApp
       {
         IRentableField field = (IRentableField)selectedField;
         if ((field).IsMortage == false)
+        {
           (field).TakeMortage(_game.CurrentPlayer);
+          MessageBox.Show("You took a mortage on " + field.Name + " and got " + field.MortageValue + "$");
+        }         
         else
+        {
           (field).PayOffMortage(_game.CurrentPlayer);
+          MessageBox.Show("You payed of your mortage on " + field.Name + " and payed " + (field.MortageValue + field.MortageValue*0.1) + "$");
+        }       
         _monopolyField.Update();
+       
       }
       catch (Exception ex)
       {
