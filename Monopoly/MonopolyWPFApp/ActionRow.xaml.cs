@@ -41,6 +41,12 @@ namespace MonopolyWPFApp
       _monopolyField = monopolyField;
     }
 
+    public void SetPlayersInActionRow()
+    {
+
+    }
+
+
     private int cubeThrows;
     private void ThrowCubesButton(object sender, RoutedEventArgs e)
     {
@@ -69,11 +75,11 @@ namespace MonopolyWPFApp
         _monopolyField.Update();
         ResetVariables();
         ResetFieldDataPreview();
-        
+
       }
     }
 
-    
+
 
     private bool IsRentableField(IField currentField)
     {
@@ -209,6 +215,7 @@ namespace MonopolyWPFApp
     {
       cubeThrows = 0;
       selectedField = null;
+      selectedPlayer = null;
     }
 
     private void PayMessageBox()
@@ -357,9 +364,33 @@ namespace MonopolyWPFApp
 
     private void ExchangeFieldButton(object sender, RoutedEventArgs e)
     {
-
+      try
+      {
+        ((IRentableField)selectedField).ExchangeField(_game.CurrentPlayer, selectedPlayer, int.Parse(inputField.Text));
+        MessageBox.Show("The Owner ( " + _game.CurrentPlayer + ") " + "exchanged the Field " + selectedField.Name + " with Player " + selectedPlayer + " for " + inputField.Text + "$");
+        _monopolyField.Update();
+      }
+      catch
+      {
+        MessageBox.Show("Field Exchange Error");
+      }     
     }
 
-    
+    private Player selectedPlayer; 
+    private void PlaceholdersListBoxPlayer_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
+    {
+      var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
+      if (item != null)
+      {
+        // ListBox item clicked - do some cool things here
+        foreach(Player currentPlayer in _game.Players)
+        {
+          if (currentPlayer.Name == item.Content.ToString())
+            selectedPlayer = currentPlayer;
+        }
+      }
+    }
+
+   
   }
 }

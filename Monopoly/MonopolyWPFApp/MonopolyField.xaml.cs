@@ -142,6 +142,13 @@ namespace MonopolyWPFApp
           actionRow.currentPlayerOwnerShip.ItemsSource = data.PlayerOwnerShip;        
         }
       }
+      List<String> playerNames = new List<String>();
+      foreach(Player player in _game.Players)
+      {
+        playerNames.Add(player.Name);
+      }
+
+      actionRow.PlayerSelection.ItemsSource = playerNames;
       actionRow.SetFieldDataPreview();
     }
 
