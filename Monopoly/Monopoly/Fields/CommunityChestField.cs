@@ -24,6 +24,7 @@ namespace Monopoly.Fields
     {
       ICard card = Game.GetCard(_game.CommunityChest.ToArray());
       card.UseCard(player);
+      _game.SetLastCardText(player, card.Description);
     }
   }
 }

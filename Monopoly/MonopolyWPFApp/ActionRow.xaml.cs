@@ -52,6 +52,7 @@ namespace MonopolyWPFApp
     {
       if (cubeThrows >= 1)
       {
+        
         MessageBox.Show("You can not throw again");
       }
       else
@@ -59,6 +60,7 @@ namespace MonopolyWPFApp
         _game.GoForward(_game.CurrentPlayer);
         _monopolyField.Update();
         PayMessageBox();
+        CardMessageBox();
         cubeThrows++;
       }
     }
@@ -227,6 +229,14 @@ namespace MonopolyWPFApp
       }
     }
 
+    private void CardMessageBox()
+    {
+      if(_game.LastCardText.Count() != 0)
+      {
+        MessageBox.Show("You Entered a card Field!!! " + _game.LastCardText[_game.CurrentPlayer]);
+      }
+    }
+
     private void BuyButton(object sender, RoutedEventArgs e)
     {
       IField field = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
@@ -329,6 +339,7 @@ namespace MonopolyWPFApp
       levelLabel.Content = null;
       pricePerHouseLabel.Content = null;
       rentCosts.Content = null;
+      rentToPay.Content = null;
     }
 
     private void MortageButton(object sender, RoutedEventArgs e)
@@ -398,6 +409,19 @@ namespace MonopolyWPFApp
       }
     }
 
-   
+    private void LeavePrisonButton(object sender, RoutedEventArgs e)
+    {
+      try
+      {
+        _game.PayFineImmediately(_game.CurrentPlayer);
+        _monopolyField.Update();
+        MessageBox.Show("You left the prison");
+      }
+      catch
+      {
+        MessageBox.Show("You cant go out of jail");
+      }
+      
+    }
   }
 }

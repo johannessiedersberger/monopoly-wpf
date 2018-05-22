@@ -17,6 +17,7 @@ namespace Monopoly
     private Dictionary<Player, List<int[]>> _diceThrows = new Dictionary<Player, List<int[]>>();
     private Dictionary<Player, int> _lastPayMent = new Dictionary<Player, int>();
     private Dictionary<Player, int> _triesToEscapeFromPrison = new Dictionary<Player, int>();
+    private Dictionary<Player, String> _lastCardText = new Dictionary<Player, string>();
     private Queue<Player> _playerQueue = new Queue<Player>();
     private IEnumerable<IField> _rentableFields;
     
@@ -63,6 +64,16 @@ namespace Monopoly
       get { return _changeCard; }
     }
 
+    public IReadOnlyDictionary<Player, string> LastCardText
+    {
+      get { return _lastCardText; }
+    }
+
+    public void SetLastCardText(Player player, string cardText)
+    {
+      _lastCardText.Add(player, cardText);
+    }
+
     public Game(Player[] players)
     {
       _players = players.ToList();
@@ -93,6 +104,7 @@ namespace Monopoly
 
       _playerQueue.Enqueue(player);
       _lastPayMent.Clear();
+      _lastCardText.Clear();
     }
 
     
@@ -168,6 +180,7 @@ namespace Monopoly
     {     
       RemovePlayerFromPrison(player);
       player.PayMoney(50);
+      GoForward(player);
     }
 
     public void RemovePlayerFromPrison(Player player)
