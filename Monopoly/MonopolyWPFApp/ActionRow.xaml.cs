@@ -60,8 +60,6 @@ namespace MonopolyWPFApp
         try
         {
           _game.GoForward(_game.CurrentPlayer);
-          if (_game.CurrentPlayer.Name == _game.Players[1].Name)
-            _game.Players[1].PayMoney(1500);//////TEST
         }
         catch (Exception ex)
         {

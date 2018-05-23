@@ -128,7 +128,7 @@ namespace MonopolyWPFApp
         playerDatas[i].Visibility = Visibility.Visible;
         playerDatas[i].playerName.Content = _game.Players[i].Name;
         playerDatas[i].playerPoints[i].Visibility = Visibility.Visible;
-        playerDatas[i].playerMoney.Content = _game.Players[i].Money;
+        playerDatas[i].playerMoney.Content = _game.Players[i].Money + "$";
         SetPlayerOwnerShip(playerDatas);
         
         playerDatas[i].playerOwnerShip.ItemsSource = playerDatas[i].PlayerOwnerShip;
