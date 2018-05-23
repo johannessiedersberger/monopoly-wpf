@@ -246,7 +246,7 @@ namespace MonopolyWPFApp
     {
       if (_game.LastPayMent.Count() != 0)
       {
-        MessageBox.Show("You have to pay " + "$");
+        MessageBox.Show("You have to pay " +_game.LastPayMent[_game.CurrentPlayer]  + "$");
         _game.ClearLastPayment();
       }
     }

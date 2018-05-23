@@ -38,9 +38,8 @@ namespace Monopoly
     {
       if (Owner != null)
         throw new InvalidOperationException("The Street is already owned by Player " + Owner.Name);
-
-      player.AddToOwnerShip(this);
       player.PayMoney(Cost.Ground);
+      player.AddToOwnerShip(this);   
       Owner = player;
       UpdateRent(player);
     }
