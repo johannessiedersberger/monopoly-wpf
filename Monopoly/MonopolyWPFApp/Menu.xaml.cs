@@ -52,6 +52,10 @@ namespace MonopolyWPFApp
       {
         MessageBox.Show("You have to add at least 2 Players to start the game");
       }
+      else if(PlayerNames.Count() > 4)
+      {
+        MessageBox.Show("You can only Play with 4 Players");
+      }
       else
       {
         Player[] players = new Player[PlayerNames.Count()];
