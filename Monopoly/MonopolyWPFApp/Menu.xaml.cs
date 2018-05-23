@@ -33,22 +33,40 @@ namespace MonopolyWPFApp
       playerList.ItemsSource = PlayerNames;
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void AddPlayerButtonClick(object sender, RoutedEventArgs e)
     {
-      if((playerNameTextBox.Text.Length != 0))
+      if(PlayerNames.Contains(playerNameTextBox.Text))
+      {
+        MessageBox.Show("You cant use a Player-Name twice");
+      }
+      else if((playerNameTextBox.Text.Length != 0))
+      {
         PlayerNames.Add(playerNameTextBox.Text);
-      playerNameTextBox.Text = null;   
+        playerNameTextBox.Text = null;
+      }
     }
 
-    private void Button_Click_1(object sender, RoutedEventArgs e)
+    private void StartButtonClick(object sender, RoutedEventArgs e)
     {
-      Player[] players = new Player[PlayerNames.Count()];
-      for (int i = 0; i < PlayerNames.Count(); i++)
+      if(PlayerNames.Count() <= 1)
       {
-        players[i] = new Player(PlayerNames[i]); 
+        MessageBox.Show("You have to add at least 2 Players to start the game");
       }
-      _game = new Game(players);
-      _mainWindow.ShowMonopolyField(_game);
+      else
+      {
+        Player[] players = new Player[PlayerNames.Count()];
+        for (int i = 0; i < PlayerNames.Count(); i++)
+        {
+          players[i] = new Player(PlayerNames[i]);
+        }
+        _game = new Game(players);
+        _mainWindow.ShowMonopolyField(_game);
+      }     
+    }
+
+    private void ClearButtonClick(object sender, RoutedEventArgs e)
+    {
+      PlayerNames.Clear();
     }
   }
 }
