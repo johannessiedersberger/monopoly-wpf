@@ -27,12 +27,17 @@ namespace MonopolyWPFApp
     {
       InitializeComponent();
       _menu = new Menu(this);
+      ShowMenu();
+    }
+
+    public void ShowMenu()
+    {
       contentControl.Content = _menu;
     }
 
     public void ShowMonopolyField(Game game)
     {
-      _monopolyField = new MonopolyField(game);
+      _monopolyField = new MonopolyField(game, this);
       contentControl.Content = _monopolyField;
     }
   }

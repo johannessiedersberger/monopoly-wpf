@@ -349,7 +349,7 @@ namespace Monopoly
       _diceThrows.Remove(player);
       _playerQueue = RemoveFromQueue(_playerQueue,player);
       RemoveOwnerInFieldsOf(player);
-      StartAuction(player.OwnerShip.ToList());
+      //StartAuction(player.OwnerShip.ToList());
       CurrentPlayer.Remove();
     }
 

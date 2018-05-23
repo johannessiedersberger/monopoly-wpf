@@ -23,14 +23,22 @@ namespace MonopolyWPFApp
   {
     private Game _game;
     private List<Field> _fields;
-    public MonopolyField(Game game)
+    private MainWindow _mainWindow;
+
+    public MonopolyField(Game game, MainWindow mainWindow)
     {
       InitializeComponent();
+      _mainWindow = mainWindow;
       _fields = GetAllFields();
       _game = game;    
       actionRow.SetGame(game);
       actionRow.SetMonopolyField(this);
       Update();
+    }
+
+    public MainWindow GetMainWindow
+    {
+      get { return _mainWindow; }
     }
 
     private List<Field> GetAllFields()
@@ -130,6 +138,17 @@ namespace MonopolyWPFApp
         else
           playerDatas[i].playerName.Background = new SolidColorBrush(Colors.Wheat);
       }
+      HidePlayerData();
+    }
+
+    private void HidePlayerData()
+    {
+      PlayerData[] allData = new PlayerData[] { playerDataRow.Player1Data, playerDataRow.Player2Data, playerDataRow.Player3Data, playerDataRow.Player4Data };
+      for (int i = 0; i < allData.Length; i++)
+      {
+        if (i > _game.Players.Count()-1)
+          allData[i].Visibility = Visibility.Hidden;
+      }
     }
 
     private void SetActionRowData()
@@ -158,6 +177,8 @@ namespace MonopolyWPFApp
       Array.Resize(ref datas, _game.Players.Count());
       return datas;
     }
+
+    
 
     private void SetPlayerOwnerShip(PlayerData[] playerDatas)
     {

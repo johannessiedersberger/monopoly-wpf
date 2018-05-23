@@ -61,7 +61,7 @@ namespace MonopolyWPFApp
         {
           _game.GoForward(_game.CurrentPlayer);
           if (_game.CurrentPlayer.Name == _game.Players[1].Name)
-            _game.Players[1].PayMoney(300);//////TEST
+            _game.Players[1].PayMoney(1500);//////TEST
         }
         catch (Exception ex)
         {
@@ -73,7 +73,14 @@ namespace MonopolyWPFApp
           }
           if (ex.GetType() == typeof(BankruptException))
           {
+            _game.RemovePlayer(_game.CurrentPlayer);
             MessageBox.Show("YOU ARE BANKRUPT");
+            if(_game.Players.Count() == 1)
+            {
+              MessageBox.Show("The Winner is " + _game.Players[0].Name);
+              _monopolyField.GetMainWindow.ShowMenu();
+              return;
+            }
           }
         }
         _monopolyField.Update();
