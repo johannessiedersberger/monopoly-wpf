@@ -46,42 +46,63 @@ namespace MonopolyWPFApp
 
     }
 
-
-    private int cubeThrows;
+    private bool _notEnoughMoney;
+    private int _neededAmount;
+    private int _cubeThrows;
     private void ThrowCubesButton(object sender, RoutedEventArgs e)
     {
-      if (cubeThrows >= 1)
+      if (_cubeThrows >= 1)
       {
-        
         MessageBox.Show("You can not throw again");
       }
       else
       {
-        _game.GoForward(_game.CurrentPlayer);
+        try
+        {
+          _game.GoForward(_game.CurrentPlayer);
+          if (_game.CurrentPlayer.Name == _game.Players[1].Name)
+            _game.Players[1].PayMoney(300);//////TEST
+        }
+        catch (Exception ex)
+        {
+          if (ex.GetType() == typeof(NotEnoughMoneyException))
+          {
+            _notEnoughMoney = true;
+            _neededAmount = int.Parse(ex.Message);
+            MessageBox.Show("You need " + ex.Message + "$. You have to sell something...");
+          }
+          if (ex.GetType() == typeof(BankruptException))
+          {
+            MessageBox.Show("YOU ARE BANKRUPT");
+          }
+        }
         _monopolyField.Update();
         PayMessageBox();
         CardMessageBox();
-        cubeThrows++;
+        _cubeThrows++;
       }
     }
 
     private void FinishTurnButton(object sender, RoutedEventArgs e)
     {
-      if (cubeThrows < 1)
+      if (_cubeThrows < 1)
       {
         MessageBox.Show("You have to Throw the Cubes");
       }
+      else if (_notEnoughMoney && _neededAmount > _game.CurrentPlayer.Money)
+      {
+        MessageBox.Show("You have to sell something to continue. " + "You need" + _neededAmount + "$");
+      }
       else
       {
+        if (_notEnoughMoney && _neededAmount <= _game.CurrentPlayer.Money)
+          _game.CurrentPlayer.PayMoney(_neededAmount);
         _game.NextPlayer();
         _monopolyField.Update();
         ResetVariables();
         ResetFieldDataPreview();
-
       }
     }
-
-
 
     private bool IsRentableField(IField currentField)
     {
@@ -212,57 +233,44 @@ namespace MonopolyWPFApp
     //}
     #endregion
 
-
     private void ResetVariables()
     {
-      cubeThrows = 0;
+      _cubeThrows = 0;
       selectedField = null;
       selectedPlayer = null;
+      _neededAmount = 0;
+      _notEnoughMoney = false;
     }
 
     private void PayMessageBox()
     {
       if (_game.LastPayMent.Count() != 0)
       {
-        MessageBox.Show("You have to pay " + _game.LastPayMent[_game.CurrentPlayer] + "$");
+        MessageBox.Show("You have to pay " + "$");
         _game.ClearLastPayment();
       }
     }
 
     private void CardMessageBox()
     {
-      if(_game.LastCardText.Count() != 0)
+      if (_game.LastCardText.Count() != 0)
       {
-        MessageBox.Show("You Entered a card Field!!! " + _game.LastCardText[_game.CurrentPlayer]);
+        MessageBox.Show("You Entered a Card Field: " + _game.LastCardText[_game.CurrentPlayer]);
       }
     }
 
-    private void BuyButton(object sender, RoutedEventArgs e)
+    private Player selectedPlayer;
+    private void PlaceholdersListBoxPlayer_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
     {
-      IField field = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
-
-      try
+      var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
+      if (item != null)
       {
-        ((IRentableField)field).Buy(_game.CurrentPlayer);
-        _monopolyField.Update();
-      }
-      catch
-      {
-        MessageBox.Show("You cant buy this Field");
-      }
-      PayMessageBox();
-    }
-
-    private void LevelUpButton(object sender, RoutedEventArgs e)
-    {
-      try
-      {
-        ((StreetField)selectedField).LevelUp(_game.CurrentPlayer, int.Parse(inputField.Text));
-        _monopolyField.Update();
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message);
+        // ListBox item clicked - do some cool things here
+        foreach (Player currentPlayer in _game.Players)
+        {
+          if (currentPlayer.Name == item.Content.ToString())
+            selectedPlayer = currentPlayer;
+        }
       }
     }
 
@@ -351,14 +359,14 @@ namespace MonopolyWPFApp
         {
           (field).TakeMortage(_game.CurrentPlayer);
           MessageBox.Show("You took a mortage on " + field.Name + " and got " + field.MortageValue + "$");
-        }         
+        }
         else
         {
           (field).PayOffMortage(_game.CurrentPlayer);
-          MessageBox.Show("You payed of your mortage on " + field.Name + " and payed " + (field.MortageValue + field.MortageValue*0.1) + "$");
-        }       
+          MessageBox.Show("You payed of your mortage on " + field.Name + " and payed " + (field.MortageValue + field.MortageValue * 0.1) + "$");
+        }
         _monopolyField.Update();
-       
+
       }
       catch (Exception ex)
       {
@@ -385,27 +393,12 @@ namespace MonopolyWPFApp
       try
       {
         ((IRentableField)selectedField).ExchangeField(_game.CurrentPlayer, selectedPlayer, int.Parse(inputField.Text));
-        MessageBox.Show("The Owner ( " + _game.CurrentPlayer + ") " + "exchanged the Field " + selectedField.Name + " with Player " + selectedPlayer + " for " + inputField.Text + "$");
+        MessageBox.Show("The Owner ( " + _game.CurrentPlayer.Name + ") " + "exchanged the Field " + selectedField.Name + " with Player " + selectedPlayer.Name + " for " + inputField.Text + "$");
         _monopolyField.Update();
       }
       catch
       {
         MessageBox.Show("Field Exchange Error");
-      }     
-    }
-
-    private Player selectedPlayer; 
-    private void PlaceholdersListBoxPlayer_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
-    {
-      var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
-      if (item != null)
-      {
-        // ListBox item clicked - do some cool things here
-        foreach(Player currentPlayer in _game.Players)
-        {
-          if (currentPlayer.Name == item.Content.ToString())
-            selectedPlayer = currentPlayer;
-        }
       }
     }
 
@@ -421,7 +414,35 @@ namespace MonopolyWPFApp
       {
         MessageBox.Show("You cant go out of jail");
       }
-      
+    }
+
+    private void BuyButton(object sender, RoutedEventArgs e)
+    {
+      IField field = _game.Fields[_game.PlayerPos[_game.CurrentPlayer]];
+
+      try
+      {
+        ((IRentableField)field).Buy(_game.CurrentPlayer);
+        _monopolyField.Update();
+      }
+      catch
+      {
+        MessageBox.Show("You cant buy this Field");
+      }
+      PayMessageBox();
+    }
+
+    private void LevelUpButton(object sender, RoutedEventArgs e)
+    {
+      try
+      {
+        ((StreetField)selectedField).LevelUp(_game.CurrentPlayer, int.Parse(inputField.Text));
+        _monopolyField.Update();
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
     }
   }
 }
