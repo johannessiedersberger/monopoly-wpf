@@ -1,6 +1,7 @@
 # Monopoly in WPF
 This is a monopoly game developed using C#/.Net and WPF. 
 
+### Screenshots
 ![game_beginn](https://user-images.githubusercontent.com/36839962/62157823-534d4e00-b30e-11e9-880a-c8826c981a22.PNG)
 
 ### Features
