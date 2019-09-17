@@ -1,27 +1,43 @@
 # Monopoly in WPF
-A complete Monopoly Game in WPF
-
-### Start Screen
-Here can you add the player with their names
+This is a monopoly game developed using C#/.Net and WPF. 
 
 ![game_beginn](https://user-images.githubusercontent.com/36839962/62157823-534d4e00-b30e-11e9-880a-c8826c981a22.PNG)
 
-### Game Beginning
-Here can you see the game, when it starts. As you can see both players are at the start field. The player Johannes is selected yellow because its his turn.  
+### Features
+- Cubes Throw
+- Buy a Property
+- Level Up a Field from one house to a big hotel
+- Take a Mortage and a property you own
+- Sell a House you own
+- Exchange a Field between two players
+- Get and Leave the Prison
+- Special Fields like Change and Community Chest
 
-![start](https://user-images.githubusercontent.com/36839962/62157863-65c78780-b30e-11e9-8824-2603e97163e4.PNG)
+### Built with
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) and the [.Net Framework](https://dotnet.microsoft.com/)
+- [NUnit](https://nunit.org/) for testing
+- [GitHub Desktop](https://desktop.github.com/) to simplify github access
+- [Inkscape](https://inkscape.org)
+- and of course [Visual Studio](https://visualstudio.microsoft.com/)
 
-### Game Actions
-- Throw Cubes: Throws two dices (1-12) and puts the current player on the next field 
-- Finish Turn: Finishes the turn and selects the next player
-- Buy: Buys the property where the player is on
-- Level Up: Levels up the selected property by the given levels
-- Mortage: Takes a mortage on the selected field which the current player owns
-- Sell House: sells the houses of the current player on the selected field
-- Exchange Field: Echanges a field between the players
-- Leave Prison: the player can leave the prison immedialtely and pay the fine of 50$
+### Code Examples
+```
+// Create a Game
+Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
 
+// Move forward
+game.GoForward(game.CurrentPlayer);
 
-### Ownership
-As you can see Johannes bought the Pentonville Road. This field has to be added to his ownership list. If you click on the field you immediately see all information about it. 
+// Get the next Player
+game.NextPlayer();
 
+// Get the last payment made to display it
+game.LastPayMent[game.CurrentPlayer];
+
+// Upgrade a Field
+StreetField streetToUpdate = (StreetField)game.CurrentPlayer.OwnerShip[streetNum];
+streetToUpdate.LevelUp(game.CurrentPlayer, level);
+```
+
+### License
+This project is licensed under the MIT License - see the LICENSE.md file for details
