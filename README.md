@@ -21,24 +21,5 @@ This is a monopoly game developed using C#/.Net and WPF.
 - [Inkscape](https://inkscape.org)
 - and of course [Visual Studio](https://visualstudio.microsoft.com/)
 
-### Code Examples
-```
-// Create a Game
-Game game = new Game(new Player[] { new Player("XXX"), new Player("YYY") });
-
-// Move forward
-game.GoForward(game.CurrentPlayer);
-
-// Get the next Player
-game.NextPlayer();
-
-// Get the last payment made to display it
-game.LastPayMent[game.CurrentPlayer];
-
-// Upgrade a Field
-StreetField streetToUpdate = (StreetField)game.CurrentPlayer.OwnerShip[streetNum];
-streetToUpdate.LevelUp(game.CurrentPlayer, level);
-```
-
 ### License
 This project is licensed under the MIT License - see the LICENSE.md file for details
